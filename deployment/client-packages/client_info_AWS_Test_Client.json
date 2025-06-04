@@ -1,0 +1,9 @@
+{
+  "customer_id": "AWS Test Client",
+  "image_tag": "llm-firewall:aws-test-v1.0",
+  "license_expires": "2025-11-29",
+  "features": [
+    "basic"
+  ],
+  "build_date": "2025-06-02T23:09:44.706180"
+}

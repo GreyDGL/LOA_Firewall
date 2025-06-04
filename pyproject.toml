@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "loafirewall"
+version = "0.1.0"
+description = ""
+authors = ["gelei <gelei@quantstamp.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+transformers = "^4.51.3"
+ollama = "^0.4.8"
+flask = "^3.1.1"
+cryptography = "^45.0.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

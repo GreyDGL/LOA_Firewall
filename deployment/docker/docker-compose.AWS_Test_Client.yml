@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  llm-firewall:
+    image: llm-firewall:aws-test-v1.0
+    container_name: llm-firewall-aws_test_client
+    restart: unless-stopped
+
+    # Port mapping
+    ports:
+      - "5001:5001"   # LLM Firewall API
+      - "11434:11434" # Ollama API (optional)
+
+    # Environment configuration
+    environment:
+      - LLM_FIREWALL_HOST=0.0.0.0
+      - LLM_FIREWALL_PORT=5001
+      - LLM_FIREWALL_LOG_LEVEL=INFO
+      - LLM_FIREWALL_DEBUG=false
+      - OLLAMA_HOST=0.0.0.0:11434
+      - PYTHONUNBUFFERED=1
+
+    # Volume mounts for logs
+    volumes:
+      - ./logs:/app/logs
+      - ollama-models:/home/firewall/.ollama
+
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+          cpus: '2.0'
+        reservations:
+          memory: 2G
+          cpus: '1.0'
+
+    # Security settings
+    user: firewall
+    tmpfs:
+      - /tmp:size=512M,mode=1777
+
+    # Network isolation
+    networks:
+      - firewall-network
+
+networks:
+  firewall-network:
+    driver: bridge
+
+volumes:
+  ollama-models:
+    driver: local

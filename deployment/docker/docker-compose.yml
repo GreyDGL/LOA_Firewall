@@ -1,0 +1,89 @@
+version: '3.8'
+
+services:
+  llm-firewall:
+    build: .
+    image: llm-firewall:latest
+    container_name: llm-firewall
+    restart: unless-stopped
+
+    # Port mapping
+    ports:
+      - "5001:5001"   # LLM Firewall API
+      - "11434:11434" # Ollama API (optional external access)
+
+    # Environment configuration
+    environment:
+      - LLM_FIREWALL_HOST=0.0.0.0
+      - LLM_FIREWALL_PORT=5001
+      - LLM_FIREWALL_CONFIG=/app/config.json
+      - LLM_FIREWALL_LICENSE=/app/license.key
+      - LLM_FIREWALL_SECRET=${LLM_FIREWALL_SECRET:-}
+      - LLM_FIREWALL_LOG_LEVEL=INFO
+      - LLM_FIREWALL_DEBUG=false
+      - OLLAMA_HOST=0.0.0.0:11434
+      - PYTHONUNBUFFERED=1
+
+    # Volume mounts for persistent data
+    volumes:
+      - ./logs:/app/logs
+      - ./config:/app/config:ro
+      - ./license.key:/app/license.key:ro
+      - ollama-models:/home/firewall/.ollama
+
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+    # Resource limits (adjust based on your needs)
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+          cpus: '2.0'
+        reservations:
+          memory: 2G
+          cpus: '1.0'
+
+    # Security settings
+    user: firewall
+    read_only: false
+    tmpfs:
+      - /tmp:size=512M,mode=1777
+
+    # Network isolation
+    networks:
+      - firewall-network
+
+    # Dependency on license validation
+    depends_on:
+      - license-validator
+
+  # Separate service to validate license before starting main firewall
+  license-validator:
+    build: .
+    image: llm-firewall:latest
+    container_name: license-validator
+    environment:
+      - LLM_FIREWALL_LICENSE=/app/license.key
+      - LLM_FIREWALL_SECRET=${LLM_FIREWALL_SECRET:-}
+    volumes:
+      - ./license.key:/app/license.key:ro
+    command: ["python3", "license_manager.py", "validate", "--file", "/app/license.key", "--secret", "${LLM_FIREWALL_SECRET:-default-master-secret}"]
+    restart: "no"
+    networks:
+      - firewall-network
+
+networks:
+  firewall-network:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.name: br-firewall
+
+volumes:
+  ollama-models:
+    driver: local

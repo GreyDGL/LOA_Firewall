@@ -1,0 +1,871 @@
+2025-05-18 13:57:14,761 - root - INFO - Initializing LLM Firewall
+2025-05-18 13:57:14,762 - root - INFO - Keyword filter initialized successfully
+2025-05-18 13:57:14,896 - root - ERROR - Failed to initialize guard llama_guard: LlamaGuard.__init__() got an unexpected keyword argument 'threshold'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/firewall.py", line 74, in initialize
+    guard = guard_class(**{k: v for k, v in guard_config.items()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: LlamaGuard.__init__() got an unexpected keyword argument 'threshold'
+2025-05-18 13:57:14,896 - root - ERROR - Failed to initialize guard granite_guard: GraniteGuard.__init__() got an unexpected keyword argument 'threshold'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/firewall.py", line 74, in initialize
+    guard = guard_class(**{k: v for k, v in guard_config.items()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: GraniteGuard.__init__() got an unexpected keyword argument 'threshold'
+2025-05-18 13:57:14,896 - root - INFO - Firewall initialized with 0 guards and keyword filter enabled
+2025-05-18 13:57:14,897 - root - INFO - Starting LLM Firewall API on 0.0.0.0:5000
+2025-05-18 13:57:14,897 - root - INFO - Starting API server on 0.0.0.0:5000
+2025-05-18 13:58:12,659 - root - INFO - Initializing LLM Firewall
+2025-05-18 13:58:12,659 - root - INFO - Keyword filter initialized successfully
+2025-05-18 13:58:15,956 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-18 13:58:15,957 - root - INFO - Guard llama_guard initialized successfully
+2025-05-18 13:58:19,252 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-18 13:58:19,253 - root - INFO - Guard granite_guard initialized successfully
+2025-05-18 13:58:19,253 - root - INFO - Firewall initialized with 2 guards and keyword filter enabled
+2025-05-18 13:58:19,257 - root - INFO - Starting LLM Firewall API on 0.0.0.0:5000
+2025-05-18 13:58:19,257 - root - INFO - Starting API server on 0.0.0.0:5000
+2025-05-20 02:22:21,165 - root - INFO - Initializing LLM Firewall
+2025-05-20 02:22:21,166 - root - INFO - Keyword filter initialized successfully
+2025-05-20 02:22:24,167 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 02:22:24,169 - root - INFO - Guard llama_guard initialized successfully
+2025-05-20 02:22:27,455 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 02:22:27,457 - root - INFO - Guard granite_guard initialized successfully
+2025-05-20 02:22:27,457 - root - INFO - Firewall initialized with 2 guards and keyword filter enabled
+2025-05-20 02:22:27,461 - root - INFO - Starting LLM Firewall API on 0.0.0.0:5001
+2025-05-20 02:22:27,461 - root - INFO - Starting API server on 0.0.0.0:5001
+2025-05-20 02:22:27,471 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.184:5001
+2025-05-20 02:22:27,471 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-20 02:25:35,021 - root - INFO - Request 2dc3ba49-f6f9-4810-8dab-07e2952584cf received at /check
+2025-05-20 02:25:35,322 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 02:25:35,658 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 02:25:35,659 - root - INFO - Request 2dc3ba49-f6f9-4810-8dab-07e2952584cf processed in 0.638s, is_safe: True
+2025-05-20 02:25:35,660 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 02:25:35] "POST /check HTTP/1.1" 200 -
+2025-05-20 02:26:13,768 - root - INFO - Request 1948d866-c207-439f-b587-0d687f11feba received at /check
+2025-05-20 02:26:14,158 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 02:26:14,507 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 02:26:14,508 - root - INFO - Request 1948d866-c207-439f-b587-0d687f11feba processed in 0.740s, is_safe: False
+2025-05-20 02:26:14,508 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 02:26:14] "POST /check HTTP/1.1" 200 -
+2025-05-20 23:49:13,915 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 23:49:13] "GET /health HTTP/1.1" 200 -
+2025-05-20 23:49:25,075 - root - INFO - Initializing LLM Firewall
+2025-05-20 23:49:25,075 - root - INFO - Keyword filter initialized successfully
+2025-05-20 23:49:28,478 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:49:28,479 - root - INFO - Guard llama_guard initialized successfully
+2025-05-20 23:49:31,873 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:49:31,873 - root - INFO - Guard granite_guard initialized successfully
+2025-05-20 23:49:31,874 - root - INFO - Firewall initialized with 2 guards and keyword filter enabled
+2025-05-20 23:49:31,879 - root - INFO - Starting LLM Firewall API on 0.0.0.0:5001
+2025-05-20 23:49:31,880 - root - INFO - Starting API server on 0.0.0.0:5001
+2025-05-20 23:49:31,892 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.184:5001
+2025-05-20 23:49:31,892 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-20 23:49:34,320 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 23:49:34] "GET /health HTTP/1.1" 200 -
+2025-05-20 23:51:16,157 - root - INFO - Initializing LLM Firewall
+2025-05-20 23:51:16,158 - root - INFO - Keyword filter initialized successfully
+2025-05-20 23:51:16,544 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:51:16,545 - root - INFO - Guard llama_guard initialized successfully
+2025-05-20 23:51:16,796 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:51:16,797 - root - INFO - Guard granite_guard initialized successfully
+2025-05-20 23:51:16,797 - root - INFO - Firewall initialized with 2 guards and keyword filter enabled
+2025-05-20 23:51:16,798 - root - CRITICAL - Failed to start API server: View function mapping is overwriting an existing endpoint function: health_check
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/run.py", line 89, in main
+    api = FirewallAPI(args.config)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gelei/Research/LoAFirewall/api.py", line 31, in __init__
+    self.setup_routes()
+  File "/Users/gelei/Research/LoAFirewall/api.py", line 106, in setup_routes
+    @self.app.route('/health', methods=['GET'])
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gelei/Research/LoAFirewall/.venv/lib/python3.12/site-packages/flask/sansio/scaffold.py", line 362, in decorator
+    self.add_url_rule(rule, endpoint, f, **options)
+  File "/Users/gelei/Research/LoAFirewall/.venv/lib/python3.12/site-packages/flask/sansio/scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gelei/Research/LoAFirewall/.venv/lib/python3.12/site-packages/flask/sansio/app.py", line 657, in add_url_rule
+    raise AssertionError(
+AssertionError: View function mapping is overwriting an existing endpoint function: health_check
+2025-05-20 23:51:41,420 - root - INFO - Initializing LLM Firewall
+2025-05-20 23:51:41,421 - root - INFO - Keyword filter initialized successfully
+2025-05-20 23:51:41,730 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:51:41,730 - root - INFO - Guard llama_guard initialized successfully
+2025-05-20 23:51:41,904 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:51:41,905 - root - INFO - Guard granite_guard initialized successfully
+2025-05-20 23:51:41,905 - root - INFO - Firewall initialized with 2 guards and keyword filter enabled
+2025-05-20 23:51:41,909 - root - INFO - Starting LLM Firewall API on 0.0.0.0:5001
+2025-05-20 23:51:41,910 - root - INFO - Starting API server on 0.0.0.0:5001
+2025-05-20 23:51:41,917 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.184:5001
+2025-05-20 23:51:41,917 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-20 23:51:46,046 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 23:51:46] "GET /health HTTP/1.1" 200 -
+2025-05-20 23:52:10,042 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 23:52:10] "GET /health HTTP/1.1" 200 -
+2025-05-20 23:52:10,043 - root - INFO - Request 69f6d142-3a51-4ec9-bf86-3f4fccbfb065 received at /check
+2025-05-20 23:52:10,044 - root - INFO - Request 69f6d142-3a51-4ec9-bf86-3f4fccbfb065 processed in 0.000s, is_safe: False
+2025-05-20 23:52:10,044 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 23:52:10] "POST /check HTTP/1.1" 200 -
+2025-05-20 23:52:10,045 - root - INFO - Request b6e967d7-8098-48a4-90ee-1475fd13df71 received at /check
+2025-05-20 23:52:10,430 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:52:10,808 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:52:10,808 - root - INFO - Request b6e967d7-8098-48a4-90ee-1475fd13df71 processed in 0.763s, is_safe: False
+2025-05-20 23:52:10,808 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 23:52:10] "POST /check HTTP/1.1" 200 -
+2025-05-20 23:52:10,812 - root - INFO - Request 5e2fd0ce-2bfb-4993-aab7-29ca06b86794 received at /check
+2025-05-20 23:52:10,969 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:52:11,204 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:52:11,204 - root - INFO - Request 5e2fd0ce-2bfb-4993-aab7-29ca06b86794 processed in 0.393s, is_safe: True
+2025-05-20 23:52:11,205 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 23:52:11] "POST /check HTTP/1.1" 200 -
+2025-05-20 23:52:11,206 - root - INFO - Request 0282cec2-2417-4ad5-8de9-a48366e10497 received at /check
+2025-05-20 23:52:11,361 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:52:11,597 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:52:11,597 - root - INFO - Request 0282cec2-2417-4ad5-8de9-a48366e10497 processed in 0.391s, is_safe: False
+2025-05-20 23:52:11,598 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 23:52:11] "POST /check HTTP/1.1" 200 -
+2025-05-20 23:52:11,603 - root - INFO - Request ff1d21a7-b1fb-43c0-b873-b45b080e4fac received at /check
+2025-05-20 23:52:11,760 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:52:11,995 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:52:11,995 - root - INFO - Request ff1d21a7-b1fb-43c0-b873-b45b080e4fac processed in 0.392s, is_safe: False
+2025-05-20 23:52:11,995 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 23:52:11] "POST /check HTTP/1.1" 200 -
+2025-05-20 23:52:11,998 - root - INFO - Request a13a2626-0f9b-49dc-959b-cb6230c74e7a received at /check
+2025-05-20 23:52:12,198 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:52:12,435 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:52:12,435 - root - INFO - Request a13a2626-0f9b-49dc-959b-cb6230c74e7a processed in 0.438s, is_safe: False
+2025-05-20 23:52:12,435 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 23:52:12] "POST /check HTTP/1.1" 200 -
+2025-05-20 23:52:12,439 - root - INFO - Request 7d33fb67-ea50-462f-870f-2661ea6e7146 received at /check
+2025-05-20 23:52:12,567 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:52:12,760 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:52:12,760 - root - INFO - Request 7d33fb67-ea50-462f-870f-2661ea6e7146 processed in 0.322s, is_safe: True
+2025-05-20 23:52:12,760 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 23:52:12] "POST /check HTTP/1.1" 200 -
+2025-05-20 23:52:12,763 - root - INFO - Request c30ee226-8ac6-47f7-a29b-679a99ba8322 received at /check
+2025-05-20 23:52:12,919 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:52:13,113 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:52:13,114 - root - INFO - Request c30ee226-8ac6-47f7-a29b-679a99ba8322 processed in 0.350s, is_safe: True
+2025-05-20 23:52:13,114 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 23:52:13] "POST /check HTTP/1.1" 200 -
+2025-05-20 23:52:13,118 - root - INFO - Request e7d9f565-42de-4feb-9825-1483794e3c52 received at /check
+2025-05-20 23:52:13,273 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:52:13,465 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:52:13,466 - root - INFO - Request e7d9f565-42de-4feb-9825-1483794e3c52 processed in 0.348s, is_safe: True
+2025-05-20 23:52:13,466 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 23:52:13] "POST /check HTTP/1.1" 200 -
+2025-05-20 23:52:13,472 - root - INFO - Request 2c4faca5-5f96-4e1c-8c4e-45d60832b13a received at /check
+2025-05-20 23:52:13,472 - root - INFO - Request 2c4faca5-5f96-4e1c-8c4e-45d60832b13a processed in 0.000s, is_safe: False
+2025-05-20 23:52:13,473 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 23:52:13] "POST /check HTTP/1.1" 200 -
+2025-05-20 23:52:13,476 - root - INFO - Request 6bd515d8-2d10-4f11-bb38-353d2dc26b62 received at /check
+2025-05-20 23:52:13,675 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:52:13,869 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:52:13,869 - root - INFO - Request 6bd515d8-2d10-4f11-bb38-353d2dc26b62 processed in 0.393s, is_safe: False
+2025-05-20 23:52:13,870 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 23:52:13] "POST /check HTTP/1.1" 200 -
+2025-05-20 23:52:13,875 - root - INFO - Request 8e0315fe-1218-446c-8b9c-9c5c06ec326a received at /check
+2025-05-20 23:52:14,046 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:52:14,237 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:52:14,238 - root - INFO - Request 8e0315fe-1218-446c-8b9c-9c5c06ec326a processed in 0.363s, is_safe: False
+2025-05-20 23:52:14,239 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 23:52:14] "POST /check HTTP/1.1" 200 -
+2025-05-20 23:52:14,244 - root - INFO - Request e976fffc-9745-422b-ad5a-b121e20af963 received at /check
+2025-05-20 23:52:14,441 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:52:14,682 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-20 23:52:14,682 - root - INFO - Request e976fffc-9745-422b-ad5a-b121e20af963 processed in 0.438s, is_safe: True
+2025-05-20 23:52:14,683 - werkzeug - INFO - 127.0.0.1 - - [20/May/2025 23:52:14] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:43,522 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:43] "GET /health HTTP/1.1" 200 -
+2025-05-21 00:12:43,523 - root - INFO - Request 3bcdbce9-33b0-42ac-b3a9-e12c711af064 received at /check
+2025-05-21 00:12:43,524 - root - INFO - Request 3bcdbce9-33b0-42ac-b3a9-e12c711af064 processed in 0.000s, is_safe: False
+2025-05-21 00:12:43,524 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:43] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:43,525 - root - INFO - Request 0821a56d-7fe2-4014-beb4-10698a6d1c67 received at /check
+2025-05-21 00:12:44,714 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:45,849 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:45,850 - root - INFO - Request 0821a56d-7fe2-4014-beb4-10698a6d1c67 processed in 2.325s, is_safe: False
+2025-05-21 00:12:45,850 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:45] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:45,857 - root - INFO - Request e05d286a-c118-47bc-8ae4-72b4efaab340 received at /check
+2025-05-21 00:12:46,057 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:46,292 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:46,293 - root - INFO - Request e05d286a-c118-47bc-8ae4-72b4efaab340 processed in 0.435s, is_safe: False
+2025-05-21 00:12:46,293 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:46] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:46,299 - root - INFO - Request dafb1479-7a94-4f7c-8c6c-669242547eac received at /check
+2025-05-21 00:12:46,299 - root - INFO - Request dafb1479-7a94-4f7c-8c6c-669242547eac processed in 0.000s, is_safe: False
+2025-05-21 00:12:46,300 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:46] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:46,302 - root - INFO - Request b7f9d786-3a78-4aa6-b3ac-0f12cecb070a received at /check
+2025-05-21 00:12:46,302 - root - INFO - Request b7f9d786-3a78-4aa6-b3ac-0f12cecb070a processed in 0.000s, is_safe: False
+2025-05-21 00:12:46,303 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:46] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:46,305 - root - INFO - Request 759d7c48-34f1-4f93-9521-5ec0cbabd2b0 received at /check
+2025-05-21 00:12:46,503 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:46,739 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:46,739 - root - INFO - Request 759d7c48-34f1-4f93-9521-5ec0cbabd2b0 processed in 0.434s, is_safe: False
+2025-05-21 00:12:46,739 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:46] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:46,741 - root - INFO - Request 5600f62a-a8a9-44c9-a71d-6f36b015f88b received at /check
+2025-05-21 00:12:46,939 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:47,176 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:47,177 - root - INFO - Request 5600f62a-a8a9-44c9-a71d-6f36b015f88b processed in 0.436s, is_safe: False
+2025-05-21 00:12:47,178 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:47] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:47,184 - root - INFO - Request 9535ad26-9af8-4fcc-9946-3274357a2427 received at /check
+2025-05-21 00:12:47,383 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:47,620 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:47,621 - root - INFO - Request 9535ad26-9af8-4fcc-9946-3274357a2427 processed in 0.437s, is_safe: False
+2025-05-21 00:12:47,622 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:47] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:47,627 - root - INFO - Request 55eebe48-9f47-45fe-9561-38f2299ab71d received at /check
+2025-05-21 00:12:47,784 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:48,022 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:48,022 - root - INFO - Request 55eebe48-9f47-45fe-9561-38f2299ab71d processed in 0.394s, is_safe: False
+2025-05-21 00:12:48,022 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:48] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:48,024 - root - INFO - Request 87c3b2c7-260f-41bd-b93e-346e44e0a612 received at /check
+2025-05-21 00:12:48,179 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:48,416 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:48,417 - root - INFO - Request 87c3b2c7-260f-41bd-b93e-346e44e0a612 processed in 0.393s, is_safe: False
+2025-05-21 00:12:48,418 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:48] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:48,423 - root - INFO - Request 5faae512-9f21-47be-97a3-bd515a288654 received at /check
+2025-05-21 00:12:48,623 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:48,860 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:48,861 - root - INFO - Request 5faae512-9f21-47be-97a3-bd515a288654 processed in 0.437s, is_safe: False
+2025-05-21 00:12:48,861 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:48] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:48,867 - root - INFO - Request ff699547-cf05-478c-a8f9-40cb0cdd9938 received at /check
+2025-05-21 00:12:49,067 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:49,304 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:49,304 - root - INFO - Request ff699547-cf05-478c-a8f9-40cb0cdd9938 processed in 0.437s, is_safe: False
+2025-05-21 00:12:49,304 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:49] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:49,307 - root - INFO - Request c62f00a6-89b8-46bc-a129-a9f6cbffd1bd received at /check
+2025-05-21 00:12:49,307 - root - INFO - Request c62f00a6-89b8-46bc-a129-a9f6cbffd1bd processed in 0.000s, is_safe: False
+2025-05-21 00:12:49,307 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:49] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:49,309 - root - INFO - Request 987ff2ad-0bf3-4003-9988-99111f175233 received at /check
+2025-05-21 00:12:49,309 - root - INFO - Request 987ff2ad-0bf3-4003-9988-99111f175233 processed in 0.000s, is_safe: False
+2025-05-21 00:12:49,309 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:49] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:49,310 - root - INFO - Request 0b9acca8-7f96-434a-94e3-c74569c7e358 received at /check
+2025-05-21 00:12:49,310 - root - INFO - Request 0b9acca8-7f96-434a-94e3-c74569c7e358 processed in 0.000s, is_safe: False
+2025-05-21 00:12:49,310 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:49] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:49,312 - root - INFO - Request 3ed1f6a9-e14a-41ca-b349-14a62955b8f9 received at /check
+2025-05-21 00:12:49,510 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:49,747 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:49,747 - root - INFO - Request 3ed1f6a9-e14a-41ca-b349-14a62955b8f9 processed in 0.435s, is_safe: False
+2025-05-21 00:12:49,747 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:49] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:49,749 - root - INFO - Request 657efb00-9c7c-4f65-a2f2-cf02ea92909f received at /check
+2025-05-21 00:12:49,750 - root - INFO - Request 657efb00-9c7c-4f65-a2f2-cf02ea92909f processed in 0.000s, is_safe: False
+2025-05-21 00:12:49,750 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:49] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:49,751 - root - INFO - Request cab242f7-7899-4564-94ba-262b14e15757 received at /check
+2025-05-21 00:12:49,751 - root - INFO - Request cab242f7-7899-4564-94ba-262b14e15757 processed in 0.000s, is_safe: False
+2025-05-21 00:12:49,751 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:49] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:49,753 - root - INFO - Request 5091441b-a8a9-4d59-9ca6-64f3268c21f5 received at /check
+2025-05-21 00:12:49,908 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:50,144 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:50,144 - root - INFO - Request 5091441b-a8a9-4d59-9ca6-64f3268c21f5 processed in 0.392s, is_safe: False
+2025-05-21 00:12:50,145 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:50] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:50,148 - root - INFO - Request 448bfca8-977a-4c8f-8b83-fa18dcc09305 received at /check
+2025-05-21 00:12:50,345 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:50,538 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:50,538 - root - INFO - Request 448bfca8-977a-4c8f-8b83-fa18dcc09305 processed in 0.390s, is_safe: False
+2025-05-21 00:12:50,538 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:50] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:50,540 - root - INFO - Request e0e0e40d-51a6-49aa-8448-0b904a2ba989 received at /check
+2025-05-21 00:12:50,696 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:50,943 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:50,944 - root - INFO - Request e0e0e40d-51a6-49aa-8448-0b904a2ba989 processed in 0.404s, is_safe: True
+2025-05-21 00:12:50,944 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:50] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:50,949 - root - INFO - Request e98d3606-6207-4717-baeb-6e09ff9dc3a1 received at /check
+2025-05-21 00:12:51,203 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:51,502 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:51,502 - root - INFO - Request e98d3606-6207-4717-baeb-6e09ff9dc3a1 processed in 0.554s, is_safe: False
+2025-05-21 00:12:51,503 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:51] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:51,505 - root - INFO - Request 7de685bc-c877-4622-a16d-d5f2a575b1d4 received at /check
+2025-05-21 00:12:51,640 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:51,840 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:51,841 - root - INFO - Request 7de685bc-c877-4622-a16d-d5f2a575b1d4 processed in 0.336s, is_safe: False
+2025-05-21 00:12:51,841 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:51] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:51,846 - root - INFO - Request 1c728abc-a375-498b-9ccd-b796ff107631 received at /check
+2025-05-21 00:12:51,979 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:52,179 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:52,180 - root - INFO - Request 1c728abc-a375-498b-9ccd-b796ff107631 processed in 0.333s, is_safe: False
+2025-05-21 00:12:52,180 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:52] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:52,186 - root - INFO - Request 7496f88b-5220-4945-b946-3f599d95d77d received at /check
+2025-05-21 00:12:52,390 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:52,647 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:52,647 - root - INFO - Request 7496f88b-5220-4945-b946-3f599d95d77d processed in 0.461s, is_safe: False
+2025-05-21 00:12:52,647 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:52] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:52,650 - root - INFO - Request 1ae865f2-bc5e-495f-b034-66ccb71adb3d received at /check
+2025-05-21 00:12:52,835 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:53,038 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:53,038 - root - INFO - Request 1ae865f2-bc5e-495f-b034-66ccb71adb3d processed in 0.388s, is_safe: False
+2025-05-21 00:12:53,038 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:53] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:53,040 - root - INFO - Request 6dd569da-e891-4dee-be54-713a2ebd21db received at /check
+2025-05-21 00:12:53,219 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:53,427 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:53,427 - root - INFO - Request 6dd569da-e891-4dee-be54-713a2ebd21db processed in 0.387s, is_safe: False
+2025-05-21 00:12:53,427 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:53] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:53,431 - root - INFO - Request 34f39a95-e829-452a-9007-80166f560f16 received at /check
+2025-05-21 00:12:53,653 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:53,930 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:53,931 - root - INFO - Request 34f39a95-e829-452a-9007-80166f560f16 processed in 0.500s, is_safe: False
+2025-05-21 00:12:53,931 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:53] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:53,938 - root - INFO - Request aa1cd52f-9704-4013-bfd6-a932c28c08e7 received at /check
+2025-05-21 00:12:54,151 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:54,357 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:54,357 - root - INFO - Request aa1cd52f-9704-4013-bfd6-a932c28c08e7 processed in 0.420s, is_safe: False
+2025-05-21 00:12:54,357 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:54] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:54,362 - root - INFO - Request 174366b8-7838-4d1c-b7c6-0dfe7bc2a7e2 received at /check
+2025-05-21 00:12:54,625 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:54,950 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:54,951 - root - INFO - Request 174366b8-7838-4d1c-b7c6-0dfe7bc2a7e2 processed in 0.589s, is_safe: False
+2025-05-21 00:12:54,951 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:54] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:54,957 - root - INFO - Request d8053ad6-0afd-4e91-add6-3187a5ce1a91 received at /check
+2025-05-21 00:12:55,175 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:55,433 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:55,433 - root - INFO - Request d8053ad6-0afd-4e91-add6-3187a5ce1a91 processed in 0.476s, is_safe: False
+2025-05-21 00:12:55,433 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:55] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:55,436 - root - INFO - Request 5e6832a2-3e3e-4632-8372-6bf86c652188 received at /check
+2025-05-21 00:12:55,605 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:55,812 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:55,813 - root - INFO - Request 5e6832a2-3e3e-4632-8372-6bf86c652188 processed in 0.377s, is_safe: False
+2025-05-21 00:12:55,813 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:55] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:55,819 - root - INFO - Request 31d9887e-dc7c-4257-9cee-20c361ed20bb received at /check
+2025-05-21 00:12:56,000 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:56,203 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:56,204 - root - INFO - Request 31d9887e-dc7c-4257-9cee-20c361ed20bb processed in 0.385s, is_safe: False
+2025-05-21 00:12:56,205 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:56] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:56,210 - root - INFO - Request 2235968c-f2a0-4fee-a506-fd3c8377e36b received at /check
+2025-05-21 00:12:56,380 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:56,691 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:56,692 - root - INFO - Request 2235968c-f2a0-4fee-a506-fd3c8377e36b processed in 0.482s, is_safe: False
+2025-05-21 00:12:56,692 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:56] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:56,698 - root - INFO - Request 8db78f8c-db06-4587-926d-672c95f5dd54 received at /check
+2025-05-21 00:12:56,914 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:57,178 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:57,178 - root - INFO - Request 8db78f8c-db06-4587-926d-672c95f5dd54 processed in 0.481s, is_safe: False
+2025-05-21 00:12:57,179 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:57] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:57,185 - root - INFO - Request c8dd3eac-4f7a-46dd-8e2c-aacfbab05e43 received at /check
+2025-05-21 00:12:57,368 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:57,586 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:57,586 - root - INFO - Request c8dd3eac-4f7a-46dd-8e2c-aacfbab05e43 processed in 0.402s, is_safe: False
+2025-05-21 00:12:57,586 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:57] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:57,588 - root - INFO - Request f1c4470c-f032-4c40-9c4b-7b4dea78547d received at /check
+2025-05-21 00:12:57,867 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:58,207 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:58,207 - root - INFO - Request f1c4470c-f032-4c40-9c4b-7b4dea78547d processed in 0.619s, is_safe: False
+2025-05-21 00:12:58,207 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:58] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:58,209 - root - INFO - Request 23897ace-56be-4998-964b-11bda2a267b4 received at /check
+2025-05-21 00:12:58,425 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:58,635 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:58,635 - root - INFO - Request 23897ace-56be-4998-964b-11bda2a267b4 processed in 0.426s, is_safe: False
+2025-05-21 00:12:58,636 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:58] "POST /check HTTP/1.1" 200 -
+2025-05-21 00:12:58,641 - root - INFO - Request d3c423a6-4cb7-4e75-ab15-5393b266c85d received at /check
+2025-05-21 00:12:58,905 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:59,228 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-05-21 00:12:59,229 - root - INFO - Request d3c423a6-4cb7-4e75-ab15-5393b266c85d processed in 0.588s, is_safe: False
+2025-05-21 00:12:59,229 - werkzeug - INFO - 127.0.0.1 - - [21/May/2025 00:12:59] "POST /check HTTP/1.1" 200 -
+2025-06-01 21:33:49,756 - root - INFO - Initializing LLM Firewall
+2025-06-01 21:33:49,757 - root - INFO - Keyword filter initialized successfully
+2025-06-01 21:33:53,811 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:33:53,813 - root - INFO - Guard llama_guard initialized successfully
+2025-06-01 21:34:09,499 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:34:09,501 - root - INFO - Guard granite_guard initialized successfully
+2025-06-01 21:34:09,501 - root - INFO - Firewall initialized with 2 guards and keyword filter enabled
+2025-06-01 21:34:09,504 - root - INFO - Starting LLM Firewall API on 0.0.0.0:5001
+2025-06-01 21:34:09,504 - root - INFO - Starting API server on 0.0.0.0:5001
+2025-06-01 21:34:09,514 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://172.20.10.7:5001
+2025-06-01 21:34:09,514 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-01 21:42:09,150 - root - INFO - Initializing LLM Firewall
+2025-06-01 21:42:09,152 - root - INFO - Keyword filter initialized successfully
+2025-06-01 21:42:11,443 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:42:11,443 - root - INFO - Guard llama_guard initialized successfully
+2025-06-01 21:42:13,806 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:42:13,807 - root - INFO - Guard granite_guard initialized successfully
+2025-06-01 21:42:13,807 - root - INFO - Firewall initialized with 2 guards and keyword filter enabled
+2025-06-01 21:42:13,812 - root - INFO - Starting LLM Firewall API on 0.0.0.0:5001
+2025-06-01 21:42:13,812 - root - INFO - Starting API server on 0.0.0.0:5001
+2025-06-01 21:42:13,822 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://172.20.10.7:5001
+2025-06-01 21:42:13,822 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-01 21:42:18,235 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:42:18] "GET /keywords HTTP/1.1" 200 -
+2025-06-01 21:42:29,520 - root - INFO - Keywords updated: 2 keywords, 1 patterns
+2025-06-01 21:42:29,520 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:42:29] "PUT /keywords HTTP/1.1" 200 -
+2025-06-01 21:42:33,468 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:42:33] "GET /keywords HTTP/1.1" 200 -
+2025-06-01 21:43:36,522 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:36] "GET /health HTTP/1.1" 200 -
+2025-06-01 21:43:36,524 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:36] "GET /health HTTP/1.1" 200 -
+2025-06-01 21:43:36,526 - root - INFO - Request bf7a3641-01b4-4712-9ae8-e980524f770d received at /check
+2025-06-01 21:43:37,025 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:37,649 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:37,650 - root - INFO - Request bf7a3641-01b4-4712-9ae8-e980524f770d processed in 1.124s, is_safe: True
+2025-06-01 21:43:37,651 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:37] "POST /check HTTP/1.1" 200 -
+2025-06-01 21:43:37,657 - root - INFO - Request 8b579aa7-c864-4f9e-9b20-431241fa760a received at /check
+2025-06-01 21:43:38,104 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:38,540 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:38,541 - root - INFO - Request 8b579aa7-c864-4f9e-9b20-431241fa760a processed in 0.883s, is_safe: False
+2025-06-01 21:43:38,541 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:38] "POST /check HTTP/1.1" 200 -
+2025-06-01 21:43:38,548 - root - INFO - Request 2de28829-4d64-4a39-b5bb-4a230eb2d271 received at /check
+2025-06-01 21:43:38,548 - root - INFO - Request 2de28829-4d64-4a39-b5bb-4a230eb2d271 processed in 0.000s, is_safe: False
+2025-06-01 21:43:38,549 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:38] "POST /check HTTP/1.1" 200 -
+2025-06-01 21:43:38,553 - root - INFO - Request 2d137e9d-79b0-4b19-9922-91e459304f95 received at /check
+2025-06-01 21:43:38,860 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:39,362 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:39,363 - root - INFO - Request 2d137e9d-79b0-4b19-9922-91e459304f95 processed in 0.811s, is_safe: False
+2025-06-01 21:43:39,364 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:39] "POST /check HTTP/1.1" 200 -
+2025-06-01 21:43:39,371 - root - INFO - Request 31a202be-97b6-4d20-8b30-431226d11273 received at /check
+2025-06-01 21:43:39,680 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:40,179 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:40,179 - root - INFO - Request 31a202be-97b6-4d20-8b30-431226d11273 processed in 0.809s, is_safe: False
+2025-06-01 21:43:40,180 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:40] "POST /check HTTP/1.1" 200 -
+2025-06-01 21:43:40,184 - root - INFO - Request 61b57917-dac3-493b-b34b-c70b6d3923bb received at /check
+2025-06-01 21:43:40,529 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:41,030 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:41,030 - root - INFO - Request 61b57917-dac3-493b-b34b-c70b6d3923bb processed in 0.846s, is_safe: False
+2025-06-01 21:43:41,031 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:41] "POST /check HTTP/1.1" 200 -
+2025-06-01 21:43:41,038 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:41] "GET /keywords HTTP/1.1" 200 -
+2025-06-01 21:43:41,042 - root - INFO - Keywords updated: 5 keywords, 3 patterns
+2025-06-01 21:43:41,042 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:41] "PUT /keywords HTTP/1.1" 200 -
+2025-06-01 21:43:41,046 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:41] "GET /keywords HTTP/1.1" 200 -
+2025-06-01 21:43:41,048 - root - INFO - Request dc8f5ede-cca0-4ad4-8f5b-59fec140b4ca received at /check
+2025-06-01 21:43:41,048 - root - INFO - Request dc8f5ede-cca0-4ad4-8f5b-59fec140b4ca processed in 0.000s, is_safe: False
+2025-06-01 21:43:41,048 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:41] "POST /check HTTP/1.1" 200 -
+2025-06-01 21:43:41,050 - root - INFO - Request dc247f33-aab4-45b9-9620-4729ae190582 received at /check
+2025-06-01 21:43:41,051 - root - INFO - Request dc247f33-aab4-45b9-9620-4729ae190582 processed in 0.000s, is_safe: False
+2025-06-01 21:43:41,051 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:41] "POST /check HTTP/1.1" 200 -
+2025-06-01 21:43:41,053 - root - INFO - Request 655da014-5ec4-4462-bc7a-4b2b3f6e3d08 received at /check
+2025-06-01 21:43:41,252 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:41,584 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:41,584 - root - INFO - Request 655da014-5ec4-4462-bc7a-4b2b3f6e3d08 processed in 0.531s, is_safe: True
+2025-06-01 21:43:41,585 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:41] "POST /check HTTP/1.1" 200 -
+2025-06-01 21:43:41,591 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:41] "[31m[1mPUT /keywords HTTP/1.1[0m" 400 -
+2025-06-01 21:43:41,596 - root - INFO - Keywords updated: 2 keywords, 1 patterns
+2025-06-01 21:43:41,597 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:41] "PUT /keywords HTTP/1.1" 200 -
+2025-06-01 21:43:41,600 - root - INFO - Request 2914f533-8071-43e6-b4bc-7c038baaaa10 received at /check
+2025-06-01 21:43:41,825 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:42,210 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:42,211 - root - INFO - Request 2914f533-8071-43e6-b4bc-7c038baaaa10 processed in 0.611s, is_safe: True
+2025-06-01 21:43:42,211 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:42] "POST /check HTTP/1.1" 200 -
+2025-06-01 21:43:42,214 - root - INFO - Request 3cd5b7a7-79a3-4a43-b272-7823f44eb250 received at /check
+2025-06-01 21:43:42,273 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:42,331 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:42,331 - root - INFO - Request 3cd5b7a7-79a3-4a43-b272-7823f44eb250 processed in 0.117s, is_safe: True
+2025-06-01 21:43:42,331 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:42] "POST /check HTTP/1.1" 200 -
+2025-06-01 21:43:42,334 - root - INFO - Request 30ba3478-b736-4298-b7c9-c3f3008d3383 received at /check
+2025-06-01 21:43:42,392 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:42,459 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:42,459 - root - INFO - Request 30ba3478-b736-4298-b7c9-c3f3008d3383 processed in 0.126s, is_safe: True
+2025-06-01 21:43:42,460 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:42] "POST /check HTTP/1.1" 200 -
+2025-06-01 21:43:42,462 - root - INFO - Request 65df0074-bd10-4ce2-8663-29d1f8dc67de received at /check
+2025-06-01 21:43:43,292 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:44,262 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:44,264 - root - INFO - Request 65df0074-bd10-4ce2-8663-29d1f8dc67de processed in 1.802s, is_safe: True
+2025-06-01 21:43:44,265 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:44] "POST /check HTTP/1.1" 200 -
+2025-06-01 21:43:44,272 - root - INFO - Request b182113c-3fba-40c6-862f-21a426490537 received at /check
+2025-06-01 21:43:44,329 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:44,389 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:44,390 - root - INFO - Request b182113c-3fba-40c6-862f-21a426490537 processed in 0.118s, is_safe: True
+2025-06-01 21:43:44,391 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:44] "POST /check HTTP/1.1" 200 -
+2025-06-01 21:43:44,397 - root - INFO - Request 2593aee0-8847-4176-8781-42112b5f6113 received at /check
+2025-06-01 21:43:44,453 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:44,514 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:44,515 - root - INFO - Request 2593aee0-8847-4176-8781-42112b5f6113 processed in 0.118s, is_safe: True
+2025-06-01 21:43:44,515 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:44] "POST /check HTTP/1.1" 200 -
+2025-06-01 21:43:44,521 - root - INFO - Request e393a5e1-9d52-4ec1-aa90-6df86d5c6137 received at /check
+2025-06-01 21:43:44,521 - root - INFO - Request e393a5e1-9d52-4ec1-aa90-6df86d5c6137 processed in 0.000s, is_safe: False
+2025-06-01 21:43:44,521 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:44] "POST /check HTTP/1.1" 200 -
+2025-06-01 21:43:44,525 - root - INFO - Request 9d4434ad-215f-44f9-b124-e5e9f7084170 received at /check
+2025-06-01 21:43:44,525 - root - INFO - Request 9d4434ad-215f-44f9-b124-e5e9f7084170 processed in 0.000s, is_safe: False
+2025-06-01 21:43:44,525 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:44] "POST /check HTTP/1.1" 200 -
+2025-06-01 21:43:44,527 - root - INFO - Request 933c5296-70b7-4f2f-a94d-068df4bbbdee received at /check
+2025-06-01 21:43:44,527 - root - INFO - Request 933c5296-70b7-4f2f-a94d-068df4bbbdee processed in 0.000s, is_safe: False
+2025-06-01 21:43:44,527 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:44] "POST /check HTTP/1.1" 200 -
+2025-06-01 21:43:44,530 - root - INFO - Request a3c5d0f9-1391-42ba-bce5-0835e1c2610b received at /check
+2025-06-01 21:43:44,839 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:45,346 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:45,347 - root - INFO - Request a3c5d0f9-1391-42ba-bce5-0835e1c2610b processed in 0.817s, is_safe: True
+2025-06-01 21:43:45,348 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:45] "POST /check HTTP/1.1" 200 -
+2025-06-01 21:43:45,353 - root - INFO - Request e3a021ed-41ef-42d6-b2b9-0f1167eab7c0 received at /check
+2025-06-01 21:43:45,409 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:45,466 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:45,466 - root - INFO - Request e3a021ed-41ef-42d6-b2b9-0f1167eab7c0 processed in 0.114s, is_safe: True
+2025-06-01 21:43:45,467 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:45] "POST /check HTTP/1.1" 200 -
+2025-06-01 21:43:45,473 - root - INFO - Request b9ad69f9-3e2b-4eef-af80-f42ffd8ba55b received at /check
+2025-06-01 21:43:45,528 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:45,585 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 21:43:45,586 - root - INFO - Request b9ad69f9-3e2b-4eef-af80-f42ffd8ba55b processed in 0.113s, is_safe: True
+2025-06-01 21:43:45,586 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:45] "POST /check HTTP/1.1" 200 -
+2025-06-01 21:43:45,589 - root - INFO - Request 96c7c8fc-cd2e-490a-968c-18bce51a6a0d received at /check
+2025-06-01 21:43:45,590 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:45] "[31m[1mPOST /check HTTP/1.1[0m" 400 -
+2025-06-01 21:43:45,593 - root - INFO - Request f3109983-0fc8-4ff0-a689-85b34c930591 received at /check
+2025-06-01 21:43:45,593 - root - WARNING - Request f3109983-0fc8-4ff0-a689-85b34c930591 rejected: missing 'text' field
+2025-06-01 21:43:45,593 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:45] "[31m[1mPOST /check HTTP/1.1[0m" 400 -
+2025-06-01 21:43:45,596 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:43:45] "[33mGET /nonexistent HTTP/1.1[0m" 404 -
+2025-06-01 22:11:46,974 - root - INFO - Initializing LLM Firewall
+2025-06-01 22:11:46,975 - root - INFO - Keyword filter initialized successfully
+2025-06-01 22:11:49,533 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:11:49,534 - root - INFO - Guard llama_guard initialized successfully
+2025-06-01 22:11:51,378 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:11:51,378 - root - INFO - Guard granite_guard initialized successfully
+2025-06-01 22:11:51,378 - root - INFO - Firewall initialized with 2 guards and keyword filter enabled
+2025-06-01 22:11:51,381 - root - INFO - Starting LLM Firewall API on 0.0.0.0:5001
+2025-06-01 22:11:51,381 - root - INFO - Starting API server on 0.0.0.0:5001
+2025-06-01 22:11:51,386 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://172.20.10.7:5001
+2025-06-01 22:11:51,386 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-01 22:11:57,154 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:11:57] "GET /health HTTP/1.1" 200 -
+2025-06-01 22:11:57,156 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:11:57] "GET /health HTTP/1.1" 200 -
+2025-06-01 22:11:57,158 - root - INFO - Request 14fc3061-a6f3-42e2-a69e-c279babae81f received at /check
+2025-06-01 22:11:57,701 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:11:58,281 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:11:58,282 - root - INFO - Request 14fc3061-a6f3-42e2-a69e-c279babae81f processed in 1.124s, is_safe: False
+2025-06-01 22:11:58,283 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:11:58] "POST /check HTTP/1.1" 200 -
+2025-06-01 22:11:58,291 - root - INFO - Request a9768ef7-4332-43e5-b377-59420c6a2c3e received at /check
+2025-06-01 22:11:58,291 - root - INFO - Request a9768ef7-4332-43e5-b377-59420c6a2c3e processed in 0.000s, is_safe: False
+2025-06-01 22:11:58,291 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:11:58] "POST /check HTTP/1.1" 200 -
+2025-06-01 22:11:58,295 - root - INFO - Request 2dbd7e5b-1f96-4153-831f-cd06ee13fb0e received at /check
+2025-06-01 22:11:58,295 - root - INFO - Request 2dbd7e5b-1f96-4153-831f-cd06ee13fb0e processed in 0.000s, is_safe: False
+2025-06-01 22:11:58,295 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:11:58] "POST /check HTTP/1.1" 200 -
+2025-06-01 22:11:58,298 - root - INFO - Request 0edc2f1f-f022-47c2-a48b-2eff31e327b8 received at /check
+2025-06-01 22:11:58,298 - root - INFO - Request 0edc2f1f-f022-47c2-a48b-2eff31e327b8 processed in 0.000s, is_safe: False
+2025-06-01 22:11:58,298 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:11:58] "POST /check HTTP/1.1" 200 -
+2025-06-01 22:11:58,300 - root - INFO - Request acceccd3-6416-4548-a213-bde526d99b84 received at /check
+2025-06-01 22:11:58,768 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:11:59,260 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:11:59,261 - root - INFO - Request acceccd3-6416-4548-a213-bde526d99b84 processed in 0.961s, is_safe: False
+2025-06-01 22:11:59,262 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:11:59] "POST /check HTTP/1.1" 200 -
+2025-06-01 22:11:59,270 - root - INFO - Request 76d60faa-9ab9-49bf-b78e-d0b0a0bec15d received at /check
+2025-06-01 22:11:59,270 - root - INFO - Request 76d60faa-9ab9-49bf-b78e-d0b0a0bec15d processed in 0.000s, is_safe: False
+2025-06-01 22:11:59,270 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:11:59] "POST /check HTTP/1.1" 200 -
+2025-06-01 22:11:59,273 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:11:59] "GET /keywords HTTP/1.1" 200 -
+2025-06-01 22:11:59,277 - root - INFO - Keywords updated: 12 keywords, 5 patterns
+2025-06-01 22:11:59,277 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:11:59] "PUT /keywords HTTP/1.1" 200 -
+2025-06-01 22:11:59,279 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:11:59] "GET /keywords HTTP/1.1" 200 -
+2025-06-01 22:11:59,281 - root - INFO - Request 295b1f73-43f9-4dc8-8216-06a6efbdc38c received at /check
+2025-06-01 22:11:59,281 - root - INFO - Request 295b1f73-43f9-4dc8-8216-06a6efbdc38c processed in 0.000s, is_safe: False
+2025-06-01 22:11:59,281 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:11:59] "POST /check HTTP/1.1" 200 -
+2025-06-01 22:11:59,283 - root - INFO - Request 73a6516f-3a67-415a-abb1-93e59086b123 received at /check
+2025-06-01 22:11:59,283 - root - INFO - Request 73a6516f-3a67-415a-abb1-93e59086b123 processed in 0.000s, is_safe: False
+2025-06-01 22:11:59,284 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:11:59] "POST /check HTTP/1.1" 200 -
+2025-06-01 22:11:59,285 - root - INFO - Request 7564a0f3-2288-4579-9a05-d44b7bab76b7 received at /check
+2025-06-01 22:11:59,482 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:11:59,833 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:11:59,834 - root - INFO - Request 7564a0f3-2288-4579-9a05-d44b7bab76b7 processed in 0.549s, is_safe: False
+2025-06-01 22:11:59,836 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:11:59] "POST /check HTTP/1.1" 200 -
+2025-06-01 22:11:59,842 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:11:59] "[31m[1mPUT /keywords HTTP/1.1[0m" 400 -
+2025-06-01 22:11:59,845 - root - INFO - Keywords updated: 9 keywords, 3 patterns
+2025-06-01 22:11:59,845 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:11:59] "PUT /keywords HTTP/1.1" 200 -
+2025-06-01 22:11:59,847 - root - INFO - Request f7514fc2-08f3-4b49-aa58-930850f69568 received at /check
+2025-06-01 22:12:00,072 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:12:00,435 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:12:00,435 - root - INFO - Request f7514fc2-08f3-4b49-aa58-930850f69568 processed in 0.588s, is_safe: False
+2025-06-01 22:12:00,436 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:12:00] "POST /check HTTP/1.1" 200 -
+2025-06-01 22:12:00,441 - root - INFO - Request 572bd41a-e7be-4506-90e7-f866a6311229 received at /check
+2025-06-01 22:12:00,499 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:12:00,563 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:12:00,564 - root - INFO - Request 572bd41a-e7be-4506-90e7-f866a6311229 processed in 0.123s, is_safe: False
+2025-06-01 22:12:00,564 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:12:00] "POST /check HTTP/1.1" 200 -
+2025-06-01 22:12:00,568 - root - INFO - Request 3d3ea6cd-c8a6-445e-ab29-085960c7329f received at /check
+2025-06-01 22:12:00,626 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:12:00,692 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:12:00,693 - root - INFO - Request 3d3ea6cd-c8a6-445e-ab29-085960c7329f processed in 0.125s, is_safe: False
+2025-06-01 22:12:00,694 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:12:00] "POST /check HTTP/1.1" 200 -
+2025-06-01 22:12:00,698 - root - INFO - Request 93f11110-33ac-4e25-aede-f6f209d21019 received at /check
+2025-06-01 22:12:01,636 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:12:02,661 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:12:02,662 - root - INFO - Request 93f11110-33ac-4e25-aede-f6f209d21019 processed in 1.963s, is_safe: False
+2025-06-01 22:12:02,662 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:12:02] "POST /check HTTP/1.1" 200 -
+2025-06-01 22:12:02,668 - root - INFO - Request 569ea361-6733-4be2-9abf-72d22e2d5a6f received at /check
+2025-06-01 22:12:02,727 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:12:02,788 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:12:02,788 - root - INFO - Request 569ea361-6733-4be2-9abf-72d22e2d5a6f processed in 0.120s, is_safe: False
+2025-06-01 22:12:02,788 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:12:02] "POST /check HTTP/1.1" 200 -
+2025-06-01 22:12:02,791 - root - INFO - Request 2506e1d3-851b-474d-9a27-bab765a87cc2 received at /check
+2025-06-01 22:12:02,849 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:12:02,914 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:12:02,914 - root - INFO - Request 2506e1d3-851b-474d-9a27-bab765a87cc2 processed in 0.123s, is_safe: False
+2025-06-01 22:12:02,915 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:12:02] "POST /check HTTP/1.1" 200 -
+2025-06-01 22:12:02,917 - root - INFO - Request b00b4f9e-2a73-4e2c-8139-4ee54e1fa5b7 received at /check
+2025-06-01 22:12:02,918 - root - INFO - Request b00b4f9e-2a73-4e2c-8139-4ee54e1fa5b7 processed in 0.000s, is_safe: False
+2025-06-01 22:12:02,918 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:12:02] "POST /check HTTP/1.1" 200 -
+2025-06-01 22:12:02,920 - root - INFO - Request cc3c0235-f9a5-4c38-9217-180a84e0c9a3 received at /check
+2025-06-01 22:12:02,920 - root - INFO - Request cc3c0235-f9a5-4c38-9217-180a84e0c9a3 processed in 0.000s, is_safe: False
+2025-06-01 22:12:02,921 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:12:02] "POST /check HTTP/1.1" 200 -
+2025-06-01 22:12:02,922 - root - INFO - Request 7c923017-2baf-4b75-ba30-d1b8cf4bb906 received at /check
+2025-06-01 22:12:02,922 - root - INFO - Request 7c923017-2baf-4b75-ba30-d1b8cf4bb906 processed in 0.000s, is_safe: False
+2025-06-01 22:12:02,922 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:12:02] "POST /check HTTP/1.1" 200 -
+2025-06-01 22:12:02,924 - root - INFO - Request 919de707-8f2a-4e1b-b7b9-446c26297b65 received at /check
+2025-06-01 22:12:03,357 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:12:03,806 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:12:03,806 - root - INFO - Request 919de707-8f2a-4e1b-b7b9-446c26297b65 processed in 0.882s, is_safe: False
+2025-06-01 22:12:03,807 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:12:03] "POST /check HTTP/1.1" 200 -
+2025-06-01 22:12:03,812 - root - INFO - Request e79a8145-0a7b-4ac8-8506-74503f1a640a received at /check
+2025-06-01 22:12:03,870 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:12:03,929 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:12:03,929 - root - INFO - Request e79a8145-0a7b-4ac8-8506-74503f1a640a processed in 0.117s, is_safe: False
+2025-06-01 22:12:03,930 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:12:03] "POST /check HTTP/1.1" 200 -
+2025-06-01 22:12:03,934 - root - INFO - Request 30c2c93f-cd37-4486-a28c-f5cf53e41431 received at /check
+2025-06-01 22:12:03,990 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:12:04,053 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:12:04,054 - root - INFO - Request 30c2c93f-cd37-4486-a28c-f5cf53e41431 processed in 0.120s, is_safe: False
+2025-06-01 22:12:04,055 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:12:04] "POST /check HTTP/1.1" 200 -
+2025-06-01 22:12:04,059 - root - INFO - Request 5da2caf9-7cd1-45de-86c3-dc19c876209f received at /check
+2025-06-01 22:12:04,060 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:12:04] "[31m[1mPOST /check HTTP/1.1[0m" 400 -
+2025-06-01 22:12:04,063 - root - INFO - Request 6660460f-cdd7-4ae2-a9f8-db7d47ca80ea received at /check
+2025-06-01 22:12:04,063 - root - WARNING - Request 6660460f-cdd7-4ae2-a9f8-db7d47ca80ea rejected: missing 'text' field
+2025-06-01 22:12:04,063 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:12:04] "[31m[1mPOST /check HTTP/1.1[0m" 400 -
+2025-06-01 22:12:04,066 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:12:04] "[33mGET /nonexistent HTTP/1.1[0m" 404 -
+2025-06-01 22:13:54,195 - root - INFO - Request 16ed9719-b2c4-457b-bf09-4dd10a42c112 received at /check
+2025-06-01 22:13:54,593 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:13:55,079 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-01 22:13:55,080 - root - INFO - Request 16ed9719-b2c4-457b-bf09-4dd10a42c112 processed in 0.885s, is_safe: False
+2025-06-01 22:13:55,081 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 22:13:55] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:43:58,462 - root - INFO - Initializing LLM Firewall
+2025-06-04 13:43:58,462 - root - INFO - Keyword filter initialized successfully
+2025-06-04 13:44:11,242 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:44:11,243 - root - INFO - Guard llama_guard initialized successfully
+2025-06-04 13:44:24,950 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:44:24,952 - root - INFO - Guard granite_guard initialized successfully
+2025-06-04 13:44:24,953 - root - INFO - Firewall initialized with 2 guards and keyword filter enabled
+2025-06-04 13:44:24,957 - root - INFO - Starting LLM Firewall API on 0.0.0.0:5001
+2025-06-04 13:44:24,957 - root - INFO - Starting API server on 0.0.0.0:5001
+2025-06-04 13:44:24,965 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.184:5001
+2025-06-04 13:44:24,965 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-04 13:44:26,738 - root - INFO - Request 1b99c744-860f-4e07-9b7d-2f4c632b467a received at /check
+2025-06-04 13:44:27,094 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:44:27,435 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:44:27,437 - root - INFO - Request 1b99c744-860f-4e07-9b7d-2f4c632b467a processed in 0.699s, is_safe: False
+2025-06-04 13:44:27,439 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:44:27] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:44:34,725 - root - INFO - Request e935c1e0-5a0f-4c9c-8e8b-c74ccdf2d75f received at /check
+2025-06-04 13:44:35,012 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:44:35,312 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:44:35,313 - root - INFO - Request e935c1e0-5a0f-4c9c-8e8b-c74ccdf2d75f processed in 0.588s, is_safe: False
+2025-06-04 13:44:35,314 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:44:35] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:44:42,365 - root - INFO - Request 8ac77f76-dd1c-467d-98b7-3fbf35fd40ad received at /check
+2025-06-04 13:44:42,731 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:44:43,032 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:44:43,033 - root - INFO - Request 8ac77f76-dd1c-467d-98b7-3fbf35fd40ad processed in 0.668s, is_safe: False
+2025-06-04 13:44:43,034 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:44:43] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:44:55,061 - root - INFO - Request ce2d98b8-c916-4f79-ba8a-b72edc563d8f received at /check
+2025-06-04 13:44:55,375 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:44:55,679 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:44:55,680 - root - INFO - Request ce2d98b8-c916-4f79-ba8a-b72edc563d8f processed in 0.619s, is_safe: False
+2025-06-04 13:44:55,681 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:44:55] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:45:02,609 - root - INFO - Request 89d13558-61b3-4517-9852-8cd8939e857e received at /check
+2025-06-04 13:45:02,901 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:45:03,199 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:45:03,199 - root - INFO - Request 89d13558-61b3-4517-9852-8cd8939e857e processed in 0.590s, is_safe: False
+2025-06-04 13:45:03,200 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:45:03] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:46:04,058 - root - INFO - Initializing LLM Firewall
+2025-06-04 13:46:04,059 - root - INFO - Keyword filter initialized successfully
+2025-06-04 13:46:04,466 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:04,467 - root - INFO - Guard llama_guard initialized successfully
+2025-06-04 13:46:04,764 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:04,765 - root - INFO - Guard granite_guard initialized successfully
+2025-06-04 13:46:04,765 - root - INFO - Firewall initialized with 2 guards and keyword filter enabled
+2025-06-04 13:46:04,770 - root - INFO - Starting LLM Firewall API on 0.0.0.0:5001
+2025-06-04 13:46:04,770 - root - INFO - Starting API server on 0.0.0.0:5001
+2025-06-04 13:46:04,776 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.184:5001
+2025-06-04 13:46:04,777 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-04 13:46:17,554 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:17] "GET /health HTTP/1.1" 200 -
+2025-06-04 13:46:17,556 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:17] "GET /health HTTP/1.1" 200 -
+2025-06-04 13:46:17,557 - root - INFO - Request 04b209af-c5bf-45f2-8eb8-2541caead5dc received at /check
+2025-06-04 13:46:17,868 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:18,169 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:18,170 - root - INFO - Request 04b209af-c5bf-45f2-8eb8-2541caead5dc processed in 0.613s, is_safe: False
+2025-06-04 13:46:18,170 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:18] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:46:18,173 - root - INFO - Request 8bc1a15c-bc44-4473-8699-5b05d9df6ce2 received at /check
+2025-06-04 13:46:18,173 - root - INFO - Request 8bc1a15c-bc44-4473-8699-5b05d9df6ce2 processed in 0.000s, is_safe: False
+2025-06-04 13:46:18,173 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:18] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:46:18,175 - root - INFO - Request 5e95fe66-7ccd-4ac0-88bf-a71dca1252ff received at /check
+2025-06-04 13:46:18,175 - root - INFO - Request 5e95fe66-7ccd-4ac0-88bf-a71dca1252ff processed in 0.000s, is_safe: False
+2025-06-04 13:46:18,176 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:18] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:46:18,177 - root - INFO - Request c9801bfb-479c-4fd5-a1e0-aaad18ff544f received at /check
+2025-06-04 13:46:18,177 - root - INFO - Request c9801bfb-479c-4fd5-a1e0-aaad18ff544f processed in 0.000s, is_safe: False
+2025-06-04 13:46:18,177 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:18] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:46:18,179 - root - INFO - Request 44a42b87-3bf6-482f-a4d9-ff6574ad2acd received at /check
+2025-06-04 13:46:18,376 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:18,611 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:18,611 - root - INFO - Request 44a42b87-3bf6-482f-a4d9-ff6574ad2acd processed in 0.432s, is_safe: False
+2025-06-04 13:46:18,611 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:18] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:46:18,613 - root - INFO - Request 874dbe79-9158-4d45-bc25-ff922ad7fa0b received at /check
+2025-06-04 13:46:18,613 - root - INFO - Request 874dbe79-9158-4d45-bc25-ff922ad7fa0b processed in 0.000s, is_safe: False
+2025-06-04 13:46:18,614 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:18] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:46:18,615 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:18] "GET /keywords HTTP/1.1" 200 -
+2025-06-04 13:46:18,617 - root - INFO - Keywords updated: 12 keywords, 5 patterns
+2025-06-04 13:46:18,617 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:18] "PUT /keywords HTTP/1.1" 200 -
+2025-06-04 13:46:18,618 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:18] "GET /keywords HTTP/1.1" 200 -
+2025-06-04 13:46:18,620 - root - INFO - Request 87ccd3af-d634-46d1-82b1-2236025232a6 received at /check
+2025-06-04 13:46:18,620 - root - INFO - Request 87ccd3af-d634-46d1-82b1-2236025232a6 processed in 0.000s, is_safe: False
+2025-06-04 13:46:18,620 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:18] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:46:18,621 - root - INFO - Request 47306cf9-d771-4106-9337-0d5cda3b75d3 received at /check
+2025-06-04 13:46:18,621 - root - INFO - Request 47306cf9-d771-4106-9337-0d5cda3b75d3 processed in 0.000s, is_safe: False
+2025-06-04 13:46:18,621 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:18] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:46:18,622 - root - INFO - Request 53360b31-c5d7-4ea6-8524-855780b6aee9 received at /check
+2025-06-04 13:46:18,748 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:18,938 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:18,939 - root - INFO - Request 53360b31-c5d7-4ea6-8524-855780b6aee9 processed in 0.317s, is_safe: False
+2025-06-04 13:46:18,939 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:18] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:46:18,940 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:18] "[31m[1mPUT /keywords HTTP/1.1[0m" 400 -
+2025-06-04 13:46:18,942 - root - INFO - Keywords updated: 9 keywords, 3 patterns
+2025-06-04 13:46:18,942 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:18] "PUT /keywords HTTP/1.1" 200 -
+2025-06-04 13:46:18,943 - root - INFO - Request d436808b-913d-4f87-8491-5953066ebdfa received at /check
+2025-06-04 13:46:19,068 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:19,259 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:19,259 - root - INFO - Request d436808b-913d-4f87-8491-5953066ebdfa processed in 0.316s, is_safe: False
+2025-06-04 13:46:19,259 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:19] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:46:19,261 - root - INFO - Request 03d61a48-533d-4372-a713-ee8b5aeb00f3 received at /check
+2025-06-04 13:46:19,300 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:19,338 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:19,338 - root - INFO - Request 03d61a48-533d-4372-a713-ee8b5aeb00f3 processed in 0.078s, is_safe: False
+2025-06-04 13:46:19,338 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:19] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:46:19,340 - root - INFO - Request 8ee8681e-b1e4-4320-9600-cb8f05779df0 received at /check
+2025-06-04 13:46:19,379 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:19,417 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:19,417 - root - INFO - Request 8ee8681e-b1e4-4320-9600-cb8f05779df0 processed in 0.077s, is_safe: False
+2025-06-04 13:46:19,417 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:19] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:46:19,419 - root - INFO - Request 4833081c-067f-419d-93ae-fecd09163f1b received at /check
+2025-06-04 13:46:19,762 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:20,237 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:20,237 - root - INFO - Request 4833081c-067f-419d-93ae-fecd09163f1b processed in 0.818s, is_safe: False
+2025-06-04 13:46:20,238 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:20] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:46:20,243 - root - INFO - Request 6e17f5ae-d2dd-425d-ab74-7128758f6706 received at /check
+2025-06-04 13:46:20,284 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:20,327 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:20,327 - root - INFO - Request 6e17f5ae-d2dd-425d-ab74-7128758f6706 processed in 0.085s, is_safe: False
+2025-06-04 13:46:20,328 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:20] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:46:20,334 - root - INFO - Request 64dc3f3e-a903-4189-a2a5-4990043eb386 received at /check
+2025-06-04 13:46:20,375 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:20,417 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:20,417 - root - INFO - Request 64dc3f3e-a903-4189-a2a5-4990043eb386 processed in 0.083s, is_safe: False
+2025-06-04 13:46:20,418 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:20] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:46:20,423 - root - INFO - Request 14bfdcec-7d80-48bf-b955-a1f3da4205b0 received at /check
+2025-06-04 13:46:20,424 - root - INFO - Request 14bfdcec-7d80-48bf-b955-a1f3da4205b0 processed in 0.000s, is_safe: False
+2025-06-04 13:46:20,424 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:20] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:46:20,427 - root - INFO - Request 1e89e564-8309-4559-a7ff-ff9acab3ddf5 received at /check
+2025-06-04 13:46:20,427 - root - INFO - Request 1e89e564-8309-4559-a7ff-ff9acab3ddf5 processed in 0.000s, is_safe: False
+2025-06-04 13:46:20,427 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:20] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:46:20,430 - root - INFO - Request 98e149ee-5f09-484b-8dc7-6a9039ef72dc received at /check
+2025-06-04 13:46:20,430 - root - INFO - Request 98e149ee-5f09-484b-8dc7-6a9039ef72dc processed in 0.000s, is_safe: False
+2025-06-04 13:46:20,430 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:20] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:46:20,432 - root - INFO - Request 02fdf861-a92e-4ba6-a6aa-05f17f1e42a6 received at /check
+2025-06-04 13:46:20,587 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:20,823 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:20,823 - root - INFO - Request 02fdf861-a92e-4ba6-a6aa-05f17f1e42a6 processed in 0.391s, is_safe: False
+2025-06-04 13:46:20,824 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:20] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:46:20,827 - root - INFO - Request e0d4c582-4b29-4936-bc44-f7fc56be1c69 received at /check
+2025-06-04 13:46:20,868 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:20,908 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:20,908 - root - INFO - Request e0d4c582-4b29-4936-bc44-f7fc56be1c69 processed in 0.081s, is_safe: False
+2025-06-04 13:46:20,909 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:20] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:46:20,913 - root - INFO - Request 5b2d3244-8606-4bb0-be2d-9f68dd17407d received at /check
+2025-06-04 13:46:20,953 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:20,992 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:46:20,993 - root - INFO - Request 5b2d3244-8606-4bb0-be2d-9f68dd17407d processed in 0.080s, is_safe: False
+2025-06-04 13:46:20,994 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:20] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:46:20,999 - root - INFO - Request 63cc9c4c-b86b-4145-8a0f-4becafb540ba received at /check
+2025-06-04 13:46:20,999 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:20] "[31m[1mPOST /check HTTP/1.1[0m" 400 -
+2025-06-04 13:46:21,002 - root - INFO - Request 90deab04-1aa2-4d9a-8f63-f5076203a237 received at /check
+2025-06-04 13:46:21,002 - root - WARNING - Request 90deab04-1aa2-4d9a-8f63-f5076203a237 rejected: missing 'text' field
+2025-06-04 13:46:21,003 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:21] "[31m[1mPOST /check HTTP/1.1[0m" 400 -
+2025-06-04 13:46:21,005 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:21] "[33mGET /nonexistent HTTP/1.1[0m" 404 -
+2025-06-04 13:54:51,785 - root - INFO - Request dc699e16-b053-417d-b259-abde293fffe4 received at /check
+2025-06-04 13:54:52,076 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:54:52,410 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:54:52,411 - root - INFO - Request dc699e16-b053-417d-b259-abde293fffe4 processed in 0.626s, is_safe: False
+2025-06-04 13:54:52,412 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:54:52] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:58:11,646 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:11] "GET /health HTTP/1.1" 200 -
+2025-06-04 13:58:11,647 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:11] "GET /health HTTP/1.1" 200 -
+2025-06-04 13:58:11,648 - root - INFO - Request 9125927b-b5e6-4d93-b68d-7647968368b6 received at /check
+2025-06-04 13:58:11,936 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:12,274 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:12,275 - root - INFO - Request 9125927b-b5e6-4d93-b68d-7647968368b6 processed in 0.627s, is_safe: False
+2025-06-04 13:58:12,275 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:12] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:58:12,283 - root - INFO - Request 8c62092a-facd-4656-aab7-fdf56a0cf24d received at /check
+2025-06-04 13:58:12,283 - root - INFO - Request 8c62092a-facd-4656-aab7-fdf56a0cf24d processed in 0.000s, is_safe: False
+2025-06-04 13:58:12,283 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:12] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:58:12,286 - root - INFO - Request 06209b3e-be17-4a24-b160-b01152f2a308 received at /check
+2025-06-04 13:58:12,286 - root - INFO - Request 06209b3e-be17-4a24-b160-b01152f2a308 processed in 0.000s, is_safe: False
+2025-06-04 13:58:12,286 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:12] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:58:12,288 - root - INFO - Request 91d76c22-e629-4a02-a303-6e2bc50f45e5 received at /check
+2025-06-04 13:58:12,289 - root - INFO - Request 91d76c22-e629-4a02-a303-6e2bc50f45e5 processed in 0.000s, is_safe: False
+2025-06-04 13:58:12,289 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:12] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:58:12,291 - root - INFO - Request acd959fa-14c5-40cc-9037-1668075454f9 received at /check
+2025-06-04 13:58:12,487 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:12,721 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:12,722 - root - INFO - Request acd959fa-14c5-40cc-9037-1668075454f9 processed in 0.431s, is_safe: False
+2025-06-04 13:58:12,722 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:12] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:58:12,724 - root - INFO - Request adcacae5-8df0-4a8a-9331-eba50a1cac9b received at /check
+2025-06-04 13:58:12,725 - root - INFO - Request adcacae5-8df0-4a8a-9331-eba50a1cac9b processed in 0.000s, is_safe: False
+2025-06-04 13:58:12,725 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:12] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:58:12,727 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:12] "GET /keywords HTTP/1.1" 200 -
+2025-06-04 13:58:12,729 - root - INFO - Keywords updated: 12 keywords, 5 patterns
+2025-06-04 13:58:12,729 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:12] "PUT /keywords HTTP/1.1" 200 -
+2025-06-04 13:58:12,731 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:12] "GET /keywords HTTP/1.1" 200 -
+2025-06-04 13:58:12,733 - root - INFO - Request b3fc9170-dc03-4fa7-8fca-9f5bf94b7416 received at /check
+2025-06-04 13:58:12,733 - root - INFO - Request b3fc9170-dc03-4fa7-8fca-9f5bf94b7416 processed in 0.000s, is_safe: False
+2025-06-04 13:58:12,733 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:12] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:58:12,735 - root - INFO - Request 9f633ce0-e2e0-4ed3-98a2-8a84edb3b070 received at /check
+2025-06-04 13:58:12,735 - root - INFO - Request 9f633ce0-e2e0-4ed3-98a2-8a84edb3b070 processed in 0.000s, is_safe: False
+2025-06-04 13:58:12,735 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:12] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:58:12,737 - root - INFO - Request aa010e2e-977d-40fd-a797-980422a31d0b received at /check
+2025-06-04 13:58:12,865 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:13,057 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:13,057 - root - INFO - Request aa010e2e-977d-40fd-a797-980422a31d0b processed in 0.320s, is_safe: False
+2025-06-04 13:58:13,057 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:13] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:58:13,059 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:13] "[31m[1mPUT /keywords HTTP/1.1[0m" 400 -
+2025-06-04 13:58:13,061 - root - INFO - Keywords updated: 9 keywords, 3 patterns
+2025-06-04 13:58:13,061 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:13] "PUT /keywords HTTP/1.1" 200 -
+2025-06-04 13:58:13,062 - root - INFO - Request 09b90c74-da93-4c7e-8929-94eab9e99886 received at /check
+2025-06-04 13:58:13,188 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:13,377 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:13,378 - root - INFO - Request 09b90c74-da93-4c7e-8929-94eab9e99886 processed in 0.315s, is_safe: False
+2025-06-04 13:58:13,378 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:13] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:58:13,380 - root - INFO - Request cc7d2e8a-ed20-4c72-9f0d-f5ad91f51d97 received at /check
+2025-06-04 13:58:13,419 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:13,456 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:13,456 - root - INFO - Request cc7d2e8a-ed20-4c72-9f0d-f5ad91f51d97 processed in 0.076s, is_safe: False
+2025-06-04 13:58:13,457 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:13] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:58:13,458 - root - INFO - Request c4d59c9a-c313-4efe-baa3-3d1f92b74eda received at /check
+2025-06-04 13:58:13,495 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:13,534 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:13,534 - root - INFO - Request c4d59c9a-c313-4efe-baa3-3d1f92b74eda processed in 0.075s, is_safe: False
+2025-06-04 13:58:13,534 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:13] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:58:13,536 - root - INFO - Request 7da7d061-0a9c-40cd-8f22-af3584517097 received at /check
+2025-06-04 13:58:13,877 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:14,351 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:14,352 - root - INFO - Request 7da7d061-0a9c-40cd-8f22-af3584517097 processed in 0.816s, is_safe: False
+2025-06-04 13:58:14,352 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:14] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:58:14,355 - root - INFO - Request 9b14a248-3c0e-47fd-a031-2eb765ba5490 received at /check
+2025-06-04 13:58:14,394 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:14,432 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:14,433 - root - INFO - Request 9b14a248-3c0e-47fd-a031-2eb765ba5490 processed in 0.078s, is_safe: False
+2025-06-04 13:58:14,433 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:14] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:58:14,435 - root - INFO - Request 822e60e1-7303-485d-95e2-80318750e999 received at /check
+2025-06-04 13:58:14,474 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:14,514 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:14,514 - root - INFO - Request 822e60e1-7303-485d-95e2-80318750e999 processed in 0.078s, is_safe: False
+2025-06-04 13:58:14,514 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:14] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:58:14,516 - root - INFO - Request 6db72608-6bca-424d-875e-c3dc1446db76 received at /check
+2025-06-04 13:58:14,516 - root - INFO - Request 6db72608-6bca-424d-875e-c3dc1446db76 processed in 0.000s, is_safe: False
+2025-06-04 13:58:14,516 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:14] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:58:14,518 - root - INFO - Request d2a4bc4a-d9cd-4f24-9f37-e88256ebc92d received at /check
+2025-06-04 13:58:14,518 - root - INFO - Request d2a4bc4a-d9cd-4f24-9f37-e88256ebc92d processed in 0.000s, is_safe: False
+2025-06-04 13:58:14,518 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:14] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:58:14,520 - root - INFO - Request 71869689-eac0-4e18-85b6-17645afc9c32 received at /check
+2025-06-04 13:58:14,520 - root - INFO - Request 71869689-eac0-4e18-85b6-17645afc9c32 processed in 0.000s, is_safe: False
+2025-06-04 13:58:14,520 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:14] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:58:14,522 - root - INFO - Request 910201f9-d1b0-4a41-bd5e-d28f6a61e4df received at /check
+2025-06-04 13:58:14,675 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:14,909 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:14,909 - root - INFO - Request 910201f9-d1b0-4a41-bd5e-d28f6a61e4df processed in 0.387s, is_safe: False
+2025-06-04 13:58:14,909 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:14] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:58:14,911 - root - INFO - Request 633e3299-08a1-47b3-be13-9fb40c9ec836 received at /check
+2025-06-04 13:58:14,952 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:14,991 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:14,991 - root - INFO - Request 633e3299-08a1-47b3-be13-9fb40c9ec836 processed in 0.080s, is_safe: False
+2025-06-04 13:58:14,991 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:14] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:58:14,993 - root - INFO - Request fdb6d255-ae01-4e35-8c55-a89d5d632359 received at /check
+2025-06-04 13:58:15,033 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:15,071 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-04 13:58:15,071 - root - INFO - Request fdb6d255-ae01-4e35-8c55-a89d5d632359 processed in 0.078s, is_safe: False
+2025-06-04 13:58:15,071 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:15] "POST /check HTTP/1.1" 200 -
+2025-06-04 13:58:15,073 - root - INFO - Request edf044ad-ffb4-4847-9275-af9c3735d840 received at /check
+2025-06-04 13:58:15,073 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:15] "[31m[1mPOST /check HTTP/1.1[0m" 400 -
+2025-06-04 13:58:15,074 - root - INFO - Request 22b551fc-2b82-46f2-95a6-ad590c92e090 received at /check
+2025-06-04 13:58:15,074 - root - WARNING - Request 22b551fc-2b82-46f2-95a6-ad590c92e090 rejected: missing 'text' field
+2025-06-04 13:58:15,074 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:15] "[31m[1mPOST /check HTTP/1.1[0m" 400 -
+2025-06-04 13:58:15,076 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:15] "[33mGET /nonexistent HTTP/1.1[0m" 404 -

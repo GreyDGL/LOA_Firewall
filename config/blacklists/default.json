@@ -1,0 +1,11 @@
+{
+    "keywords": [
+        "hack",
+        "bypass security",
+    ],
+    "regex_patterns": [
+        "(\b|_)password(\b|_)",
+        "(\b|_)ssh[_-]key(\b|_)",
+        "(\b|_)api[_-]key(\b|_)",
+    ]
+}

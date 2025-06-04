@@ -1,0 +1,75 @@
+# Development files to exclude from client builds
+*.md
+README.md
+INSTALL.md
+CLIENT_DEPLOYMENT.md
+
+# Source code (will be compiled to bytecode)
+# These will be handled specially in the build process
+
+# Development and build tools
+build_client_image.py
+deploy.sh
+generate_license.py
+
+# Git and version control
+.git
+.gitignore
+
+# Python cache and development
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env
+pip-log.txt
+pip-delete-this-directory.txt
+.tox
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+
+# Development environment
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Testing and development
+tests/
+test_*.py
+*_test.py
+demo.py
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Logs (exclude from build, but allow in runtime)
+logs/*
+!logs/.gitkeep

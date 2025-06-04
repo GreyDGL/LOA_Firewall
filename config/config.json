@@ -1,0 +1,77 @@
+
+{
+    "keyword_filter": {
+        "enabled": true,
+        "blacklist_file": "config/blacklists/default.json",
+        "short_circuit": true
+    },
+    "guards": [
+        {
+            "type": "llama_guard",
+            "enabled": true,
+            "model_name": "llama-guard3",
+            "threshold": 0.4,
+            "category_mapping": {
+                "S1": "harmful_prompt",
+                "S2": "harmful_prompt",
+                "S3": "harmful_prompt",
+                "S4": "harmful_prompt",
+                "S5": "harmful_prompt",
+                "S6": "harmful_prompt",
+                "S7": "harmful_prompt",
+                "S8": "harmful_prompt",
+                "S9": "harmful_prompt",
+                "S10": "harmful_prompt",
+                "S11": "harmful_prompt",
+                "S12": "harmful_prompt",
+                "S13": "jailbreak",
+                "S14": "jailbreak",
+                "safe": "safe"
+            }
+        },
+        {
+            "type": "granite_guard",
+            "enabled": true,
+            "model_name": "granite3-guardian:8b",
+            "threshold": 0.6,
+            "category_mapping": {
+                "safe": "safe",
+                "unsafe": "unknown_unsafe"
+            }
+        }
+    ],
+    "categories": {
+        "unified_categories": {
+            "safe": {
+                "code": "SAFE",
+                "description": "Content is safe and does not violate any policies",
+                "severity": 0
+            },
+            "jailbreak": {
+                "code": "JAILBREAK",
+                "description": "Jailbreak or prompt injection attempt",
+                "severity": 3
+            },
+            "harmful_prompt": {
+                "code": "HARMFUL",
+                "description": "Harmful or malicious prompt",
+                "severity": 2
+            },
+            "unknown_unsafe": {
+                "code": "UNKNOWN_UNSAFE",
+                "description": "Unsafe content of unknown or mixed type",
+                "severity": 1
+            }
+        },
+        "conflict_resolution": {
+            "strategy": "highest_severity",
+            "severity_order": ["safe", "unknown_unsafe", "harmful_prompt", "jailbreak"]
+        }
+    },
+    "api": {
+        "host": "0.0.0.0",
+        "port": 5001,
+        "debug": false,
+        "log_level": "INFO"
+    }
+}
