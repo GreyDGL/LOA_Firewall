@@ -27,14 +27,11 @@ class FirewallDemo:
 
     def print_header(self, title: str):
         """Print a formatted header for demo sections"""
-        print(f"\n{'='*60}")
-        print(f"🔥 {title}")
-        print(f"{'='*60}")
+        print(f"\n🔥 {title}")
 
     def print_step(self, step: str):
         """Print a formatted step description"""
         print(f"\n📋 {step}")
-        print("-" * 50)
 
     def print_response(self, response: requests.Response, show_full: bool = True):
         """Print formatted API response"""
@@ -143,8 +140,9 @@ class FirewallDemo:
 
         results = []
         for test_case in test_cases:
-            self.print_step(f"Testing: {test_case['name']}")
-            print(f"Text: \"{test_case['text']}\"")
+            print(f"\n📋 {test_case['name']}")
+            print(f"Input: \"{test_case['text']}\"")
+            print(f"Expected: {'Safe' if test_case['expected_safe'] else 'Unsafe'}")
 
             response = self.session.post(
                 f"{self.base_url}/check",
@@ -152,72 +150,13 @@ class FirewallDemo:
                 headers={"Content-Type": "application/json"},
             )
 
-            self.print_response(response, show_full=False)
-
             if response.status_code == 200:
                 data = response.json()
                 is_safe = data.get("is_safe", True)
                 expected = test_case["expected_safe"]
 
-                if is_safe == expected:
-                    print(f"✅ Test passed: {'Safe' if is_safe else 'Unsafe'} as expected")
-                else:
-                    print(
-                        f"⚠️  Unexpected result: Expected {'safe' if expected else 'unsafe'}, got {'safe' if is_safe else 'unsafe'}"
-                    )
-
-                # Show detailed results for unsafe content (handle both old and new formats)
-                if not is_safe:
-                    # Handle keyword filter results (new format)
-                    analysis = data.get("analysis", {})
-                    if analysis:
-                        kw_filter = analysis.get("keyword_filter", {})
-                        if kw_filter and kw_filter.get("status") == "flagged":
-                            matches_count = kw_filter.get("matches_found", 0)
-                            print(f"   🔍 Keyword filter: {matches_count} matches found")
-
-                        # Show guard results (new format)
-                        guards = analysis.get("guards", [])
-                        for guard in guards:
-                            guard_id = guard.get("guard_id", "unknown")
-                            status = guard.get("status", "unknown")
-                            detection_type = guard.get("detection_type", "")
-                            if detection_type:
-                                print(f"   🤖 {guard_id}: {status} ({detection_type})")
-                            else:
-                                print(f"   🤖 {guard_id}: {status}")
-
-                        # Show category and consensus
-                        category = data.get("category", "unknown")
-                        consensus = analysis.get("consensus", False)
-                        print(f"   📊 Category: {category} (consensus: {consensus})")
-
-                    # Fallback to old format if new format not found
-                    else:
-                        kw_result = data.get("keyword_filter_result", {})
-                        if kw_result and not kw_result.get("is_safe", True):
-                            print(f"   🔍 Keyword filter matches: {kw_result.get('matches', [])}")
-
-                        # Show category analysis (old format)
-                        category_analysis = data.get("category_analysis", {})
-                        if category_analysis:
-                            final_category = category_analysis.get("final_category", "unknown")
-                            resolution_method = category_analysis.get(
-                                "resolution_method", "unknown"
-                            )
-                            print(
-                                f"   📊 Final category: {final_category} (resolved by {resolution_method})"
-                            )
-
-                            conflicting = category_analysis.get("conflicting_categories", [])
-                            if conflicting:
-                                print(f"   ⚠️  Conflicting categories: {conflicting}")
-
-                        guard_results = data.get("guard_results", [])
-                        for i, guard_result in enumerate(guard_results):
-                            model_name = guard_result.get("model", f"LLM-Guard-{i+1}")
-                            category = guard_result.get("category", "unknown")
-                            print(f"   🤖 {model_name}: {category}")
+                print(f"Actual: {'Safe' if is_safe else 'Unsafe'}")
+                print(f"Firewall Works: {'✅ YES' if is_safe == expected else '❌ NO'}")
 
                 # Handle processing time (both old and new formats)
                 processing_time = 0
@@ -281,40 +220,29 @@ class FirewallDemo:
 
             # Test with new keywords
             self.print_step("Test New Keywords")
-            test_texts = [
-                "This contains demo_malicious content",
-                "Here's a demo_password that should be caught",
-                "This is safe content",
+            test_cases = [
+                {"text": "This contains demo_malicious content", "expected_safe": False},
+                {"text": "Here's a demo_password that should be caught", "expected_safe": False},
+                {"text": "This is safe content", "expected_safe": True},
             ]
 
-            for text in test_texts:
-                print(f'\nTesting: "{text}"')
+            for test_case in test_cases:
+                print(f'\nInput: "{test_case["text"]}"')
+                print(f'Expected: {"Safe" if test_case["expected_safe"] else "Unsafe"}')
+
                 response = self.session.post(
                     f"{self.base_url}/check",
-                    json={"text": text},
+                    json={"text": test_case["text"]},
                     headers={"Content-Type": "application/json"},
                 )
 
                 if response.status_code == 200:
                     data = response.json()
                     is_safe = data.get("is_safe", True)
-                    print(f"Result: {'Safe' if is_safe else 'Unsafe ⚠️'}")
+                    expected = test_case["expected_safe"]
 
-                    if not is_safe:
-                        # Handle new format first
-                        analysis = data.get("analysis", {})
-                        if analysis:
-                            kw_filter = analysis.get("keyword_filter", {})
-                            if kw_filter and kw_filter.get("status") == "flagged":
-                                matches_count = kw_filter.get("matches_found", 0)
-                                print(f"Keyword matches found: {matches_count}")
-                        else:
-                            # Fallback to old format
-                            kw_result = data.get("keyword_filter_result", {})
-                            if kw_result:
-                                matches = kw_result.get("matches", [])
-                                if matches:
-                                    print(f"Matches: {matches}")
+                    print(f'Actual: {"Safe" if is_safe else "Unsafe"}')
+                    print(f'Firewall Works: {"✅ YES" if is_safe == expected else "❌ NO"}')
 
         # Demo error handling
         self.print_step("Error Handling - Invalid Regex")
