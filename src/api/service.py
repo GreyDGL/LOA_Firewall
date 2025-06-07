@@ -54,35 +54,35 @@ class FirewallService:
 
         # Create formatters
         detailed_formatter = logging.Formatter(
-            '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+            "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
         )
-        
+
         # Create main service logger
         service_handler = logging.FileHandler("logs/firewall_service.log")
         service_handler.setFormatter(detailed_formatter)
-        
+
         # Create dedicated firewall analysis logger
         firewall_handler = logging.FileHandler("logs/firewall_analysis.log")
-        firewall_handler.setFormatter(logging.Formatter('%(asctime)s - %(message)s'))
-        
+        firewall_handler.setFormatter(logging.Formatter("%(asctime)s - %(message)s"))
+
         # Create console handler
         console_handler = logging.StreamHandler()
         console_handler.setFormatter(detailed_formatter)
-        
+
         # Configure root logger
         root_logger = logging.getLogger()
         root_logger.setLevel(logging.INFO)
         root_logger.addHandler(service_handler)
         root_logger.addHandler(console_handler)
-        
+
         # Create dedicated firewall logger that only logs to firewall_analysis.log
-        firewall_logger = logging.getLogger('firewall_analysis')
+        firewall_logger = logging.getLogger("firewall_analysis")
         firewall_logger.setLevel(logging.INFO)
         firewall_logger.addHandler(firewall_handler)
         firewall_logger.propagate = False  # Don't propagate to root logger
-        
+
         # Enable debug logging if environment variable is set
-        if os.environ.get('LLM_FIREWALL_DEBUG', '').lower() in ('true', '1'):
+        if os.environ.get("LLM_FIREWALL_DEBUG", "").lower() in ("true", "1"):
             root_logger.setLevel(logging.DEBUG)
             firewall_logger.setLevel(logging.DEBUG)
 
@@ -111,7 +111,7 @@ class FirewallService:
         """
         try:
             if os.path.exists(self.config_path):
-                with open(self.config_path, 'r') as f:
+                with open(self.config_path, "r") as f:
                     return json.load(f)
             else:
                 logging.warning(f"Config file {self.config_path} not found. Using default.")
@@ -132,10 +132,8 @@ class FirewallService:
                 is_valid, message, _ = self._validate_license()
                 if not is_valid:
                     from flask import jsonify
-                    return jsonify({
-                        "error": "License validation failed",
-                        "message": message
-                    }), 403
+
+                    return jsonify({"error": "License validation failed", "message": message}), 403
 
         except Exception as e:
             logging.error(f"Error initializing firewall: {str(e)}")
@@ -145,7 +143,9 @@ class FirewallService:
         """Run the firewall service."""
         try:
             # Log startup information
-            logging.info(f"Starting LLM Firewall Service with license: {self.license_data['customer_id']}")
+            logging.info(
+                f"Starting LLM Firewall Service with license: {self.license_data['customer_id']}"
+            )
             logging.info(f"License valid until: {self.license_data['expires_at']}")
 
             # Start license check background thread

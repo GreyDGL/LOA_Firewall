@@ -6,8 +6,8 @@ class BaseGuard(ABC):
 
     def __init__(self, **kwargs):
         """Initialize base guard with common parameters"""
-        self.category_mapping = kwargs.get('category_mapping', {})
-        
+        self.category_mapping = kwargs.get("category_mapping", {})
+
     @abstractmethod
     def initialize(self):
         """Initialize the guard model"""
@@ -33,30 +33,30 @@ class BaseGuard(ABC):
             }
         """
         pass
-    
+
     def map_to_unified_category(self, raw_category):
         """
         Map model-specific category to unified category
-        
+
         Args:
             raw_category (str): The raw category from the model
-            
+
         Returns:
             str: Unified category key
         """
         # Special case: if raw_category is "safe" and not in mapping, default to "safe"
         if raw_category == "safe" and raw_category not in self.category_mapping:
             return "safe"
-        
+
         return self.category_mapping.get(raw_category, "unknown_unsafe")
-    
+
     def is_safe_category(self, unified_category):
         """
         Determine if a unified category represents safe content
-        
+
         Args:
             unified_category (str): The unified category
-            
+
         Returns:
             bool: True if safe, False if unsafe
         """

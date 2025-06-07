@@ -17,31 +17,22 @@ class ConfigManager:
         """
         self.default_config_path = "config/config.json"
         self.default_config = {
-            "keyword_filter": {
-                "enabled": True,
-                "blacklist_file": None,
-                "short_circuit": True
-            },
+            "keyword_filter": {"enabled": True, "blacklist_file": None, "short_circuit": True},
             "guards": [
                 {
                     "type": "llama_guard",
                     "enabled": True,
                     "model_name": "llama-guard3",
-                    "threshold": 0.5
+                    "threshold": 0.5,
                 },
                 {
                     "type": "granite_guard",
                     "enabled": True,
                     "model_name": "granite3-guardian:8b",
-                    "threshold": 0.5
-                }
+                    "threshold": 0.5,
+                },
             ],
-            "api": {
-                "host": "0.0.0.0",
-                "port": 5000,
-                "debug": False,
-                "log_level": "INFO"
-            }
+            "api": {"host": "0.0.0.0", "port": 5000, "debug": False, "log_level": "INFO"},
         }
 
         self.config = self.default_config.copy()
@@ -63,7 +54,7 @@ class ConfigManager:
         """
         try:
             if os.path.exists(config_path):
-                with open(config_path, 'r') as f:
+                with open(config_path, "r") as f:
                     custom_config = json.load(f)
 
                 # Merge with default config
@@ -99,15 +90,11 @@ class ConfigManager:
         # Configure logging
         logging.basicConfig(
             level=log_level,
-            format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
             handlers=[
-                RotatingFileHandler(
-                    "logs/firewall.log",
-                    maxBytes=10485760,  # 10 MB
-                    backupCount=5
-                ),
-                logging.StreamHandler()
-            ]
+                RotatingFileHandler("logs/firewall.log", maxBytes=10485760, backupCount=5),  # 10 MB
+                logging.StreamHandler(),
+            ],
         )
 
     def get_config(self):

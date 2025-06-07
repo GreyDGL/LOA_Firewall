@@ -17,7 +17,7 @@ from src.licensing.license_manager import LicenseManager
 def generate_secret_key(length=32):
     """Generate a random secret key"""
     alphabet = string.ascii_letters + string.digits
-    return ''.join(secrets.choice(alphabet) for _ in range(length))
+    return "".join(secrets.choice(alphabet) for _ in range(length))
 
 
 def main():
@@ -26,9 +26,14 @@ def main():
     parser.add_argument("--days", type=int, default=365, help="License validity in days")
     parser.add_argument("--features", nargs="+", default=["basic"], help="Licensed features")
     parser.add_argument("--output", default="license.key", help="Output file for license key")
-    parser.add_argument("--secret", default=None, help="Secret key for encryption (will generate if not provided)")
-    parser.add_argument("--generate-only", action="store_true",
-                        help="Only generate the license key, don't save to file")
+    parser.add_argument(
+        "--secret", default=None, help="Secret key for encryption (will generate if not provided)"
+    )
+    parser.add_argument(
+        "--generate-only",
+        action="store_true",
+        help="Only generate the license key, don't save to file",
+    )
 
     args = parser.parse_args()
 
@@ -46,10 +51,7 @@ def main():
 
     # Generate license key
     license_key = manager.generate_license(
-        args.customer,
-        expiration_date,
-        args.features,
-        {"generated_at": datetime.now().isoformat()}
+        args.customer, expiration_date, args.features, {"generated_at": datetime.now().isoformat()}
     )
 
     if args.generate_only:
@@ -57,7 +59,7 @@ def main():
     else:
         # Save license key to file
         try:
-            with open(args.output, 'w') as f:
+            with open(args.output, "w") as f:
                 f.write(license_key)
             print(f"\nLicense key saved to: {args.output}")
             print(f"Expiration date: {expiration_date}")
@@ -68,7 +70,7 @@ def main():
 
     # Print validation command
     print("\nTo validate this license, run:")
-    print(f"python3 license_manager.py validate --file {args.output} --secret \"{secret_key}\"")
+    print(f'python3 license_manager.py validate --file {args.output} --secret "{secret_key}"')
 
     return 0
 

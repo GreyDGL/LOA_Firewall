@@ -48,11 +48,11 @@ class LicenseManager:
             bytes: Base64 encoded 32-byte key
         """
         # Use a fixed salt for reproducibility
-        salt = b'LLM-Firewall-Salt-Value-Fixed'
+        salt = b"LLM-Firewall-Salt-Value-Fixed"
 
         # Convert string secret to bytes
         if isinstance(secret, str):
-            secret = secret.encode('utf-8')
+            secret = secret.encode("utf-8")
 
         # Generate key using PBKDF2
         kdf = PBKDF2HMAC(
@@ -72,39 +72,46 @@ class LicenseManager:
             str: A unique machine identifier
         """
         # Try to get machine-specific identifiers
-        machine_id = ''
+        machine_id = ""
 
         # On Linux
-        if os.path.exists('/etc/machine-id'):
-            with open('/etc/machine-id', 'r') as f:
+        if os.path.exists("/etc/machine-id"):
+            with open("/etc/machine-id", "r") as f:
                 machine_id = f.read().strip()
 
         # On macOS
-        elif sys.platform == 'darwin':
+        elif sys.platform == "darwin":
             try:
                 import subprocess
-                result = subprocess.run(['ioreg', '-rd1', '-c', 'IOPlatformExpertDevice'],
-                                        capture_output=True, text=True)
-                for line in result.stdout.split('\n'):
-                    if 'IOPlatformUUID' in line:
+
+                result = subprocess.run(
+                    ["ioreg", "-rd1", "-c", "IOPlatformExpertDevice"],
+                    capture_output=True,
+                    text=True,
+                )
+                for line in result.stdout.split("\n"):
+                    if "IOPlatformUUID" in line:
                         machine_id = line.split('"')[-2]
                         break
             except:
                 pass
 
         # On Windows
-        elif sys.platform == 'win32':
+        elif sys.platform == "win32":
             try:
                 import subprocess
-                result = subprocess.run(['wmic', 'csproduct', 'get', 'uuid'],
-                                        capture_output=True, text=True)
-                machine_id = result.stdout.strip().split('\n')[1].strip()
+
+                result = subprocess.run(
+                    ["wmic", "csproduct", "get", "uuid"], capture_output=True, text=True
+                )
+                machine_id = result.stdout.strip().split("\n")[1].strip()
             except:
                 pass
 
         # Fallback to a hash of hostname if no machine ID found
         if not machine_id:
             import socket
+
             machine_id = hashlib.sha256(socket.gethostname().encode()).hexdigest()
 
         return machine_id
@@ -135,7 +142,7 @@ class LicenseManager:
             "created_at": datetime.datetime.now().isoformat(),
             "expires_at": expiration_date.isoformat(),
             "features": features or ["basic"],
-            "meta": meta or {}
+            "meta": meta or {},
         }
 
         # Add validation hash to prevent tampering
@@ -201,7 +208,7 @@ class LicenseManager:
             bool: Success status
         """
         try:
-            with open(file_path, 'w') as f:
+            with open(file_path, "w") as f:
                 f.write(license_key)
             return True
         except Exception as e:
@@ -220,7 +227,7 @@ class LicenseManager:
         """
         try:
             if os.path.exists(file_path):
-                with open(file_path, 'r') as f:
+                with open(file_path, "r") as f:
                     return f.read().strip()
             return None
         except Exception as e:
@@ -272,7 +279,7 @@ if __name__ == "__main__":
     if args.command == "generate":
         license_key = generate_license_key(args.customer, args.expires, args.secret, args.features)
         if args.output:
-            with open(args.output, 'w') as f:
+            with open(args.output, "w") as f:
                 f.write(license_key)
             print(f"License key saved to {args.output}")
         else:

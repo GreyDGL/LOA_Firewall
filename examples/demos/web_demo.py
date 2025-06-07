@@ -360,116 +360,123 @@ HTML_TEMPLATE = """
 </html>
 """
 
-@app.route('/')
+
+@app.route("/")
 def index():
     """Main demo page"""
     return render_template_string(HTML_TEMPLATE)
 
-@app.route('/analyze', methods=['POST'])
+
+@app.route("/analyze", methods=["POST"])
 def analyze():
     """Analyze text through the firewall"""
     try:
         data = request.get_json()
-        text = data.get('text', '')
-        
+        text = data.get("text", "")
+
         if not text:
-            return jsonify({'error': 'No text provided'}), 400
-        
+            return jsonify({"error": "No text provided"}), 400
+
         # Special case: if text is the default safe example, always return safe
         if text.strip() == "Hello, how are you today?":
-            return jsonify({
-                'firewall_running': True,
-                'is_safe': True,
-                'overall_reason': 'Content is safe',
-                'keyword_filter_result': {
-                    'is_safe': True,
-                    'reason': 'No harmful keywords detected',
-                    'matches': []
-                },
-                'guard_results': [
-                    {
-                        'is_safe': True,
-                        'category': 'safe',
-                        'model': 'llm-guard-1',
-                        'reason': 'Content is safe'
+            return jsonify(
+                {
+                    "firewall_running": True,
+                    "is_safe": True,
+                    "overall_reason": "Content is safe",
+                    "keyword_filter_result": {
+                        "is_safe": True,
+                        "reason": "No harmful keywords detected",
+                        "matches": [],
                     },
-                    {
-                        'is_safe': True,
-                        'category': 'safe',
-                        'model': 'llm-guard-2',
-                        'reason': 'Content is safe'
-                    }
-                ],
-                'category_analysis': {
-                    'final_category': 'safe',
-                    'resolution_method': 'consensus',
-                    'category_info': {
-                        'code': 'SAFE',
-                        'description': 'Content is safe and does not violate any policies',
-                        'severity': 0
-                    }
-                },
-                'processing_times': {
-                    'total': 0.123
-                },
-                'text_length': len(text)
-            })
-        
+                    "guard_results": [
+                        {
+                            "is_safe": True,
+                            "category": "safe",
+                            "model": "llm-guard-1",
+                            "reason": "Content is safe",
+                        },
+                        {
+                            "is_safe": True,
+                            "category": "safe",
+                            "model": "llm-guard-2",
+                            "reason": "Content is safe",
+                        },
+                    ],
+                    "category_analysis": {
+                        "final_category": "safe",
+                        "resolution_method": "consensus",
+                        "category_info": {
+                            "code": "SAFE",
+                            "description": "Content is safe and does not violate any policies",
+                            "severity": 0,
+                        },
+                    },
+                    "processing_times": {"total": 0.123},
+                    "text_length": len(text),
+                }
+            )
+
         # Try to connect to the firewall API
         try:
-            response = requests.post(
-                'http://localhost:5001/check',
-                json={'text': text},
-                timeout=30
-            )
-            
+            response = requests.post("http://localhost:5001/check", json={"text": text}, timeout=30)
+
             if response.status_code == 200:
                 result = response.json()
-                result['firewall_running'] = True
+                result["firewall_running"] = True
                 return jsonify(result)
             else:
                 # API returned an error
-                return jsonify({
-                    'firewall_running': False,
-                    'error': f'Firewall API error: {response.status_code}',
-                    'is_safe': True,
-                    'overall_reason': 'Firewall API not responding - demo mode'
-                })
-                
+                return jsonify(
+                    {
+                        "firewall_running": False,
+                        "error": f"Firewall API error: {response.status_code}",
+                        "is_safe": True,
+                        "overall_reason": "Firewall API not responding - demo mode",
+                    }
+                )
+
         except requests.exceptions.ConnectionError:
             # Firewall API is not running - return demo response
-            return jsonify({
-                'firewall_running': False,
-                'is_safe': True,
-                'overall_reason': 'Firewall API not running - demo mode',
-                'text_length': len(text),
-                'demo_mode': True
-            })
-            
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
+            return jsonify(
+                {
+                    "firewall_running": False,
+                    "is_safe": True,
+                    "overall_reason": "Firewall API not running - demo mode",
+                    "text_length": len(text),
+                    "demo_mode": True,
+                }
+            )
 
-@app.route('/health')
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/health")
 def health():
     """Health check endpoint"""
-    return jsonify({
-        'status': 'ok',
-        'service': 'LLM Firewall Web Demo',
-        'firewall_api_available': check_firewall_api()
-    })
+    return jsonify(
+        {
+            "status": "ok",
+            "service": "LLM Firewall Web Demo",
+            "firewall_api_available": check_firewall_api(),
+        }
+    )
+
 
 def check_firewall_api():
     """Check if the main firewall API is available"""
     try:
-        response = requests.get('http://localhost:5001/health', timeout=5)
+        response = requests.get("http://localhost:5001/health", timeout=5)
         return response.status_code == 200
     except:
         return False
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     print("🛡️  Starting LLM Firewall Web Demo")
     print("📡 Demo will be available at: http://localhost:8080")
     print("🔧 Make sure the firewall API is running on port 5001 for full functionality")
     print()
-    
-    app.run(host='0.0.0.0', port=8080, debug=True)
+
+    app.run(host="0.0.0.0", port=8080, debug=True)

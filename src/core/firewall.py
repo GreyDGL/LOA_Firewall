@@ -21,14 +21,14 @@ class LLMFirewall:
         self.config = config
         self.guards = []
         self.keyword_filter = None
-        
+
         # Initialize category manager
         self.category_manager = CategoryManager(config)
 
         # Keep track of guard registration
         self.guard_registry = {
             "llama_guard": "src.guards.llama_guard.LlamaGuard",
-            "granite_guard": "src.guards.granite_guard.GraniteGuard"
+            "granite_guard": "src.guards.granite_guard.GraniteGuard",
             # Additional guards can be registered here
         }
 
@@ -54,6 +54,7 @@ class LLMFirewall:
         if self.config.get("keyword_filter", {}).get("enabled", True):
             try:
                 from src.filters.keyword_filter import KeywordFilter
+
                 blacklist_file = self.config.get("keyword_filter", {}).get("blacklist_file")
                 self.keyword_filter = KeywordFilter(blacklist_file)
                 logging.info("Keyword filter initialized successfully")
@@ -73,13 +74,14 @@ class LLMFirewall:
                 try:
                     # Dynamically import and instantiate the guard
                     class_path = self.guard_registry[guard_type]
-                    module_path, class_name = class_path.rsplit('.', 1)
+                    module_path, class_name = class_path.rsplit(".", 1)
                     module = importlib.import_module(module_path)
                     guard_class = getattr(module, class_name)
 
                     # Create guard instance with config
-                    guard = guard_class(**{k: v for k, v in guard_config.items()
-                                           if k not in ['type', 'enabled']})
+                    guard = guard_class(
+                        **{k: v for k, v in guard_config.items() if k not in ["type", "enabled"]}
+                    )
 
                     # Initialize guard
                     if guard.initialize():
@@ -88,11 +90,15 @@ class LLMFirewall:
                     else:
                         logging.error(f"Guard {guard_type} failed to initialize")
                 except Exception as e:
-                    logging.error(f"Failed to initialize guard {guard_type}: {str(e)}", exc_info=True)
+                    logging.error(
+                        f"Failed to initialize guard {guard_type}: {str(e)}", exc_info=True
+                    )
 
         # Log initialization summary
-        logging.info(f"Firewall initialized with {len(self.guards)} guards and " +
-                     ("keyword filter enabled" if self.keyword_filter else "keyword filter disabled"))
+        logging.info(
+            f"Firewall initialized with {len(self.guards)} guards and "
+            + ("keyword filter enabled" if self.keyword_filter else "keyword filter disabled")
+        )
 
     def check_content(self, text, timeout=30, request_metadata=None):
         """
@@ -115,24 +121,26 @@ class LLMFirewall:
             "category_analysis": None,
             "overall_reason": "",
             "processing_times": {},
-            "fallback_used": False
+            "fallback_used": False,
         }
 
         try:
             final_result = self._check_content_with_timeout(text, timeout, start_time, result)
-            
+
             # Log detailed analysis
             LLMFirewall._log_detailed_analysis(text, final_result, request_metadata)
-            
+
             return final_result
         except Exception as e:
             logging.error(f"Critical error in firewall check_content: {str(e)}", exc_info=True)
             # Fallback to safe
-            fallback_result = LLMFirewall._create_safe_fallback_result(start_time, "Critical firewall error - defaulting to safe")
-            
+            fallback_result = LLMFirewall._create_safe_fallback_result(
+                start_time, "Critical firewall error - defaulting to safe"
+            )
+
             # Log fallback
             LLMFirewall._log_detailed_analysis(text, fallback_result, request_metadata)
-            
+
             return fallback_result
 
     def _check_content_with_timeout(self, text, timeout, start_time, result):
@@ -141,7 +149,9 @@ class LLMFirewall:
         """
         # Check for timeout before each major step
         if time.time() - start_time > timeout:
-            return LLMFirewall._create_safe_fallback_result(start_time, "Timeout during firewall processing - defaulting to safe")
+            return LLMFirewall._create_safe_fallback_result(
+                start_time, "Timeout during firewall processing - defaulting to safe"
+            )
 
         # Step 1: Check keyword filter if initialized and enabled
         if self.keyword_filter and self.config.get("keyword_filter", {}).get("enabled", True):
@@ -149,13 +159,17 @@ class LLMFirewall:
             try:
                 # Check timeout before keyword filter
                 if time.time() - start_time > timeout:
-                    return LLMFirewall._create_safe_fallback_result(start_time, "Timeout before keyword filter - defaulting to safe")
-                
+                    return LLMFirewall._create_safe_fallback_result(
+                        start_time, "Timeout before keyword filter - defaulting to safe"
+                    )
+
                 kw_result = self.keyword_filter.check_content(text)
                 result["keyword_filter_result"] = kw_result
 
                 # If keyword filter flags content as unsafe, we can short-circuit
-                if not kw_result["is_safe"] and self.config.get("keyword_filter", {}).get("short_circuit", True):
+                if not kw_result["is_safe"] and self.config.get("keyword_filter", {}).get(
+                    "short_circuit", True
+                ):
                     result["is_safe"] = False
                     result["overall_reason"] = f"Keyword filter: {kw_result['reason']}"
                     result["processing_times"]["keyword_filter"] = time.time() - kw_start
@@ -167,7 +181,7 @@ class LLMFirewall:
                 result["keyword_filter_result"] = {
                     "is_safe": True,  # Changed from False to True for fail-open
                     "reason": f"Keyword filter error - defaulting to safe: {str(e)}",
-                    "matches": []
+                    "matches": [],
                 }
 
             result["processing_times"]["keyword_filter"] = time.time() - kw_start
@@ -176,8 +190,10 @@ class LLMFirewall:
         for i, guard in enumerate(self.guards):
             # Check timeout before each guard
             if time.time() - start_time > timeout:
-                return LLMFirewall._create_safe_fallback_result(start_time, f"Timeout before guard {i+1} - defaulting to safe")
-            
+                return LLMFirewall._create_safe_fallback_result(
+                    start_time, f"Timeout before guard {i+1} - defaulting to safe"
+                )
+
             guard_start = time.time()
             try:
                 guard_result = guard.check_content(text)
@@ -192,7 +208,7 @@ class LLMFirewall:
                     "category": "safe",
                     "reason": f"Guard error - defaulting to safe: {str(e)}",
                     "model": f"llm-guard-{i+1}",
-                    "raw_response": "Analysis failed"
+                    "raw_response": "Analysis failed",
                 }
                 result["guard_results"].append(guard_result)
 
@@ -202,43 +218,59 @@ class LLMFirewall:
         if result["guard_results"]:
             # Check timeout before category resolution
             if time.time() - start_time > timeout:
-                return LLMFirewall._create_safe_fallback_result(start_time, "Timeout before category resolution - defaulting to safe")
-            
+                return LLMFirewall._create_safe_fallback_result(
+                    start_time, "Timeout before category resolution - defaulting to safe"
+                )
+
             category_start = time.time()
-            
+
             try:
                 # Resolve category conflicts
-                resolution_result = self.category_manager.resolve_category_conflicts(result["guard_results"])
+                resolution_result = self.category_manager.resolve_category_conflicts(
+                    result["guard_results"]
+                )
             except Exception as e:
                 logging.error(f"Error during category resolution: {str(e)}", exc_info=True)
-                return LLMFirewall._create_safe_fallback_result(start_time, f"Category resolution error - defaulting to safe: {str(e)}")
-            
+                return LLMFirewall._create_safe_fallback_result(
+                    start_time, f"Category resolution error - defaulting to safe: {str(e)}"
+                )
+
             # Generate comprehensive category analysis
             result["category_analysis"] = {
                 "final_category": resolution_result["final_category"],
                 "resolution_method": resolution_result["resolution_method"],
                 "conflicting_categories": resolution_result.get("conflicting_categories", []),
-                "category_info": self.category_manager.get_category_info(resolution_result["final_category"])
+                "category_info": self.category_manager.get_category_info(
+                    resolution_result["final_category"]
+                ),
             }
-            
+
             # Update overall safety based on final category
             final_is_safe = resolution_result["final_is_safe"]
-            
+
             # Keyword filter can override if it found unsafe content and short_circuit is enabled
             if result["keyword_filter_result"] and not result["keyword_filter_result"]["is_safe"]:
                 if self.config.get("keyword_filter", {}).get("short_circuit", True):
                     result["is_safe"] = False
-                    result["overall_reason"] = f"Keyword filter: {result['keyword_filter_result']['reason']}"
+                    result["overall_reason"] = (
+                        f"Keyword filter: {result['keyword_filter_result']['reason']}"
+                    )
                 else:
                     # Combine keyword and guard results
                     result["is_safe"] = final_is_safe and result["keyword_filter_result"]["is_safe"]
                     if not result["is_safe"]:
                         if not result["keyword_filter_result"]["is_safe"] and not final_is_safe:
-                            result["overall_reason"] = "Both keyword filter and AI guards detected unsafe content"
+                            result["overall_reason"] = (
+                                "Both keyword filter and AI guards detected unsafe content"
+                            )
                         elif not result["keyword_filter_result"]["is_safe"]:
-                            result["overall_reason"] = f"Keyword filter: {result['keyword_filter_result']['reason']}"
+                            result["overall_reason"] = (
+                                f"Keyword filter: {result['keyword_filter_result']['reason']}"
+                            )
                         else:
-                            result["overall_reason"] = self.category_manager.generate_final_reason(resolution_result, result["guard_results"])
+                            result["overall_reason"] = self.category_manager.generate_final_reason(
+                                resolution_result, result["guard_results"]
+                            )
                     else:
                         result["overall_reason"] = "All checks passed"
             else:
@@ -247,8 +279,10 @@ class LLMFirewall:
                 if result["is_safe"]:
                     result["overall_reason"] = "All checks passed"
                 else:
-                    result["overall_reason"] = self.category_manager.generate_final_reason(resolution_result, result["guard_results"])
-            
+                    result["overall_reason"] = self.category_manager.generate_final_reason(
+                        resolution_result, result["guard_results"]
+                    )
+
             result["processing_times"]["category_resolution"] = time.time() - category_start
         else:
             # No guards ran, rely on keyword filter result
@@ -269,11 +303,11 @@ class LLMFirewall:
     def _create_safe_fallback_result(start_time, reason):
         """
         Create a safe fallback result when the firewall fails or times out
-        
+
         Args:
             start_time (float): Start time of the operation
             reason (str): Reason for the fallback
-            
+
         Returns:
             dict: Safe fallback result
         """
@@ -288,21 +322,19 @@ class LLMFirewall:
                 "category_info": {
                     "code": "SAFE",
                     "description": "Content is safe (fallback)",
-                    "severity": 0
-                }
+                    "severity": 0,
+                },
             },
             "overall_reason": reason,
-            "processing_times": {
-                "total": time.time() - start_time
-            },
-            "fallback_used": True
+            "processing_times": {"total": time.time() - start_time},
+            "fallback_used": True,
         }
 
     @staticmethod
     def _log_detailed_analysis(text, result, request_metadata=None):
         """
         Log detailed analysis information for monitoring and debugging
-        
+
         Args:
             text (str): Original input text
             result (dict): Firewall analysis result
@@ -310,8 +342,8 @@ class LLMFirewall:
         """
         try:
             # Generate text hash for privacy
-            text_hash = hashlib.sha256(text.encode('utf-8')).hexdigest()[:16]
-            
+            text_hash = hashlib.sha256(text.encode("utf-8")).hexdigest()[:16]
+
             # Extract key information
             is_safe = result.get("is_safe", True)
             category_analysis = result.get("category_analysis") or {}
@@ -320,11 +352,11 @@ class LLMFirewall:
             overall_reason = result.get("overall_reason", "")
             processing_time = result.get("processing_times", {}).get("total", 0)
             fallback_used = result.get("fallback_used", False)
-            
+
             # Extract matched keywords/rules
             matched_keywords = []
             matched_rules = []
-            
+
             keyword_result = result.get("keyword_filter_result")
             if keyword_result and not keyword_result.get("is_safe", True):
                 matches = keyword_result.get("matches", [])
@@ -333,7 +365,7 @@ class LLMFirewall:
                         matched_keywords.append(match.get("pattern", ""))
                     elif match.get("type") == "regex":
                         matched_rules.append(match.get("pattern", ""))
-            
+
             # Extract guard information
             guard_results_summary = []
             for guard_result in result.get("guard_results", []):
@@ -341,10 +373,10 @@ class LLMFirewall:
                     "model": guard_result.get("model", "unknown"),
                     "is_safe": guard_result.get("is_safe", True),
                     "category": guard_result.get("category", "unknown"),
-                    "raw_category": guard_result.get("raw_category", "unknown")
+                    "raw_category": guard_result.get("raw_category", "unknown"),
                 }
                 guard_results_summary.append(guard_info)
-            
+
             # Prepare log entry
             log_entry = {
                 "timestamp": datetime.now().isoformat(),
@@ -359,43 +391,45 @@ class LLMFirewall:
                 "overall_reason": overall_reason,
                 "processing_time_ms": round(processing_time * 1000, 2),
                 "fallback_used": fallback_used,
-                "guard_results": guard_results_summary
+                "guard_results": guard_results_summary,
             }
-            
+
             # Add request metadata if provided
             if request_metadata:
-                log_entry.update({
-                    "request_ip": request_metadata.get("client_ip", "unknown"),
-                    "user_agent": request_metadata.get("user_agent", "unknown"),
-                    "request_id": request_metadata.get("request_id", "unknown")
-                })
-            
+                log_entry.update(
+                    {
+                        "request_ip": request_metadata.get("client_ip", "unknown"),
+                        "user_agent": request_metadata.get("user_agent", "unknown"),
+                        "request_id": request_metadata.get("request_id", "unknown"),
+                    }
+                )
+
             # Create comprehensive log message
             status = "SAFE" if is_safe else "UNSAFE"
             summary_parts = [
                 f"STATUS={status}",
                 f"HASH={text_hash}",
-                f"TIME={log_entry['processing_time_ms']}ms"
+                f"TIME={log_entry['processing_time_ms']}ms",
             ]
-            
+
             if not is_safe:
                 summary_parts.append(f"TYPE={final_category}")
                 if matched_keywords:
                     summary_parts.append(f"KEYWORDS={','.join(matched_keywords[:3])}")
                 if matched_rules:
                     summary_parts.append(f"RULES={len(matched_rules)}")
-            
+
             if request_metadata:
                 summary_parts.append(f"IP={request_metadata.get('client_ip', 'unknown')}")
-            
+
             if fallback_used:
                 summary_parts.append("FALLBACK=true")
-            
+
             summary = " | ".join(summary_parts)
-            
+
             # Get dedicated firewall analysis logger
-            firewall_logger = logging.getLogger('firewall_analysis')
-            
+            firewall_logger = logging.getLogger("firewall_analysis")
+
             # Log with different levels based on result
             if fallback_used:
                 firewall_logger.warning(f"FIREWALL_FALLBACK | {summary}")
@@ -405,11 +439,11 @@ class LLMFirewall:
                 logging.info(f"Unsafe content detected: {text_hash} ({final_category})")
             else:
                 firewall_logger.info(f"FIREWALL_SAFE | {summary}")
-            
+
             # Also log detailed JSON for analysis (only in debug mode)
             if firewall_logger.isEnabledFor(logging.DEBUG):
                 firewall_logger.debug(f"FIREWALL_DETAILED | {json.dumps(log_entry, indent=None)}")
-                
+
         except Exception as e:
             logging.error(f"Error in detailed logging: {str(e)}", exc_info=True)
 

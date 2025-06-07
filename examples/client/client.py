@@ -24,12 +24,8 @@ def check_content(api_url, text):
         dict: API response
     """
     url = f"{api_url}/check"
-    headers = {
-        "Content-Type": "application/json"
-    }
-    data = {
-        "text": text
-    }
+    headers = {"Content-Type": "application/json"}
+    data = {"text": text}
 
     try:
         response = requests.post(url, headers=headers, json=data)
@@ -84,7 +80,7 @@ def main():
     # Get text to check
     if args.file:
         try:
-            with open(args.file, 'r') as f:
+            with open(args.file, "r") as f:
                 text = f.read()
         except Exception as e:
             print(f"Error reading file: {str(e)}")
@@ -106,7 +102,7 @@ def main():
     print(f"Is safe: {result['is_safe']}")
     print(f"Reason: {result['overall_reason']}")
 
-    if not result['is_safe']:
+    if not result["is_safe"]:
         sys.exit(1)
 
 
