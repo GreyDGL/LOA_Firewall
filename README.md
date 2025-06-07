@@ -63,10 +63,10 @@ LoAFirewall/
 The firewall uses a multi-layer approach:
 
 1. **Keyword Filter**: Fast regex-based detection for known patterns
-2. **AI Guards**: Multiple AI models for content analysis:
-   - LLaMA Guard 3: Detects 14 categories of harmful content
-   - IBM Granite Guardian: Additional safety analysis
-3. **Category Resolution**: Smart conflict resolution between guard outputs
+2. **AI Guards**: Multiple AI models for comprehensive content analysis
+   - Primary Guard: Advanced content classification and threat detection
+   - Secondary Guard: Additional safety validation and cross-verification
+3. **Category Resolution**: Intelligent conflict resolution and consensus building
 4. **Licensing**: Time-based license validation for commercial deployment
 
 ## 🚀 Running the Firewall
@@ -130,28 +130,110 @@ curl -X POST http://localhost:5001/check \
 
 ### Response Format
 
+**Safe Content Response:**
 ```json
 {
+  "request_id": "abc-123-def",
   "is_safe": true,
-  "overall_reason": "Content is safe",
-  "keyword_filter_result": {
-    "is_safe": true,
-    "reason": "No harmful keywords detected"
+  "category": "safe",
+  "confidence": "high",
+  "reason": "Content analysis completed successfully",
+  "analysis": {
+    "guards": [
+      {"guard_id": "guard_1", "status": "safe", "confidence": "normal"},
+      {"guard_id": "guard_2", "status": "safe", "confidence": "normal"}
+    ],
+    "keyword_filter": {
+      "enabled": true,
+      "status": "safe",
+      "matches_found": 0
+    },
+    "consensus": true
   },
-  "guard_results": [
-    {
-      "is_safe": true,
-      "category": "safe",
-      "model": "llm-guard-1"
-    }
-  ],
-  "category_analysis": {
-    "final_category": "safe",
-    "resolution_method": "consensus"
+  "processing_time_ms": 245.67,
+  "timestamp": 1673234567.123
+}
+```
+
+**Unsafe Content Response:**
+```json
+{
+  "request_id": "def-456-ghi",
+  "is_safe": false,
+  "category": "harmful_content",
+  "confidence": "high",
+  "reason": "Unsafe content detected",
+  "analysis": {
+    "guards": [
+      {
+        "guard_id": "guard_1",
+        "status": "flagged",
+        "confidence": "normal",
+        "detection_type": "harmful_content"
+      },
+      {"guard_id": "guard_2", "status": "safe", "confidence": "normal"}
+    ],
+    "keyword_filter": {
+      "enabled": true,
+      "status": "safe", 
+      "matches_found": 0
+    },
+    "consensus": false
   },
-  "processing_times": {
-    "total": 0.123
-  }
+  "processing_time_ms": 312.45,
+  "timestamp": 1673234567.123
+}
+```
+
+### Response Fields
+
+- **is_safe**: Boolean indicating if content is safe
+- **category**: Content classification (`safe`, `harmful_content`, `policy_violation`, `injection_attempt`, `unsafe_content`)
+- **confidence**: Analysis confidence level (`high`, `medium`, `low`)
+- **reason**: Human-readable explanation of the decision
+- **analysis.guards**: Summary of guard results (anonymized)
+- **analysis.keyword_filter**: Keyword filtering summary
+- **analysis.consensus**: Whether all guards agreed
+- **processing_time_ms**: Processing time in milliseconds
+
+### Additional API Endpoints
+
+**Health Check:**
+```bash
+curl http://localhost:5001/health
+```
+
+**Get Current Keywords:**
+```bash  
+curl http://localhost:5001/keywords
+```
+
+**Update Keywords:**
+```bash
+curl -X PUT http://localhost:5001/keywords \
+  -H "Content-Type: application/json" \
+  -d '{"keywords": ["malware", "hack"], "regex_patterns": ["\\bpassword\\b"]}'
+```
+
+**Get Statistics:**
+```bash
+curl http://localhost:5001/stats  
+```
+
+### Error Handling
+
+The API returns appropriate HTTP status codes:
+- **200**: Success
+- **400**: Bad request (missing fields, invalid JSON)
+- **403**: License validation failed  
+- **500**: Internal server error
+
+All error responses include:
+```json
+{
+  "error": "Error description",
+  "request_id": "unique-request-id",
+  "message": "Detailed error message"
 }
 ```
 
@@ -167,10 +249,12 @@ Main configuration is in `config/config.json`:
 ## 🔐 Security Features
 
 - **License-based Access**: Time-limited, encrypted licenses
-- **Fail-closed Design**: Defaults to blocking on errors
-- **Docker Isolation**: Containerized deployment
-- **Category Mapping**: Unified threat classification
-- **Audit Logging**: Comprehensive request/response logging
+- **Fail-safe Design**: Graceful degradation with safety fallbacks
+- **Docker Isolation**: Containerized deployment options
+- **Category Mapping**: Unified threat classification system
+- **Sanitized Responses**: Implementation details protected from clients
+- **Comprehensive Logging**: Detailed audit trails for analysis and monitoring
+- **Timeout Protection**: Prevents hanging operations with automatic fallbacks
 
 ## 📦 Building & Deployment
 

@@ -24,11 +24,23 @@ class LlamaGuard(BaseGuard):
             print(f"Error initializing {self.model_name}: {str(e)}")
             return False
 
-    def check_content(self, text):
+    def check_content(self, text, timeout=25):
         conversation = [{"role": "user", "content": text}]
         try:
-            reply = chat(model=self.model_name, messages=conversation)
-            content = reply.message.content.strip()
+            # Use thread-safe timeout with concurrent.futures
+            import concurrent.futures
+            
+            def _run_analysis():
+                reply = chat(model=self.model_name, messages=conversation)
+                return reply.message.content.strip()
+            
+            # Run analysis with timeout using ThreadPoolExecutor
+            with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+                future = executor.submit(_run_analysis)
+                try:
+                    content = future.result(timeout=timeout)
+                except concurrent.futures.TimeoutError:
+                    raise TimeoutError("LlamaGuard analysis timed out")
 
             # Parse Llama Guard response format
             raw_category = self._parse_llama_response(content)
@@ -48,15 +60,38 @@ class LlamaGuard(BaseGuard):
                 "model": self.guard_id,
                 "raw_response": "Content analysis completed"
             }
-        except Exception as e:
-            # If error checking content, fail closed (assume unsafe)
+        except TimeoutError:
+            # Guard timed out, fail open (assume safe)
             return {
-                "is_safe": False,
-                "category": "unknown_unsafe",
-                "raw_category": "error",
-                "reason": "Error during content analysis",
+                "is_safe": True,
+                "category": "safe",
+                "raw_category": "timeout",
+                "reason": "LlamaGuard analysis timed out - defaulting to safe",
                 "model": self.guard_id,
-                "raw_response": "Analysis failed"
+                "raw_response": "Analysis timed out"
+            }
+        except Exception as e:
+            # Log the specific error for debugging
+            import logging
+            logging.error(f"LlamaGuard error: {str(e)}", exc_info=True)
+            
+            # Determine error type for better handling
+            error_message = str(e).lower()
+            if "connection" in error_message or "refused" in error_message:
+                reason = f"LlamaGuard connection error - model may not be available: {str(e)}"
+            elif "model" in error_message and "not found" in error_message:
+                reason = f"LlamaGuard model not found - please install llama-guard3: {str(e)}"
+            else:
+                reason = f"LlamaGuard error - defaulting to safe: {str(e)}"
+            
+            # If error checking content, fail open (assume safe)
+            return {
+                "is_safe": True,
+                "category": "safe",
+                "raw_category": "error",
+                "reason": reason,
+                "model": self.guard_id,
+                "raw_response": f"Analysis failed: {str(e)}"
             }
     
     def _parse_llama_response(self, content):
@@ -105,9 +140,9 @@ class LlamaGuard(BaseGuard):
         if unified_category == "safe":
             return "Content is safe"
         elif unified_category == "jailbreak":
-            return "Content contains jailbreak or prompt injection attempt"
+            return f"Jailbreak attempt detected (category: {raw_category})"
         elif unified_category == "harmful_prompt":
-            return f"Content contains harmful or malicious prompt (category: {raw_category})"
+            return f"Harmful prompt detected (category: {raw_category})"
         elif unified_category == "unknown_unsafe":
             return "Content is unsafe"
         else:

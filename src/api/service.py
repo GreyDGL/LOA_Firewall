@@ -49,17 +49,42 @@ class FirewallService:
         self._init_firewall()
 
     def _setup_logging(self):
-        """Configure logging."""
+        """Configure comprehensive logging."""
         os.makedirs("logs", exist_ok=True)
 
-        logging.basicConfig(
-            level=logging.INFO,
-            format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-            handlers=[
-                logging.FileHandler("logs/firewall_service.log"),
-                logging.StreamHandler()
-            ]
+        # Create formatters
+        detailed_formatter = logging.Formatter(
+            '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
         )
+        
+        # Create main service logger
+        service_handler = logging.FileHandler("logs/firewall_service.log")
+        service_handler.setFormatter(detailed_formatter)
+        
+        # Create dedicated firewall analysis logger
+        firewall_handler = logging.FileHandler("logs/firewall_analysis.log")
+        firewall_handler.setFormatter(logging.Formatter('%(asctime)s - %(message)s'))
+        
+        # Create console handler
+        console_handler = logging.StreamHandler()
+        console_handler.setFormatter(detailed_formatter)
+        
+        # Configure root logger
+        root_logger = logging.getLogger()
+        root_logger.setLevel(logging.INFO)
+        root_logger.addHandler(service_handler)
+        root_logger.addHandler(console_handler)
+        
+        # Create dedicated firewall logger that only logs to firewall_analysis.log
+        firewall_logger = logging.getLogger('firewall_analysis')
+        firewall_logger.setLevel(logging.INFO)
+        firewall_logger.addHandler(firewall_handler)
+        firewall_logger.propagate = False  # Don't propagate to root logger
+        
+        # Enable debug logging if environment variable is set
+        if os.environ.get('LLM_FIREWALL_DEBUG', '').lower() in ('true', '1'):
+            root_logger.setLevel(logging.DEBUG)
+            firewall_logger.setLevel(logging.DEBUG)
 
     def _validate_license(self):
         """

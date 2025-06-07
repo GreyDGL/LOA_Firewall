@@ -9,12 +9,17 @@ UNIFIED_CATEGORIES = {
     },
     "jailbreak": {
         "code": "JAILBREAK",
-        "description": "Jailbreak or prompt injection attempt",
+        "description": "Jailbreak attempt detected",
         "severity": 3
     },
     "harmful_prompt": {
         "code": "HARMFUL",
         "description": "Harmful or malicious prompt",
+        "severity": 2
+    },
+    "prompt_injection": {
+        "code": "PROMPT_INJECTION",
+        "description": "Prompt injection attempt detected",
         "severity": 2
     },
     "unknown_unsafe": {
@@ -52,7 +57,7 @@ GRANITE_CATEGORY_MAPPING = {
 # Category conflict resolution rules
 CATEGORY_CONFLICT_RESOLUTION = {
     "strategy": "highest_severity",  # Options: "highest_severity", "first_match", "consensus"
-    "severity_order": ["safe", "unknown_unsafe", "harmful_prompt", "jailbreak"]
+    "severity_order": ["safe", "unknown_unsafe", "harmful_prompt", "prompt_injection", "jailbreak"]
 }
 
 default_config = {

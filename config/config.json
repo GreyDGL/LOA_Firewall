@@ -57,6 +57,11 @@
                 "description": "Harmful or malicious prompt",
                 "severity": 2
             },
+            "prompt_injection": {
+                "code": "PROMPT_INJECTION",
+                "description": "Prompt injection attempt detected",
+                "severity": 2
+            },
             "unknown_unsafe": {
                 "code": "UNKNOWN_UNSAFE",
                 "description": "Unsafe content of unknown or mixed type",
@@ -65,7 +70,7 @@
         },
         "conflict_resolution": {
             "strategy": "highest_severity",
-            "severity_order": ["safe", "unknown_unsafe", "harmful_prompt", "jailbreak"]
+            "severity_order": ["safe", "unknown_unsafe", "harmful_prompt", "prompt_injection", "jailbreak"]
         }
     },
     "api": {

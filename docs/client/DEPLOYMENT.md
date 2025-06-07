@@ -191,15 +191,56 @@ Content-Type: application/json
 ```
 
 ### Response Format
+
+**Safe Content:**
 ```json
 {
+  "request_id": "abc-123-def",
   "is_safe": true,
-  "guard_results": [...],
-  "category_analysis": {...},
-  "overall_reason": "All checks passed",
-  "processing_time": 0.15
+  "category": "safe",
+  "confidence": "high",
+  "reason": "Content analysis completed successfully",
+  "analysis": {
+    "guards": [
+      {"guard_id": "guard_1", "status": "safe", "confidence": "normal"},
+      {"guard_id": "guard_2", "status": "safe", "confidence": "normal"}
+    ],
+    "keyword_filter": {"enabled": true, "status": "safe", "matches_found": 0},
+    "consensus": true
+  },
+  "processing_time_ms": 245.67,
+  "timestamp": 1673234567.123
 }
 ```
+
+**Unsafe Content:**
+```json
+{
+  "request_id": "def-456-ghi",
+  "is_safe": false,
+  "category": "harmful_content",
+  "confidence": "high", 
+  "reason": "Unsafe content detected",
+  "analysis": {
+    "guards": [
+      {"guard_id": "guard_1", "status": "flagged", "confidence": "normal", "detection_type": "harmful_content"},
+      {"guard_id": "guard_2", "status": "safe", "confidence": "normal"}
+    ],
+    "keyword_filter": {"enabled": true, "status": "safe", "matches_found": 0},
+    "consensus": false
+  },
+  "processing_time_ms": 312.45,
+  "timestamp": 1673234567.123
+}
+```
+
+### Response Fields
+
+- **is_safe**: Boolean indicating content safety
+- **category**: Classification (`safe`, `harmful_content`, `policy_violation`, `injection_attempt`, `unsafe_content`) 
+- **confidence**: Analysis confidence level (`high`, `medium`, `low`)
+- **reason**: Human-readable explanation
+- **analysis**: Detailed breakdown with anonymized guard results
 
 ## License Information
 

@@ -43,12 +43,18 @@ class FirewallDemo:
             if show_full:
                 print(f"Response:\n{json.dumps(data, indent=2)}")
             else:
-                # Show only key fields for brevity
+                # Show only key fields for brevity (handle both old and new response formats)
                 if 'is_safe' in data:
                     print(f"Is Safe: {data['is_safe']}")
-                    if 'overall_reason' in data:
-                        print(f"Reason: {data['overall_reason']}")
-                    if 'processing_times' in data:
+                    
+                    # Handle both old 'overall_reason' and new 'reason' fields
+                    reason = data.get('reason') or data.get('overall_reason', 'N/A')
+                    print(f"Reason: {reason}")
+                    
+                    # Handle both old 'processing_times' and new 'processing_time_ms' fields
+                    if 'processing_time_ms' in data:
+                        print(f"Processing Time: {data['processing_time_ms']}ms")
+                    elif 'processing_times' in data:
                         print(f"Processing Time: {data['processing_times'].get('total', 'N/A')}s")
                 else:
                     print(f"Response:\n{json.dumps(data, indent=2)}")
@@ -155,33 +161,66 @@ class FirewallDemo:
                 else:
                     print(f"⚠️  Unexpected result: Expected {'safe' if expected else 'unsafe'}, got {'safe' if is_safe else 'unsafe'}")
                 
-                # Show detailed results for unsafe content
+                # Show detailed results for unsafe content (handle both old and new formats)
                 if not is_safe:
-                    kw_result = data.get('keyword_filter_result', {})
-                    if kw_result and not kw_result.get('is_safe', True):
-                        print(f"   🔍 Keyword filter matches: {kw_result.get('matches', [])}")
-                    
-                    # Show category analysis
-                    category_analysis = data.get('category_analysis', {})
-                    if category_analysis:
-                        final_category = category_analysis.get('final_category', 'unknown')
-                        resolution_method = category_analysis.get('resolution_method', 'unknown')
-                        print(f"   📊 Final category: {final_category} (resolved by {resolution_method})")
+                    # Handle keyword filter results (new format)
+                    analysis = data.get('analysis', {})
+                    if analysis:
+                        kw_filter = analysis.get('keyword_filter', {})
+                        if kw_filter and kw_filter.get('status') == 'flagged':
+                            matches_count = kw_filter.get('matches_found', 0)
+                            print(f"   🔍 Keyword filter: {matches_count} matches found")
                         
-                        conflicting = category_analysis.get('conflicting_categories', [])
-                        if conflicting:
-                            print(f"   ⚠️  Conflicting categories: {conflicting}")
+                        # Show guard results (new format)
+                        guards = analysis.get('guards', [])
+                        for guard in guards:
+                            guard_id = guard.get('guard_id', 'unknown')
+                            status = guard.get('status', 'unknown')
+                            detection_type = guard.get('detection_type', '')
+                            if detection_type:
+                                print(f"   🤖 {guard_id}: {status} ({detection_type})")
+                            else:
+                                print(f"   🤖 {guard_id}: {status}")
+                        
+                        # Show category and consensus
+                        category = data.get('category', 'unknown')
+                        consensus = analysis.get('consensus', False)
+                        print(f"   📊 Category: {category} (consensus: {consensus})")
                     
-                    guard_results = data.get('guard_results', [])
-                    for i, guard_result in enumerate(guard_results):
-                        model_name = guard_result.get('model', f'LLM-Guard-{i+1}')
-                        category = guard_result.get('category', 'unknown')
-                        print(f"   🤖 {model_name}: {category}")
+                    # Fallback to old format if new format not found
+                    else:
+                        kw_result = data.get('keyword_filter_result', {})
+                        if kw_result and not kw_result.get('is_safe', True):
+                            print(f"   🔍 Keyword filter matches: {kw_result.get('matches', [])}")
+                        
+                        # Show category analysis (old format)
+                        category_analysis = data.get('category_analysis', {})
+                        if category_analysis:
+                            final_category = category_analysis.get('final_category', 'unknown')
+                            resolution_method = category_analysis.get('resolution_method', 'unknown')
+                            print(f"   📊 Final category: {final_category} (resolved by {resolution_method})")
+                            
+                            conflicting = category_analysis.get('conflicting_categories', [])
+                            if conflicting:
+                                print(f"   ⚠️  Conflicting categories: {conflicting}")
+                        
+                        guard_results = data.get('guard_results', [])
+                        for i, guard_result in enumerate(guard_results):
+                            model_name = guard_result.get('model', f'LLM-Guard-{i+1}')
+                            category = guard_result.get('category', 'unknown')
+                            print(f"   🤖 {model_name}: {category}")
+                
+                # Handle processing time (both old and new formats)
+                processing_time = 0
+                if 'processing_time_ms' in data:
+                    processing_time = data['processing_time_ms'] / 1000  # Convert ms to seconds
+                elif 'processing_times' in data:
+                    processing_time = data.get('processing_times', {}).get('total', 0)
                 
                 results.append({
                     "test": test_case['name'],
                     "passed": is_safe == expected,
-                    "processing_time": data.get('processing_times', {}).get('total', 0)
+                    "processing_time": processing_time
                 })
             else:
                 results.append({
@@ -255,11 +294,20 @@ class FirewallDemo:
                     print(f"Result: {'Safe' if is_safe else 'Unsafe ⚠️'}")
                     
                     if not is_safe:
-                        kw_result = data.get('keyword_filter_result', {})
-                        if kw_result:
-                            matches = kw_result.get('matches', [])
-                            if matches:
-                                print(f"Matches: {matches}")
+                        # Handle new format first
+                        analysis = data.get('analysis', {})
+                        if analysis:
+                            kw_filter = analysis.get('keyword_filter', {})
+                            if kw_filter and kw_filter.get('status') == 'flagged':
+                                matches_count = kw_filter.get('matches_found', 0)
+                                print(f"Keyword matches found: {matches_count}")
+                        else:
+                            # Fallback to old format
+                            kw_result = data.get('keyword_filter_result', {})
+                            if kw_result:
+                                matches = kw_result.get('matches', [])
+                                if matches:
+                                    print(f"Matches: {matches}")
         
         # Demo error handling
         self.print_step("Error Handling - Invalid Regex")
@@ -317,7 +365,12 @@ class FirewallDemo:
                 
                 if response.status_code == 200:
                     data = response.json()
-                    server_time = data.get('processing_times', {}).get('total', 0)
+                    # Handle both old and new response formats
+                    if 'processing_time_ms' in data:
+                        server_time = data['processing_time_ms'] / 1000  # Convert ms to seconds
+                    else:
+                        server_time = data.get('processing_times', {}).get('total', 0)
+                    
                     client_time = end_time - start_time
                     times.append((server_time, client_time))
             
@@ -394,6 +447,7 @@ class FirewallDemo:
             print("• Both keyword and AI-based detection work effectively")
             print("• The system handles errors gracefully")
             print("• Performance is suitable for real-time content filtering")
+            print("• API responses are sanitized to protect implementation details")
             
             print(f"\n📚 For more information, see the README.md file")
             print(f"🔗 API Base URL: {self.base_url}")

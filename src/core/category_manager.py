@@ -45,7 +45,11 @@ class CategoryManager:
     
     def resolve_category_conflicts(self, guard_results):
         """
-        Resolve conflicts between multiple guard results
+        Resolve conflicts between multiple guard results using custom logic:
+        1. If both guards report safe → safe
+        2. If llama safe, granite unsafe → prompt injection  
+        3. If llama unsafe with reason, granite safe → report llama guard reasoning
+        4. If both unsafe → report reason based on llama guard
         
         Args:
             guard_results (list): List of guard result dictionaries
@@ -61,6 +65,11 @@ class CategoryManager:
                 "conflicting_categories": []
             }
         
+        # Check if we have exactly two guards (llama and granite)
+        if len(guard_results) == 2:
+            return self._resolve_two_guard_conflicts(guard_results)
+        
+        # Fallback to original logic for other cases
         # Extract categories and their sources
         categories = []
         for result in guard_results:
@@ -103,6 +112,94 @@ class CategoryManager:
             # Default to highest severity
             return self._resolve_by_highest_severity(categories)
     
+    def _resolve_two_guard_conflicts(self, guard_results):
+        """
+        Resolve conflicts between exactly two guards (llama and granite) using custom logic:
+        1. If both guards report safe → safe
+        2. If llama safe, granite unsafe → prompt injection  
+        3. If llama unsafe with reason, granite safe → report llama guard reasoning
+        4. If both unsafe → report reason based on llama guard
+        
+        Args:
+            guard_results (list): List of exactly 2 guard result dictionaries
+            
+        Returns:
+            dict: Resolved result with final category and reasoning
+        """
+        # Identify which guard is which
+        llama_result = None
+        granite_result = None
+        
+        for result in guard_results:
+            model = result.get("model", "")
+            if "guard-1" in model or "llama" in model.lower():
+                llama_result = result
+            elif "guard-2" in model or "granite" in model.lower():
+                granite_result = result
+        
+        # If we can't identify the guards, fall back to the original logic
+        if not llama_result or not granite_result:
+            categories = []
+            for result in guard_results:
+                if result.get("category"):
+                    categories.append({
+                        "category": result["category"],
+                        "model": result.get("model", "unknown"),
+                        "severity": self.get_category_severity(result["category"])
+                    })
+            return self._resolve_by_highest_severity(categories)
+        
+        llama_category = llama_result.get("category", "unknown")
+        granite_category = granite_result.get("category", "unknown")
+        llama_safe = llama_category == "safe"
+        granite_safe = granite_category == "safe"
+        
+        # Rule 1: If both guards report safe → safe
+        if llama_safe and granite_safe:
+            return {
+                "final_category": "safe",
+                "final_is_safe": True,
+                "resolution_method": "both_safe",
+                "conflicting_categories": [],
+                "llama_category": llama_category,
+                "granite_category": granite_category
+            }
+        
+        # Rule 2: If llama safe, granite unsafe → prompt injection
+        elif llama_safe and not granite_safe:
+            return {
+                "final_category": "prompt_injection",
+                "final_is_safe": False,
+                "resolution_method": "llama_safe_granite_unsafe",
+                "conflicting_categories": [llama_category, granite_category],
+                "llama_category": llama_category,
+                "granite_category": granite_category
+            }
+        
+        # Rule 3: If llama unsafe with reason, granite safe → report llama guard reasoning
+        elif not llama_safe and granite_safe:
+            return {
+                "final_category": llama_category,
+                "final_is_safe": False,
+                "resolution_method": "llama_unsafe_granite_safe",
+                "conflicting_categories": [granite_category],
+                "llama_category": llama_category,
+                "granite_category": granite_category,
+                "selected_model": llama_result.get("model", "llama-guard")
+            }
+        
+        # Rule 4: If both unsafe → report reason based on llama guard
+        else:  # both unsafe
+            return {
+                "final_category": llama_category,
+                "final_is_safe": False,
+                "resolution_method": "both_unsafe_use_llama",
+                "conflicting_categories": [granite_category] if granite_category != llama_category else [],
+                "llama_category": llama_category,
+                "granite_category": granite_category,
+                "selected_model": llama_result.get("model", "llama-guard")
+            }
+
     def _resolve_by_highest_severity(self, categories):
         """Resolve by selecting the category with highest severity"""
         highest_severity = max(cat["severity"] for cat in categories)
@@ -177,7 +274,36 @@ class CategoryManager:
         
         category_info = self.get_category_info(final_category)
         
-        if method == "consensus":
+        # Handle new resolution methods
+        if method == "both_safe":
+            return "Both guards agree: Content is safe"
+        elif method == "llama_safe_granite_unsafe":
+            return "Prompt injection detected: LlamaGuard safe, GraniteGuard unsafe"
+        elif method == "llama_unsafe_granite_safe":
+            # Find the original reason from LlamaGuard
+            llama_result = None
+            for result in guard_results:
+                model = result.get("model", "")
+                if "guard-1" in model or "llama" in model.lower():
+                    llama_result = result
+                    break
+            if llama_result and llama_result.get("reason"):
+                return llama_result["reason"]
+            else:
+                return f"LlamaGuard detection: {category_info['description']}"
+        elif method == "both_unsafe_use_llama":
+            # Find the original reason from LlamaGuard  
+            llama_result = None
+            for result in guard_results:
+                model = result.get("model", "")
+                if "guard-1" in model or "llama" in model.lower():
+                    llama_result = result
+                    break
+            if llama_result and llama_result.get("reason"):
+                return llama_result["reason"]
+            else:
+                return f"Both guards unsafe - LlamaGuard reasoning: {category_info['description']}"
+        elif method == "consensus":
             return f"All guards agree: {category_info['description']}"
         elif method == "highest_severity":
             conflicting = resolution_result.get("conflicting_categories", [])
@@ -187,5 +313,7 @@ class CategoryManager:
                 return category_info["description"]
         elif method == "first_match":
             return f"First unsafe detection: {category_info['description']}"
+        elif method == "fallback":
+            return "Firewall timeout or error - content assumed safe"
         else:
             return category_info["description"]

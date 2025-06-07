@@ -924,3 +924,1101 @@ AssertionError: View function mapping is overwriting an existing endpoint functi
 2025-06-07 11:44:12,697 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
 2025-06-07 11:44:12,698 - root - INFO - Request 9c3347e0-4525-4a3b-a0bf-f620ca0c6844 processed in 0.696s, is_safe: False
 2025-06-07 11:44:12,698 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 11:44:12] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:02:50,469 - root - INFO - Loaded custom config from config/config.json
+2025-06-07 14:02:50,469 - root - INFO - Initializing LLM Firewall
+2025-06-07 14:02:50,471 - root - INFO - Keyword filter initialized successfully
+2025-06-07 14:02:54,483 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:02:54,485 - root - INFO - Guard llama_guard initialized successfully
+2025-06-07 14:02:58,650 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:02:58,653 - root - INFO - Guard granite_guard initialized successfully
+2025-06-07 14:02:58,653 - root - INFO - Firewall initialized with 2 guards and keyword filter enabled
+2025-06-07 14:02:58,656 - root - INFO - Starting LLM Firewall API on 0.0.0.0:5001
+2025-06-07 14:02:58,656 - root - INFO - Starting API server on 0.0.0.0:5001
+2025-06-07 14:02:58,664 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://172.20.10.7:5001
+2025-06-07 14:02:58,664 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-07 14:02:59,562 - root - INFO - Request ac516fbd-4ed7-4a4c-ba56-896a37bdc2fd received at /check
+2025-06-07 14:03:00,227 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:03:00,712 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:03:00,713 - root - INFO - Request ac516fbd-4ed7-4a4c-ba56-896a37bdc2fd processed in 1.151s, is_safe: False
+2025-06-07 14:03:00,714 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:03:00] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:03:15,260 - root - INFO - Loaded custom config from config/config.json
+2025-06-07 14:03:15,261 - root - INFO - Initializing LLM Firewall
+2025-06-07 14:03:15,262 - root - INFO - Keyword filter initialized successfully
+2025-06-07 14:03:15,755 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:03:15,757 - root - INFO - Guard llama_guard initialized successfully
+2025-06-07 14:03:16,221 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:03:16,222 - root - INFO - Guard granite_guard initialized successfully
+2025-06-07 14:03:16,222 - root - INFO - Firewall initialized with 2 guards and keyword filter enabled
+2025-06-07 14:03:16,226 - root - INFO - Starting LLM Firewall API on 0.0.0.0:5001
+2025-06-07 14:03:16,226 - root - INFO - Starting API server on 0.0.0.0:5001
+2025-06-07 14:03:16,231 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://172.20.10.7:5001
+2025-06-07 14:03:16,232 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-07 14:10:49,281 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:49] "GET /health HTTP/1.1" 200 -
+2025-06-07 14:10:49,284 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:49] "GET /health HTTP/1.1" 200 -
+2025-06-07 14:10:49,286 - root - INFO - Request 0a4dc861-6025-4422-82bc-62f75d44377c received at /check
+2025-06-07 14:10:51,315 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:52,791 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:52,792 - root - INFO - Request 0a4dc861-6025-4422-82bc-62f75d44377c processed in 3.506s, is_safe: True
+2025-06-07 14:10:52,793 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:52] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:10:52,800 - root - INFO - Request 3d2ebd5f-200f-49b9-a432-10fc669e8f26 received at /check
+2025-06-07 14:10:52,800 - root - INFO - Request 3d2ebd5f-200f-49b9-a432-10fc669e8f26 processed in 0.000s, is_safe: False
+2025-06-07 14:10:52,800 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:52] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:10:52,803 - root - INFO - Request f669f9ef-a7b3-4aff-9ac8-00eab9956020 received at /check
+2025-06-07 14:10:52,803 - root - INFO - Request f669f9ef-a7b3-4aff-9ac8-00eab9956020 processed in 0.000s, is_safe: False
+2025-06-07 14:10:52,803 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:52] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:10:52,805 - root - INFO - Request 4ab70a1c-1be6-4153-a8a3-4367f41a2d18 received at /check
+2025-06-07 14:10:52,805 - root - INFO - Request 4ab70a1c-1be6-4153-a8a3-4367f41a2d18 processed in 0.000s, is_safe: False
+2025-06-07 14:10:52,805 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:52] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:10:52,807 - root - INFO - Request 8122f493-2e39-4722-b88d-6affabca5108 received at /check
+2025-06-07 14:10:53,260 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:53,754 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:53,755 - root - INFO - Request 8122f493-2e39-4722-b88d-6affabca5108 processed in 0.948s, is_safe: False
+2025-06-07 14:10:53,756 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:53] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:10:53,762 - root - INFO - Request 31ac295d-f768-457e-9574-d20a649ed52b received at /check
+2025-06-07 14:10:53,763 - root - INFO - Request 31ac295d-f768-457e-9574-d20a649ed52b processed in 0.000s, is_safe: False
+2025-06-07 14:10:53,763 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:53] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:10:53,767 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:53] "GET /keywords HTTP/1.1" 200 -
+2025-06-07 14:10:53,771 - root - INFO - Keywords updated: 12 keywords, 5 patterns
+2025-06-07 14:10:53,771 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:53] "PUT /keywords HTTP/1.1" 200 -
+2025-06-07 14:10:53,773 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:53] "GET /keywords HTTP/1.1" 200 -
+2025-06-07 14:10:53,775 - root - INFO - Request 61561f7e-068b-430b-a12b-3995d285823f received at /check
+2025-06-07 14:10:53,775 - root - INFO - Request 61561f7e-068b-430b-a12b-3995d285823f processed in 0.000s, is_safe: False
+2025-06-07 14:10:53,776 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:53] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:10:53,777 - root - INFO - Request 1d81c858-1ce3-45b1-bb91-51b514531caf received at /check
+2025-06-07 14:10:53,778 - root - INFO - Request 1d81c858-1ce3-45b1-bb91-51b514531caf processed in 0.000s, is_safe: False
+2025-06-07 14:10:53,778 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:53] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:10:53,779 - root - INFO - Request 2e64027e-456d-4db2-8e8e-9b65e22137f6 received at /check
+2025-06-07 14:10:53,991 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:54,301 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:54,302 - root - INFO - Request 2e64027e-456d-4db2-8e8e-9b65e22137f6 processed in 0.522s, is_safe: True
+2025-06-07 14:10:54,302 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:54] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:10:54,308 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:54] "[31m[1mPUT /keywords HTTP/1.1[0m" 400 -
+2025-06-07 14:10:54,312 - root - INFO - Keywords updated: 9 keywords, 3 patterns
+2025-06-07 14:10:54,313 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:54] "PUT /keywords HTTP/1.1" 200 -
+2025-06-07 14:10:54,315 - root - INFO - Request d37830a3-7dc0-4e4e-bc36-30dcf5215a72 received at /check
+2025-06-07 14:10:54,522 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:54,878 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:54,878 - root - INFO - Request d37830a3-7dc0-4e4e-bc36-30dcf5215a72 processed in 0.563s, is_safe: True
+2025-06-07 14:10:54,879 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:54] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:10:54,884 - root - INFO - Request 8d017924-dc3a-43be-ac03-1934dd9c2542 received at /check
+2025-06-07 14:10:54,945 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:55,009 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:55,010 - root - INFO - Request 8d017924-dc3a-43be-ac03-1934dd9c2542 processed in 0.126s, is_safe: True
+2025-06-07 14:10:55,011 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:55] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:10:55,015 - root - INFO - Request 54c05da4-b6fb-4939-99f5-32c88eb9ca1a received at /check
+2025-06-07 14:10:55,074 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:55,141 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:55,141 - root - INFO - Request 54c05da4-b6fb-4939-99f5-32c88eb9ca1a processed in 0.126s, is_safe: True
+2025-06-07 14:10:55,142 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:55] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:10:55,147 - root - INFO - Request 617824be-1424-4c36-ba20-b1f35812ca86 received at /check
+2025-06-07 14:10:55,877 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:56,805 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:56,806 - root - INFO - Request 617824be-1424-4c36-ba20-b1f35812ca86 processed in 1.659s, is_safe: True
+2025-06-07 14:10:56,807 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:56] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:10:56,813 - root - INFO - Request 5173c967-c848-4835-92dc-5bd6a2327df2 received at /check
+2025-06-07 14:10:56,873 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:56,932 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:56,933 - root - INFO - Request 5173c967-c848-4835-92dc-5bd6a2327df2 processed in 0.120s, is_safe: True
+2025-06-07 14:10:56,934 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:56] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:10:56,940 - root - INFO - Request c408501c-6976-4882-b5af-80e73463b8b3 received at /check
+2025-06-07 14:10:56,994 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:57,055 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:57,056 - root - INFO - Request c408501c-6976-4882-b5af-80e73463b8b3 processed in 0.116s, is_safe: True
+2025-06-07 14:10:57,057 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:57] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:10:57,062 - root - INFO - Request 07b80724-1cc5-4e73-8fd1-962e0ae71ad7 received at /check
+2025-06-07 14:10:57,062 - root - INFO - Request 07b80724-1cc5-4e73-8fd1-962e0ae71ad7 processed in 0.000s, is_safe: False
+2025-06-07 14:10:57,062 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:57] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:10:57,065 - root - INFO - Request ac197da5-3997-44ef-826e-5c44ab2bd55d received at /check
+2025-06-07 14:10:57,065 - root - INFO - Request ac197da5-3997-44ef-826e-5c44ab2bd55d processed in 0.000s, is_safe: False
+2025-06-07 14:10:57,066 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:57] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:10:57,068 - root - INFO - Request b0b7da38-2733-42e0-8da8-93845e0955e0 received at /check
+2025-06-07 14:10:57,068 - root - INFO - Request b0b7da38-2733-42e0-8da8-93845e0955e0 processed in 0.000s, is_safe: False
+2025-06-07 14:10:57,069 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:57] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:10:57,071 - root - INFO - Request 38bb14b6-ece4-4c07-8ba9-77a71ac37928 received at /check
+2025-06-07 14:10:57,404 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:57,842 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:57,842 - root - INFO - Request 38bb14b6-ece4-4c07-8ba9-77a71ac37928 processed in 0.771s, is_safe: True
+2025-06-07 14:10:57,842 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:57] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:10:57,845 - root - INFO - Request a0574abf-f4f0-4671-9c4c-773190326927 received at /check
+2025-06-07 14:10:57,900 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:57,958 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:57,959 - root - INFO - Request a0574abf-f4f0-4671-9c4c-773190326927 processed in 0.114s, is_safe: True
+2025-06-07 14:10:57,960 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:57] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:10:57,965 - root - INFO - Request beda2a34-c1a2-4516-b45f-51d8bdd1ba5b received at /check
+2025-06-07 14:10:58,019 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:58,078 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:10:58,079 - root - INFO - Request beda2a34-c1a2-4516-b45f-51d8bdd1ba5b processed in 0.114s, is_safe: True
+2025-06-07 14:10:58,079 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:58] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:10:58,084 - root - INFO - Request 4cd3158a-36a7-4ce3-8a31-d6dd9d565220 received at /check
+2025-06-07 14:10:58,085 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:58] "[31m[1mPOST /check HTTP/1.1[0m" 400 -
+2025-06-07 14:10:58,088 - root - INFO - Request 31ffac6d-7d5d-41b3-80c6-f4fc5ccce7b5 received at /check
+2025-06-07 14:10:58,088 - root - WARNING - Request 31ffac6d-7d5d-41b3-80c6-f4fc5ccce7b5 rejected: missing 'text' field
+2025-06-07 14:10:58,088 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:58] "[31m[1mPOST /check HTTP/1.1[0m" 400 -
+2025-06-07 14:10:58,090 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:10:58] "[33mGET /nonexistent HTTP/1.1[0m" 404 -
+2025-06-07 14:37:19,260 - root - INFO - Request b87d9eb2-58ed-45fd-a481-41fafdfbb81e received at /check
+2025-06-07 14:37:21,475 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:37:23,419 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:37:23,420 - root - INFO - Request b87d9eb2-58ed-45fd-a481-41fafdfbb81e processed in 4.160s, is_safe: False
+2025-06-07 14:37:23,421 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:37:23] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:09,079 - root - INFO - Request baf42be4-66fe-4ef4-91f4-3754d3a56d2e received at /check
+2025-06-07 14:38:09,497 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:10,022 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:10,023 - root - INFO - Request baf42be4-66fe-4ef4-91f4-3754d3a56d2e processed in 0.944s, is_safe: True
+2025-06-07 14:38:10,024 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:10] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:41,118 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:41] "GET /health HTTP/1.1" 200 -
+2025-06-07 14:38:41,120 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:41] "GET /health HTTP/1.1" 200 -
+2025-06-07 14:38:41,122 - root - INFO - Request 6dea9a1e-9455-4f17-ac39-334321fd4736 received at /check
+2025-06-07 14:38:41,526 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:42,047 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:42,048 - root - INFO - Request 6dea9a1e-9455-4f17-ac39-334321fd4736 processed in 0.925s, is_safe: True
+2025-06-07 14:38:42,048 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:42] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:42,052 - root - INFO - Request 027a7997-0923-4bc4-88db-71c4d611d9a9 received at /check
+2025-06-07 14:38:42,052 - root - INFO - Request 027a7997-0923-4bc4-88db-71c4d611d9a9 processed in 0.000s, is_safe: False
+2025-06-07 14:38:42,053 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:42] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:42,055 - root - INFO - Request 3579e0ba-ac92-41e3-a70f-bc700316834d received at /check
+2025-06-07 14:38:42,055 - root - INFO - Request 3579e0ba-ac92-41e3-a70f-bc700316834d processed in 0.000s, is_safe: False
+2025-06-07 14:38:42,055 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:42] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:42,057 - root - INFO - Request bf70f3c4-db00-4abb-98f5-b7217de81381 received at /check
+2025-06-07 14:38:42,057 - root - INFO - Request bf70f3c4-db00-4abb-98f5-b7217de81381 processed in 0.000s, is_safe: False
+2025-06-07 14:38:42,057 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:42] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:42,059 - root - INFO - Request a22bcb0d-0ed1-46f7-a73d-6699e7c31ba9 received at /check
+2025-06-07 14:38:42,482 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:42,973 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:42,973 - root - INFO - Request a22bcb0d-0ed1-46f7-a73d-6699e7c31ba9 processed in 0.914s, is_safe: False
+2025-06-07 14:38:42,974 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:42] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:42,979 - root - INFO - Request dad57f20-23b9-4446-9963-2015cff4c476 received at /check
+2025-06-07 14:38:42,979 - root - INFO - Request dad57f20-23b9-4446-9963-2015cff4c476 processed in 0.000s, is_safe: False
+2025-06-07 14:38:42,980 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:42] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:42,984 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:42] "GET /keywords HTTP/1.1" 200 -
+2025-06-07 14:38:42,987 - root - INFO - Keywords updated: 12 keywords, 5 patterns
+2025-06-07 14:38:42,987 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:42] "PUT /keywords HTTP/1.1" 200 -
+2025-06-07 14:38:42,989 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:42] "GET /keywords HTTP/1.1" 200 -
+2025-06-07 14:38:42,991 - root - INFO - Request 7887f8dc-c8e8-409f-89e3-fd3487f54d12 received at /check
+2025-06-07 14:38:42,991 - root - INFO - Request 7887f8dc-c8e8-409f-89e3-fd3487f54d12 processed in 0.000s, is_safe: False
+2025-06-07 14:38:42,991 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:42] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:42,993 - root - INFO - Request 8f9efbbf-3cab-47cc-9fd4-85cb820cfe43 received at /check
+2025-06-07 14:38:42,993 - root - INFO - Request 8f9efbbf-3cab-47cc-9fd4-85cb820cfe43 processed in 0.000s, is_safe: False
+2025-06-07 14:38:42,993 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:42] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:42,995 - root - INFO - Request 51589f23-8a30-45b1-bc4b-7e597f5df0a9 received at /check
+2025-06-07 14:38:43,197 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:43,548 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:43,549 - root - INFO - Request 51589f23-8a30-45b1-bc4b-7e597f5df0a9 processed in 0.553s, is_safe: True
+2025-06-07 14:38:43,549 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:43] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:43,555 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:43] "[31m[1mPUT /keywords HTTP/1.1[0m" 400 -
+2025-06-07 14:38:43,558 - root - INFO - Keywords updated: 9 keywords, 3 patterns
+2025-06-07 14:38:43,559 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:43] "PUT /keywords HTTP/1.1" 200 -
+2025-06-07 14:38:43,561 - root - INFO - Request 2fea2c74-8328-43ee-a046-4ec799758c43 received at /check
+2025-06-07 14:38:43,788 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:44,119 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:44,119 - root - INFO - Request 2fea2c74-8328-43ee-a046-4ec799758c43 processed in 0.558s, is_safe: True
+2025-06-07 14:38:44,120 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:44] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:44,125 - root - INFO - Request e01c7f75-237f-46b7-92e3-30ae450916f8 received at /check
+2025-06-07 14:38:44,181 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:44,241 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:44,242 - root - INFO - Request e01c7f75-237f-46b7-92e3-30ae450916f8 processed in 0.117s, is_safe: True
+2025-06-07 14:38:44,243 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:44] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:44,247 - root - INFO - Request fd50c9ca-b721-409c-9c05-348031a460cf received at /check
+2025-06-07 14:38:44,304 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:44,366 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:44,367 - root - INFO - Request fd50c9ca-b721-409c-9c05-348031a460cf processed in 0.120s, is_safe: True
+2025-06-07 14:38:44,368 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:44] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:44,373 - root - INFO - Request 062f2e39-e57e-43bb-bc02-b0135d81601f received at /check
+2025-06-07 14:38:45,109 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:46,052 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:46,053 - root - INFO - Request 062f2e39-e57e-43bb-bc02-b0135d81601f processed in 1.679s, is_safe: True
+2025-06-07 14:38:46,053 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:46] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:46,058 - root - INFO - Request 4bfa67d5-3912-4694-9a54-b02a912f4eba received at /check
+2025-06-07 14:38:46,116 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:46,176 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:46,177 - root - INFO - Request 4bfa67d5-3912-4694-9a54-b02a912f4eba processed in 0.119s, is_safe: True
+2025-06-07 14:38:46,178 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:46] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:46,183 - root - INFO - Request 4235bc29-5a6f-4d58-b5e4-246608aff609 received at /check
+2025-06-07 14:38:46,241 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:46,306 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:46,306 - root - INFO - Request 4235bc29-5a6f-4d58-b5e4-246608aff609 processed in 0.124s, is_safe: True
+2025-06-07 14:38:46,307 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:46] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:46,312 - root - INFO - Request c5807afd-c939-417b-8438-2c5f10b34f2b received at /check
+2025-06-07 14:38:46,313 - root - INFO - Request c5807afd-c939-417b-8438-2c5f10b34f2b processed in 0.000s, is_safe: False
+2025-06-07 14:38:46,313 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:46] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:46,316 - root - INFO - Request 35a96a5d-cbdd-4ba0-bc17-eae25c2f27cd received at /check
+2025-06-07 14:38:46,316 - root - INFO - Request 35a96a5d-cbdd-4ba0-bc17-eae25c2f27cd processed in 0.000s, is_safe: False
+2025-06-07 14:38:46,316 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:46] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:46,319 - root - INFO - Request 515b2466-5cee-439a-92d1-320c808f7eb6 received at /check
+2025-06-07 14:38:46,319 - root - INFO - Request 515b2466-5cee-439a-92d1-320c808f7eb6 processed in 0.000s, is_safe: False
+2025-06-07 14:38:46,319 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:46] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:46,321 - root - INFO - Request e4870ff4-ddce-4efb-8a6d-53ee2817648d received at /check
+2025-06-07 14:38:46,641 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:47,083 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:47,083 - root - INFO - Request e4870ff4-ddce-4efb-8a6d-53ee2817648d processed in 0.762s, is_safe: True
+2025-06-07 14:38:47,084 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:47] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:47,087 - root - INFO - Request 5d6d7a33-9e49-4497-8516-15eaa9311ded received at /check
+2025-06-07 14:38:47,144 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:47,203 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:47,204 - root - INFO - Request 5d6d7a33-9e49-4497-8516-15eaa9311ded processed in 0.116s, is_safe: True
+2025-06-07 14:38:47,205 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:47] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:47,209 - root - INFO - Request 56136643-cc87-4971-9a1b-234ebab2687f received at /check
+2025-06-07 14:38:47,264 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:47,323 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 14:38:47,324 - root - INFO - Request 56136643-cc87-4971-9a1b-234ebab2687f processed in 0.115s, is_safe: True
+2025-06-07 14:38:47,325 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:47] "POST /check HTTP/1.1" 200 -
+2025-06-07 14:38:47,330 - root - INFO - Request fcefed0c-dfbe-425b-a1f5-228e99902062 received at /check
+2025-06-07 14:38:47,331 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:47] "[31m[1mPOST /check HTTP/1.1[0m" 400 -
+2025-06-07 14:38:47,334 - root - INFO - Request e4fd607f-b083-49de-97ce-3855722a76f0 received at /check
+2025-06-07 14:38:47,334 - root - WARNING - Request e4fd607f-b083-49de-97ce-3855722a76f0 rejected: missing 'text' field
+2025-06-07 14:38:47,334 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:47] "[31m[1mPOST /check HTTP/1.1[0m" 400 -
+2025-06-07 14:38:47,337 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 14:38:47] "[33mGET /nonexistent HTTP/1.1[0m" 404 -
+2025-06-08 00:30:01,414 - root - INFO - Loaded custom config from config/config.json
+2025-06-08 00:30:01,414 - root - INFO - Initializing LLM Firewall
+2025-06-08 00:30:01,415 - root - INFO - Keyword filter initialized successfully
+2025-06-08 00:30:04,761 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:30:04,762 - root - INFO - Guard llama_guard initialized successfully
+2025-06-08 00:30:08,388 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:30:08,388 - root - INFO - Guard granite_guard initialized successfully
+2025-06-08 00:30:08,388 - root - INFO - Firewall initialized with 2 guards and keyword filter enabled
+2025-06-08 00:30:08,392 - root - INFO - Starting LLM Firewall API on 0.0.0.0:5001
+2025-06-08 00:30:08,392 - root - INFO - Starting API server on 0.0.0.0:5001
+2025-06-08 00:30:08,401 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.184:5001
+2025-06-08 00:30:08,401 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-08 00:30:25,193 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "GET /health HTTP/1.1" 200 -
+2025-06-08 00:30:25,194 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "GET /health HTTP/1.1" 200 -
+2025-06-08 00:30:25,195 - root - INFO - Request 73270ee0-3dfa-4b6d-b0a2-3837651662ff received at /check
+2025-06-08 00:30:25,195 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=9e46da316ef16f99 | TIME=0.03ms | IP=127.0.0.1
+2025-06-08 00:30:25,195 - root - INFO - Request 73270ee0-3dfa-4b6d-b0a2-3837651662ff processed in 0.000s, is_safe: True
+2025-06-08 00:30:25,195 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:30:25,196 - root - INFO - Request 55b86419-61e2-4b7d-8a76-a623604304b2 received at /check
+2025-06-08 00:30:25,197 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 317, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:30:25,197 - root - INFO - Request 55b86419-61e2-4b7d-8a76-a623604304b2 processed in 0.000s, is_safe: False
+2025-06-08 00:30:25,197 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:30:25,198 - root - INFO - Request f7cbe5bc-84db-4913-9b3f-97032c60534d received at /check
+2025-06-08 00:30:25,198 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 317, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:30:25,198 - root - INFO - Request f7cbe5bc-84db-4913-9b3f-97032c60534d processed in 0.000s, is_safe: False
+2025-06-08 00:30:25,199 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:30:25,200 - root - INFO - Request 6470a7fa-e117-46a8-84b9-e83622d34065 received at /check
+2025-06-08 00:30:25,200 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 317, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:30:25,200 - root - INFO - Request 6470a7fa-e117-46a8-84b9-e83622d34065 processed in 0.000s, is_safe: False
+2025-06-08 00:30:25,200 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:30:25,201 - root - INFO - Request 2b59bbff-569c-41a8-a4d3-df4c834df97f received at /check
+2025-06-08 00:30:25,201 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=5576d0f021eabd98 | TIME=0.02ms | IP=127.0.0.1
+2025-06-08 00:30:25,201 - root - INFO - Request 2b59bbff-569c-41a8-a4d3-df4c834df97f processed in 0.000s, is_safe: True
+2025-06-08 00:30:25,201 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:30:25,202 - root - INFO - Request 462bea5d-c5e1-4f60-a46c-2939bbf97794 received at /check
+2025-06-08 00:30:25,202 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 317, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:30:25,202 - root - INFO - Request 462bea5d-c5e1-4f60-a46c-2939bbf97794 processed in 0.000s, is_safe: False
+2025-06-08 00:30:25,202 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:30:25,203 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "GET /keywords HTTP/1.1" 200 -
+2025-06-08 00:30:25,205 - root - INFO - Keywords updated: 12 keywords, 5 patterns
+2025-06-08 00:30:25,205 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "PUT /keywords HTTP/1.1" 200 -
+2025-06-08 00:30:25,206 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "GET /keywords HTTP/1.1" 200 -
+2025-06-08 00:30:25,207 - root - INFO - Request f1cb1ee2-4fda-4a61-a8ab-b3d5dba241d8 received at /check
+2025-06-08 00:30:25,207 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 317, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:30:25,207 - root - INFO - Request f1cb1ee2-4fda-4a61-a8ab-b3d5dba241d8 processed in 0.000s, is_safe: False
+2025-06-08 00:30:25,207 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:30:25,208 - root - INFO - Request ac20e917-9718-4bfb-83a0-cf1c2d385c15 received at /check
+2025-06-08 00:30:25,208 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 317, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:30:25,209 - root - INFO - Request ac20e917-9718-4bfb-83a0-cf1c2d385c15 processed in 0.000s, is_safe: False
+2025-06-08 00:30:25,209 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:30:25,210 - root - INFO - Request bdc80e8d-3e90-49ea-b854-4f6a6b63bfbf received at /check
+2025-06-08 00:30:25,210 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=1f62f50e4a30f35f | TIME=0.02ms | IP=127.0.0.1
+2025-06-08 00:30:25,210 - root - INFO - Request bdc80e8d-3e90-49ea-b854-4f6a6b63bfbf processed in 0.000s, is_safe: True
+2025-06-08 00:30:25,210 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:30:25,211 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "[31m[1mPUT /keywords HTTP/1.1[0m" 400 -
+2025-06-08 00:30:25,212 - root - INFO - Keywords updated: 9 keywords, 3 patterns
+2025-06-08 00:30:25,212 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "PUT /keywords HTTP/1.1" 200 -
+2025-06-08 00:30:25,213 - root - INFO - Request 5ecef830-e3ea-4e44-aabe-9209ed00a3c0 received at /check
+2025-06-08 00:30:25,213 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=886d95dc824077a8 | TIME=0.02ms | IP=127.0.0.1
+2025-06-08 00:30:25,213 - root - INFO - Request 5ecef830-e3ea-4e44-aabe-9209ed00a3c0 processed in 0.000s, is_safe: True
+2025-06-08 00:30:25,213 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:30:25,214 - root - INFO - Request 8e01863a-998e-4d6b-b6a3-6128b5231880 received at /check
+2025-06-08 00:30:25,214 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=886d95dc824077a8 | TIME=0.01ms | IP=127.0.0.1
+2025-06-08 00:30:25,214 - root - INFO - Request 8e01863a-998e-4d6b-b6a3-6128b5231880 processed in 0.000s, is_safe: True
+2025-06-08 00:30:25,215 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:30:25,215 - root - INFO - Request a2b3ff8d-d314-4368-a6e3-da1aac82bab5 received at /check
+2025-06-08 00:30:25,215 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=886d95dc824077a8 | TIME=0.01ms | IP=127.0.0.1
+2025-06-08 00:30:25,216 - root - INFO - Request a2b3ff8d-d314-4368-a6e3-da1aac82bab5 processed in 0.000s, is_safe: True
+2025-06-08 00:30:25,216 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:30:25,217 - root - INFO - Request 5cda629a-821f-4ecc-abd7-40851dd2972b received at /check
+2025-06-08 00:30:25,217 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=01c265ac59e32b74 | TIME=0.06ms | IP=127.0.0.1
+2025-06-08 00:30:25,217 - root - INFO - Request 5cda629a-821f-4ecc-abd7-40851dd2972b processed in 0.000s, is_safe: True
+2025-06-08 00:30:25,217 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:30:25,218 - root - INFO - Request 8ec0516e-65c8-400f-8de9-b87315ec72ef received at /check
+2025-06-08 00:30:25,218 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=01c265ac59e32b74 | TIME=0.06ms | IP=127.0.0.1
+2025-06-08 00:30:25,218 - root - INFO - Request 8ec0516e-65c8-400f-8de9-b87315ec72ef processed in 0.000s, is_safe: True
+2025-06-08 00:30:25,218 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:30:25,219 - root - INFO - Request 15e134a9-1a63-4e44-a5bd-2285c0ccc06c received at /check
+2025-06-08 00:30:25,219 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=01c265ac59e32b74 | TIME=0.06ms | IP=127.0.0.1
+2025-06-08 00:30:25,219 - root - INFO - Request 15e134a9-1a63-4e44-a5bd-2285c0ccc06c processed in 0.000s, is_safe: True
+2025-06-08 00:30:25,219 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:30:25,220 - root - INFO - Request ef84f0e7-766f-4474-850a-0242c1d0be2b received at /check
+2025-06-08 00:30:25,220 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 317, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:30:25,220 - root - INFO - Request ef84f0e7-766f-4474-850a-0242c1d0be2b processed in 0.000s, is_safe: False
+2025-06-08 00:30:25,220 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:30:25,221 - root - INFO - Request f8da1f3d-82fd-4aea-903d-d5ea2e591317 received at /check
+2025-06-08 00:30:25,221 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 317, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:30:25,221 - root - INFO - Request f8da1f3d-82fd-4aea-903d-d5ea2e591317 processed in 0.000s, is_safe: False
+2025-06-08 00:30:25,221 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:30:25,222 - root - INFO - Request 83706f73-25eb-4fea-928c-4921cf54667d received at /check
+2025-06-08 00:30:25,222 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 317, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:30:25,222 - root - INFO - Request 83706f73-25eb-4fea-928c-4921cf54667d processed in 0.000s, is_safe: False
+2025-06-08 00:30:25,222 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:30:25,223 - root - INFO - Request fae241f9-161d-4d38-8013-7669bdf4b3d7 received at /check
+2025-06-08 00:30:25,224 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=b7f9da7ee481a1d4 | TIME=0.02ms | IP=127.0.0.1
+2025-06-08 00:30:25,224 - root - INFO - Request fae241f9-161d-4d38-8013-7669bdf4b3d7 processed in 0.000s, is_safe: True
+2025-06-08 00:30:25,224 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:30:25,225 - root - INFO - Request f98fa668-f26e-4627-92b8-bec62d3a3364 received at /check
+2025-06-08 00:30:25,225 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=b7f9da7ee481a1d4 | TIME=0.02ms | IP=127.0.0.1
+2025-06-08 00:30:25,225 - root - INFO - Request f98fa668-f26e-4627-92b8-bec62d3a3364 processed in 0.000s, is_safe: True
+2025-06-08 00:30:25,225 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:30:25,226 - root - INFO - Request 3d533779-9702-4640-853a-b2e7f7cb49c8 received at /check
+2025-06-08 00:30:25,226 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=b7f9da7ee481a1d4 | TIME=0.02ms | IP=127.0.0.1
+2025-06-08 00:30:25,226 - root - INFO - Request 3d533779-9702-4640-853a-b2e7f7cb49c8 processed in 0.000s, is_safe: True
+2025-06-08 00:30:25,226 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:30:25,227 - root - INFO - Request 6cc0eef0-18d7-43d5-bd7a-f1f7ec73f453 received at /check
+2025-06-08 00:30:25,227 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "[31m[1mPOST /check HTTP/1.1[0m" 400 -
+2025-06-08 00:30:25,228 - root - INFO - Request d1971f4c-c2c6-4a7b-83b6-405f12fcbb04 received at /check
+2025-06-08 00:30:25,228 - root - WARNING - Request d1971f4c-c2c6-4a7b-83b6-405f12fcbb04 rejected: missing 'text' field
+2025-06-08 00:30:25,228 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "[31m[1mPOST /check HTTP/1.1[0m" 400 -
+2025-06-08 00:30:25,230 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:30:25] "[33mGET /nonexistent HTTP/1.1[0m" 404 -
+2025-06-08 00:31:48,355 - root - INFO - Request 3e7ac155-f757-4745-89fe-d97f1d746a5c received at /check
+2025-06-08 00:31:48,356 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=af8a9fb7ff2ad80e | TIME=0.04ms | IP=127.0.0.1
+2025-06-08 00:31:48,356 - root - INFO - Request 3e7ac155-f757-4745-89fe-d97f1d746a5c processed in 0.000s, is_safe: True
+2025-06-08 00:31:48,356 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:31:48] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:37:39,235 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "GET /health HTTP/1.1" 200 -
+2025-06-08 00:37:39,237 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "GET /health HTTP/1.1" 200 -
+2025-06-08 00:37:39,238 - root - INFO - Request 0d305f98-aa48-454e-ab55-f38be7f905d6 received at /check
+2025-06-08 00:37:39,238 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=9e46da316ef16f99 | TIME=0.02ms | IP=127.0.0.1
+2025-06-08 00:37:39,238 - root - INFO - Request 0d305f98-aa48-454e-ab55-f38be7f905d6 processed in 0.000s, is_safe: True
+2025-06-08 00:37:39,238 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:37:39,239 - root - INFO - Request 8e586e62-35cc-402c-9c97-4fd453408450 received at /check
+2025-06-08 00:37:39,239 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 317, in _log_detailed_analysis
+    category_analysis = result.get("category_analysis", {})
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:37:39,240 - root - INFO - Request 8e586e62-35cc-402c-9c97-4fd453408450 processed in 0.000s, is_safe: False
+2025-06-08 00:37:39,240 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:37:39,241 - root - INFO - Request 1846837a-12c7-406e-9762-dd90c4165a3f received at /check
+2025-06-08 00:37:39,241 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 317, in _log_detailed_analysis
+    category_analysis = result.get("category_analysis", {})
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:37:39,241 - root - INFO - Request 1846837a-12c7-406e-9762-dd90c4165a3f processed in 0.000s, is_safe: False
+2025-06-08 00:37:39,241 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:37:39,242 - root - INFO - Request b5dcd3c3-4bf1-437d-b8a0-adf00f2084d4 received at /check
+2025-06-08 00:37:39,242 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 317, in _log_detailed_analysis
+    category_analysis = result.get("category_analysis", {})
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:37:39,242 - root - INFO - Request b5dcd3c3-4bf1-437d-b8a0-adf00f2084d4 processed in 0.000s, is_safe: False
+2025-06-08 00:37:39,242 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:37:39,243 - root - INFO - Request f713f9d0-aa62-49dc-a98a-6ba70e8d467d received at /check
+2025-06-08 00:37:39,243 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=5576d0f021eabd98 | TIME=0.02ms | IP=127.0.0.1
+2025-06-08 00:37:39,243 - root - INFO - Request f713f9d0-aa62-49dc-a98a-6ba70e8d467d processed in 0.000s, is_safe: True
+2025-06-08 00:37:39,243 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:37:39,244 - root - INFO - Request 36ea2010-ed13-4cb7-b586-46918a682e18 received at /check
+2025-06-08 00:37:39,244 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 317, in _log_detailed_analysis
+    category_analysis = result.get("category_analysis", {})
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:37:39,245 - root - INFO - Request 36ea2010-ed13-4cb7-b586-46918a682e18 processed in 0.000s, is_safe: False
+2025-06-08 00:37:39,245 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:37:39,246 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "GET /keywords HTTP/1.1" 200 -
+2025-06-08 00:37:39,247 - root - INFO - Keywords updated: 12 keywords, 5 patterns
+2025-06-08 00:37:39,247 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "PUT /keywords HTTP/1.1" 200 -
+2025-06-08 00:37:39,248 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "GET /keywords HTTP/1.1" 200 -
+2025-06-08 00:37:39,249 - root - INFO - Request 976097b8-93e7-4792-8564-f51fb73cd3ff received at /check
+2025-06-08 00:37:39,249 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 317, in _log_detailed_analysis
+    category_analysis = result.get("category_analysis", {})
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:37:39,249 - root - INFO - Request 976097b8-93e7-4792-8564-f51fb73cd3ff processed in 0.000s, is_safe: False
+2025-06-08 00:37:39,249 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:37:39,250 - root - INFO - Request e9d2747b-0799-4162-8930-e1ea15318b2e received at /check
+2025-06-08 00:37:39,250 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 317, in _log_detailed_analysis
+    category_analysis = result.get("category_analysis", {})
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:37:39,250 - root - INFO - Request e9d2747b-0799-4162-8930-e1ea15318b2e processed in 0.000s, is_safe: False
+2025-06-08 00:37:39,250 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:37:39,251 - root - INFO - Request f44d9267-eacb-4a5c-bbcb-66cd194df3bf received at /check
+2025-06-08 00:37:39,251 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=1f62f50e4a30f35f | TIME=0.02ms | IP=127.0.0.1
+2025-06-08 00:37:39,251 - root - INFO - Request f44d9267-eacb-4a5c-bbcb-66cd194df3bf processed in 0.000s, is_safe: True
+2025-06-08 00:37:39,251 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:37:39,252 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "[31m[1mPUT /keywords HTTP/1.1[0m" 400 -
+2025-06-08 00:37:39,254 - root - INFO - Keywords updated: 9 keywords, 3 patterns
+2025-06-08 00:37:39,254 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "PUT /keywords HTTP/1.1" 200 -
+2025-06-08 00:37:39,255 - root - INFO - Request 2f389454-9bae-4e98-b2e0-233ef4fc763a received at /check
+2025-06-08 00:37:39,255 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=886d95dc824077a8 | TIME=0.02ms | IP=127.0.0.1
+2025-06-08 00:37:39,255 - root - INFO - Request 2f389454-9bae-4e98-b2e0-233ef4fc763a processed in 0.000s, is_safe: True
+2025-06-08 00:37:39,255 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:37:39,256 - root - INFO - Request 5ae13546-7c76-4745-aefd-da5bff09420d received at /check
+2025-06-08 00:37:39,256 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=886d95dc824077a8 | TIME=0.01ms | IP=127.0.0.1
+2025-06-08 00:37:39,256 - root - INFO - Request 5ae13546-7c76-4745-aefd-da5bff09420d processed in 0.000s, is_safe: True
+2025-06-08 00:37:39,256 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:37:39,257 - root - INFO - Request 1f5e7051-9ab7-4c60-907e-f79ad67c5844 received at /check
+2025-06-08 00:37:39,257 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=886d95dc824077a8 | TIME=0.02ms | IP=127.0.0.1
+2025-06-08 00:37:39,257 - root - INFO - Request 1f5e7051-9ab7-4c60-907e-f79ad67c5844 processed in 0.000s, is_safe: True
+2025-06-08 00:37:39,257 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:37:39,258 - root - INFO - Request b1fb54d3-1ac6-4099-ab7b-af28322a5375 received at /check
+2025-06-08 00:37:39,258 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=01c265ac59e32b74 | TIME=0.06ms | IP=127.0.0.1
+2025-06-08 00:37:39,258 - root - INFO - Request b1fb54d3-1ac6-4099-ab7b-af28322a5375 processed in 0.000s, is_safe: True
+2025-06-08 00:37:39,258 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:37:39,259 - root - INFO - Request ee5f84c8-5df4-4469-af77-56f3bc382513 received at /check
+2025-06-08 00:37:39,259 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=01c265ac59e32b74 | TIME=0.06ms | IP=127.0.0.1
+2025-06-08 00:37:39,259 - root - INFO - Request ee5f84c8-5df4-4469-af77-56f3bc382513 processed in 0.000s, is_safe: True
+2025-06-08 00:37:39,259 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:37:39,260 - root - INFO - Request 3bccad89-1ebc-482e-b1b6-643a12c7dca5 received at /check
+2025-06-08 00:37:39,260 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=01c265ac59e32b74 | TIME=0.06ms | IP=127.0.0.1
+2025-06-08 00:37:39,260 - root - INFO - Request 3bccad89-1ebc-482e-b1b6-643a12c7dca5 processed in 0.000s, is_safe: True
+2025-06-08 00:37:39,260 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:37:39,261 - root - INFO - Request d8fea666-bbf5-45d3-b761-29187346ce75 received at /check
+2025-06-08 00:37:39,261 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 317, in _log_detailed_analysis
+    category_analysis = result.get("category_analysis", {})
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:37:39,261 - root - INFO - Request d8fea666-bbf5-45d3-b761-29187346ce75 processed in 0.000s, is_safe: False
+2025-06-08 00:37:39,261 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:37:39,262 - root - INFO - Request 87a8f08d-853c-4dc4-babb-c645e25a7bcf received at /check
+2025-06-08 00:37:39,262 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 317, in _log_detailed_analysis
+    category_analysis = result.get("category_analysis", {})
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:37:39,262 - root - INFO - Request 87a8f08d-853c-4dc4-babb-c645e25a7bcf processed in 0.000s, is_safe: False
+2025-06-08 00:37:39,262 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:37:39,263 - root - INFO - Request c7859879-52f8-4800-bd28-96311731cf7a received at /check
+2025-06-08 00:37:39,263 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 317, in _log_detailed_analysis
+    category_analysis = result.get("category_analysis", {})
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:37:39,263 - root - INFO - Request c7859879-52f8-4800-bd28-96311731cf7a processed in 0.000s, is_safe: False
+2025-06-08 00:37:39,263 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:37:39,264 - root - INFO - Request 9d09a658-c742-47e3-98ba-c0f480c4d1bc received at /check
+2025-06-08 00:37:39,264 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=b7f9da7ee481a1d4 | TIME=0.02ms | IP=127.0.0.1
+2025-06-08 00:37:39,264 - root - INFO - Request 9d09a658-c742-47e3-98ba-c0f480c4d1bc processed in 0.000s, is_safe: True
+2025-06-08 00:37:39,264 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:37:39,265 - root - INFO - Request 12d7f9e1-16c0-47f9-ac5c-6dae57f4fcf4 received at /check
+2025-06-08 00:37:39,265 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=b7f9da7ee481a1d4 | TIME=0.02ms | IP=127.0.0.1
+2025-06-08 00:37:39,265 - root - INFO - Request 12d7f9e1-16c0-47f9-ac5c-6dae57f4fcf4 processed in 0.000s, is_safe: True
+2025-06-08 00:37:39,265 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:37:39,266 - root - INFO - Request 07e2998e-c243-47c9-955b-28440fb0435e received at /check
+2025-06-08 00:37:39,266 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=b7f9da7ee481a1d4 | TIME=0.01ms | IP=127.0.0.1
+2025-06-08 00:37:39,266 - root - INFO - Request 07e2998e-c243-47c9-955b-28440fb0435e processed in 0.000s, is_safe: True
+2025-06-08 00:37:39,266 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:37:39,267 - root - INFO - Request 4b40699e-a772-423d-a440-cd869edd48cb received at /check
+2025-06-08 00:37:39,267 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "[31m[1mPOST /check HTTP/1.1[0m" 400 -
+2025-06-08 00:37:39,268 - root - INFO - Request d681ca7d-1635-4267-bd94-960be3efaf8c received at /check
+2025-06-08 00:37:39,268 - root - WARNING - Request d681ca7d-1635-4267-bd94-960be3efaf8c rejected: missing 'text' field
+2025-06-08 00:37:39,268 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "[31m[1mPOST /check HTTP/1.1[0m" 400 -
+2025-06-08 00:37:39,269 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:37:39] "[33mGET /nonexistent HTTP/1.1[0m" 404 -
+2025-06-08 00:38:08,560 - root - INFO - Request c86e9e6f-a63d-4ae7-ae48-247c4a6f3d0b received at /check
+2025-06-08 00:38:08,561 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=af8a9fb7ff2ad80e | TIME=0.05ms | IP=127.0.0.1
+2025-06-08 00:38:08,561 - root - INFO - Request c86e9e6f-a63d-4ae7-ae48-247c4a6f3d0b processed in 0.000s, is_safe: True
+2025-06-08 00:38:08,561 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:38:08] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:38:36,394 - root - INFO - Loaded custom config from config/config.json
+2025-06-08 00:38:36,394 - root - INFO - Initializing LLM Firewall
+2025-06-08 00:38:36,395 - root - INFO - Keyword filter initialized successfully
+2025-06-08 00:38:37,680 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:38:37,680 - root - INFO - Guard llama_guard initialized successfully
+2025-06-08 00:38:38,670 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:38:38,670 - root - INFO - Guard granite_guard initialized successfully
+2025-06-08 00:38:38,671 - root - INFO - Firewall initialized with 2 guards and keyword filter enabled
+2025-06-08 00:38:38,672 - root - INFO - Starting LLM Firewall API on 0.0.0.0:5001
+2025-06-08 00:38:38,672 - root - INFO - Starting API server on 0.0.0.0:5001
+2025-06-08 00:38:38,677 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.184:5001
+2025-06-08 00:38:38,677 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-08 00:38:39,030 - root - INFO - Request fe74cd35-2523-4291-838a-14a8524efc71 received at /check
+2025-06-08 00:38:39,414 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:38:39,654 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:38:39,655 - firewall_analysis - WARNING - FIREWALL_UNSAFE | STATUS=UNSAFE | HASH=af8a9fb7ff2ad80e | TIME=624.87ms | TYPE=harmful_prompt | IP=127.0.0.1
+2025-06-08 00:38:39,655 - root - INFO - Unsafe content detected: af8a9fb7ff2ad80e (harmful_prompt)
+2025-06-08 00:38:39,655 - root - INFO - Request fe74cd35-2523-4291-838a-14a8524efc71 processed in 0.625s, is_safe: False
+2025-06-08 00:38:39,656 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:38:39] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:44:09,897 - root - INFO - Loaded custom config from config/config.json
+2025-06-08 00:44:09,897 - root - INFO - Initializing LLM Firewall
+2025-06-08 00:44:09,898 - root - INFO - Keyword filter initialized successfully
+2025-06-08 00:44:11,192 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:44:11,193 - root - INFO - Guard llama_guard initialized successfully
+2025-06-08 00:44:12,230 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:44:12,230 - root - INFO - Guard granite_guard initialized successfully
+2025-06-08 00:44:12,231 - root - INFO - Firewall initialized with 2 guards and keyword filter enabled
+2025-06-08 00:44:12,234 - root - INFO - Starting LLM Firewall API on 0.0.0.0:5001
+2025-06-08 00:44:12,234 - root - INFO - Starting API server on 0.0.0.0:5001
+2025-06-08 00:44:12,243 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.184:5001
+2025-06-08 00:44:12,243 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-08 00:44:12,337 - root - INFO - Request 687ced4c-195e-42d9-aa63-c2d33016453a received at /check
+2025-06-08 00:44:12,567 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:44:12,807 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:44:12,807 - firewall_analysis - WARNING - FIREWALL_UNSAFE | STATUS=UNSAFE | HASH=af8a9fb7ff2ad80e | TIME=469.76ms | TYPE=harmful_prompt | IP=127.0.0.1
+2025-06-08 00:44:12,808 - root - INFO - Unsafe content detected: af8a9fb7ff2ad80e (harmful_prompt)
+2025-06-08 00:44:12,808 - root - INFO - Request 687ced4c-195e-42d9-aa63-c2d33016453a processed in 0.470s, is_safe: False
+2025-06-08 00:44:12,808 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:44:12] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:44:34,899 - root - INFO - Request 6321d6c4-398b-4f94-afbc-e59d9f069286 received at /check
+2025-06-08 00:44:35,192 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:44:35,513 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:44:35,514 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=a93034c82055daca | TIME=614.11ms | IP=127.0.0.1
+2025-06-08 00:44:35,514 - root - INFO - Request 6321d6c4-398b-4f94-afbc-e59d9f069286 processed in 0.615s, is_safe: True
+2025-06-08 00:44:35,514 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:44:35] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:45:04,706 - root - INFO - Request 54e00827-4806-458b-8f3b-8fb7bfdd2a51 received at /check
+2025-06-08 00:45:05,014 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:05,334 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:05,337 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=e0285b5cf1cb3fd4 | TIME=630.38ms | IP=127.0.0.1
+2025-06-08 00:45:05,337 - root - INFO - Request 54e00827-4806-458b-8f3b-8fb7bfdd2a51 processed in 0.631s, is_safe: True
+2025-06-08 00:45:05,337 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:05] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:45:31,215 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:31] "GET /health HTTP/1.1" 200 -
+2025-06-08 00:45:31,217 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:31] "GET /health HTTP/1.1" 200 -
+2025-06-08 00:45:31,218 - root - INFO - Request 5ee8f735-9f0d-4190-8620-2e5c8397c514 received at /check
+2025-06-08 00:45:31,531 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:31,853 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:31,853 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=9e46da316ef16f99 | TIME=635.38ms | IP=127.0.0.1
+2025-06-08 00:45:31,853 - root - INFO - Request 5ee8f735-9f0d-4190-8620-2e5c8397c514 processed in 0.636s, is_safe: True
+2025-06-08 00:45:31,853 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:31] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:45:31,857 - root - INFO - Request ac171072-15c3-44a4-8257-75d0d7e79a5f received at /check
+2025-06-08 00:45:31,857 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 318, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:45:31,859 - root - ERROR - Error processing request ac171072-15c3-44a4-8257-75d0d7e79a5f: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 84, in check_content
+    sanitized_result = self._create_sanitized_response(result, processing_time, request_id)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 237, in _create_sanitized_response
+    final_category = category_analysis.get("final_category", "safe")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:45:31,859 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:31] "[35m[1mPOST /check HTTP/1.1[0m" 500 -
+2025-06-08 00:45:31,862 - root - INFO - Request a290ec5d-9f5c-4393-a253-549c7cadd8a5 received at /check
+2025-06-08 00:45:31,862 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 318, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:45:31,862 - root - ERROR - Error processing request a290ec5d-9f5c-4393-a253-549c7cadd8a5: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 84, in check_content
+    sanitized_result = self._create_sanitized_response(result, processing_time, request_id)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 237, in _create_sanitized_response
+    final_category = category_analysis.get("final_category", "safe")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:45:31,862 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:31] "[35m[1mPOST /check HTTP/1.1[0m" 500 -
+2025-06-08 00:45:31,864 - root - INFO - Request 4b5c1b86-9749-4edf-add0-e562d07cb0d5 received at /check
+2025-06-08 00:45:31,864 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 318, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:45:31,865 - root - ERROR - Error processing request 4b5c1b86-9749-4edf-add0-e562d07cb0d5: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 84, in check_content
+    sanitized_result = self._create_sanitized_response(result, processing_time, request_id)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 237, in _create_sanitized_response
+    final_category = category_analysis.get("final_category", "safe")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:45:31,865 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:31] "[35m[1mPOST /check HTTP/1.1[0m" 500 -
+2025-06-08 00:45:31,867 - root - INFO - Request 57276ad2-7f68-4003-8f9c-6a85b49d81ee received at /check
+2025-06-08 00:45:32,063 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:32,298 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:32,299 - firewall_analysis - WARNING - FIREWALL_UNSAFE | STATUS=UNSAFE | HASH=5576d0f021eabd98 | TIME=432.03ms | TYPE=harmful_prompt | IP=127.0.0.1
+2025-06-08 00:45:32,299 - root - INFO - Unsafe content detected: 5576d0f021eabd98 (harmful_prompt)
+2025-06-08 00:45:32,299 - root - INFO - Request 57276ad2-7f68-4003-8f9c-6a85b49d81ee processed in 0.432s, is_safe: False
+2025-06-08 00:45:32,299 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:32] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:45:32,303 - root - INFO - Request 410300a8-e88b-4bd9-b52a-4ac9c3608434 received at /check
+2025-06-08 00:45:32,303 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 318, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:45:32,304 - root - ERROR - Error processing request 410300a8-e88b-4bd9-b52a-4ac9c3608434: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 84, in check_content
+    sanitized_result = self._create_sanitized_response(result, processing_time, request_id)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 237, in _create_sanitized_response
+    final_category = category_analysis.get("final_category", "safe")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:45:32,304 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:32] "[35m[1mPOST /check HTTP/1.1[0m" 500 -
+2025-06-08 00:45:32,307 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:32] "GET /keywords HTTP/1.1" 200 -
+2025-06-08 00:45:32,310 - root - INFO - Keywords updated: 12 keywords, 5 patterns
+2025-06-08 00:45:32,310 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:32] "PUT /keywords HTTP/1.1" 200 -
+2025-06-08 00:45:32,312 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:32] "GET /keywords HTTP/1.1" 200 -
+2025-06-08 00:45:32,314 - root - INFO - Request 9b1b0c56-9717-48f6-b05c-febce8d68cd8 received at /check
+2025-06-08 00:45:32,314 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 318, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:45:32,314 - root - ERROR - Error processing request 9b1b0c56-9717-48f6-b05c-febce8d68cd8: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 84, in check_content
+    sanitized_result = self._create_sanitized_response(result, processing_time, request_id)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 237, in _create_sanitized_response
+    final_category = category_analysis.get("final_category", "safe")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:45:32,314 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:32] "[35m[1mPOST /check HTTP/1.1[0m" 500 -
+2025-06-08 00:45:32,316 - root - INFO - Request 908887ef-7230-4a0a-9e1c-1eb7c4a14fcc received at /check
+2025-06-08 00:45:32,316 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 318, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:45:32,317 - root - ERROR - Error processing request 908887ef-7230-4a0a-9e1c-1eb7c4a14fcc: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 84, in check_content
+    sanitized_result = self._create_sanitized_response(result, processing_time, request_id)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 237, in _create_sanitized_response
+    final_category = category_analysis.get("final_category", "safe")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:45:32,317 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:32] "[35m[1mPOST /check HTTP/1.1[0m" 500 -
+2025-06-08 00:45:32,319 - root - INFO - Request 81ca7216-4dc5-4d8e-bd85-a3ec1fbb0095 received at /check
+2025-06-08 00:45:32,447 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:32,638 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:32,638 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=1f62f50e4a30f35f | TIME=319.46ms | IP=127.0.0.1
+2025-06-08 00:45:32,638 - root - INFO - Request 81ca7216-4dc5-4d8e-bd85-a3ec1fbb0095 processed in 0.320s, is_safe: True
+2025-06-08 00:45:32,638 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:32] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:45:32,640 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:32] "[31m[1mPUT /keywords HTTP/1.1[0m" 400 -
+2025-06-08 00:45:32,642 - root - INFO - Keywords updated: 9 keywords, 3 patterns
+2025-06-08 00:45:32,642 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:32] "PUT /keywords HTTP/1.1" 200 -
+2025-06-08 00:45:32,644 - root - INFO - Request 41668f24-1336-460e-8094-361c5148f4f8 received at /check
+2025-06-08 00:45:32,770 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:32,961 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:32,962 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=886d95dc824077a8 | TIME=318.01ms | IP=127.0.0.1
+2025-06-08 00:45:32,962 - root - INFO - Request 41668f24-1336-460e-8094-361c5148f4f8 processed in 0.318s, is_safe: True
+2025-06-08 00:45:32,962 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:32] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:45:32,966 - root - INFO - Request 54b34207-f7f4-484a-9937-e4a433107e9a received at /check
+2025-06-08 00:45:33,005 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:33,046 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:33,047 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=886d95dc824077a8 | TIME=80.76ms | IP=127.0.0.1
+2025-06-08 00:45:33,047 - root - INFO - Request 54b34207-f7f4-484a-9937-e4a433107e9a processed in 0.081s, is_safe: True
+2025-06-08 00:45:33,047 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:33] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:45:33,050 - root - INFO - Request 94c06ef8-a35d-46e3-8082-7cfa0e26c071 received at /check
+2025-06-08 00:45:33,089 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:33,129 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:33,129 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=886d95dc824077a8 | TIME=79.04ms | IP=127.0.0.1
+2025-06-08 00:45:33,130 - root - INFO - Request 94c06ef8-a35d-46e3-8082-7cfa0e26c071 processed in 0.079s, is_safe: True
+2025-06-08 00:45:33,130 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:33] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:45:33,134 - root - INFO - Request 83b201e3-f253-4935-9177-114561f02af2 received at /check
+2025-06-08 00:45:33,479 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:33,957 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:33,958 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=01c265ac59e32b74 | TIME=823.85ms | IP=127.0.0.1
+2025-06-08 00:45:33,958 - root - INFO - Request 83b201e3-f253-4935-9177-114561f02af2 processed in 0.824s, is_safe: True
+2025-06-08 00:45:33,959 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:33] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:45:33,962 - root - INFO - Request 8be29fdd-e038-4d28-a863-f7f8be6f4e09 received at /check
+2025-06-08 00:45:34,002 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:34,044 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:34,045 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=01c265ac59e32b74 | TIME=82.07ms | IP=127.0.0.1
+2025-06-08 00:45:34,045 - root - INFO - Request 8be29fdd-e038-4d28-a863-f7f8be6f4e09 processed in 0.083s, is_safe: True
+2025-06-08 00:45:34,046 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:34] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:45:34,049 - root - INFO - Request 0d4899f6-c408-41d9-8638-0f0080fabfac received at /check
+2025-06-08 00:45:34,090 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:34,130 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:34,131 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=01c265ac59e32b74 | TIME=81.12ms | IP=127.0.0.1
+2025-06-08 00:45:34,131 - root - INFO - Request 0d4899f6-c408-41d9-8638-0f0080fabfac processed in 0.082s, is_safe: True
+2025-06-08 00:45:34,131 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:34] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:45:34,135 - root - INFO - Request 4d5fcc79-4123-4c51-bb94-2600d9db5d02 received at /check
+2025-06-08 00:45:34,136 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 318, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:45:34,136 - root - ERROR - Error processing request 4d5fcc79-4123-4c51-bb94-2600d9db5d02: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 84, in check_content
+    sanitized_result = self._create_sanitized_response(result, processing_time, request_id)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 237, in _create_sanitized_response
+    final_category = category_analysis.get("final_category", "safe")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:45:34,137 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:34] "[35m[1mPOST /check HTTP/1.1[0m" 500 -
+2025-06-08 00:45:34,140 - root - INFO - Request 8653cc1f-b90e-4484-885b-e4c1b34e2fdc received at /check
+2025-06-08 00:45:34,140 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 318, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:45:34,140 - root - ERROR - Error processing request 8653cc1f-b90e-4484-885b-e4c1b34e2fdc: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 84, in check_content
+    sanitized_result = self._create_sanitized_response(result, processing_time, request_id)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 237, in _create_sanitized_response
+    final_category = category_analysis.get("final_category", "safe")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:45:34,141 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:34] "[35m[1mPOST /check HTTP/1.1[0m" 500 -
+2025-06-08 00:45:34,143 - root - INFO - Request a62a2493-bd31-4c55-9350-aefc12347a58 received at /check
+2025-06-08 00:45:34,143 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 318, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:45:34,144 - root - ERROR - Error processing request a62a2493-bd31-4c55-9350-aefc12347a58: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 84, in check_content
+    sanitized_result = self._create_sanitized_response(result, processing_time, request_id)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 237, in _create_sanitized_response
+    final_category = category_analysis.get("final_category", "safe")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:45:34,144 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:34] "[35m[1mPOST /check HTTP/1.1[0m" 500 -
+2025-06-08 00:45:34,146 - root - INFO - Request 8ac5edbb-87a2-413a-8d05-afd7624d14b2 received at /check
+2025-06-08 00:45:34,301 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:34,537 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:34,537 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=b7f9da7ee481a1d4 | TIME=391.27ms | IP=127.0.0.1
+2025-06-08 00:45:34,538 - root - INFO - Request 8ac5edbb-87a2-413a-8d05-afd7624d14b2 processed in 0.392s, is_safe: True
+2025-06-08 00:45:34,538 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:34] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:45:34,542 - root - INFO - Request bf0fad25-8c15-424b-ac1d-556e690c9c29 received at /check
+2025-06-08 00:45:34,581 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:34,621 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:34,622 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=b7f9da7ee481a1d4 | TIME=79.62ms | IP=127.0.0.1
+2025-06-08 00:45:34,622 - root - INFO - Request bf0fad25-8c15-424b-ac1d-556e690c9c29 processed in 0.080s, is_safe: True
+2025-06-08 00:45:34,622 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:34] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:45:34,626 - root - INFO - Request 245d4949-d868-42c2-8d87-e7f41c18eb55 received at /check
+2025-06-08 00:45:34,665 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:34,705 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:45:34,706 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=b7f9da7ee481a1d4 | TIME=79.7ms | IP=127.0.0.1
+2025-06-08 00:45:34,706 - root - INFO - Request 245d4949-d868-42c2-8d87-e7f41c18eb55 processed in 0.080s, is_safe: True
+2025-06-08 00:45:34,706 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:34] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:45:34,710 - root - INFO - Request acb9e643-056b-4ee8-bd60-2a9a3e0aa8ec received at /check
+2025-06-08 00:45:34,710 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:34] "[31m[1mPOST /check HTTP/1.1[0m" 400 -
+2025-06-08 00:45:34,712 - root - INFO - Request 79b78d9a-9067-4cca-90cf-7ef37dac045e received at /check
+2025-06-08 00:45:34,712 - root - WARNING - Request 79b78d9a-9067-4cca-90cf-7ef37dac045e rejected: missing 'text' field
+2025-06-08 00:45:34,713 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:34] "[31m[1mPOST /check HTTP/1.1[0m" 400 -
+2025-06-08 00:45:34,715 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:45:34] "[33mGET /nonexistent HTTP/1.1[0m" 404 -
+2025-06-08 00:52:12,109 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:12] "GET /health HTTP/1.1" 200 -
+2025-06-08 00:52:12,110 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:12] "GET /health HTTP/1.1" 200 -
+2025-06-08 00:52:12,111 - root - INFO - Request ce55100a-d2e5-446b-a82d-153b9a57bff4 received at /check
+2025-06-08 00:52:13,318 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:14,381 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:14,382 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=9e46da316ef16f99 | TIME=2270.92ms | IP=127.0.0.1
+2025-06-08 00:52:14,383 - root - INFO - Request ce55100a-d2e5-446b-a82d-153b9a57bff4 processed in 2.271s, is_safe: True
+2025-06-08 00:52:14,383 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:14] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:52:14,389 - root - INFO - Request b6ff0156-3b93-47d2-9ca3-d34fe0a02f6d received at /check
+2025-06-08 00:52:14,390 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 318, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:52:14,391 - root - ERROR - Error processing request b6ff0156-3b93-47d2-9ca3-d34fe0a02f6d: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 84, in check_content
+    sanitized_result = self._create_sanitized_response(result, processing_time, request_id)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 237, in _create_sanitized_response
+    final_category = category_analysis.get("final_category", "safe")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:52:14,392 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:14] "[35m[1mPOST /check HTTP/1.1[0m" 500 -
+2025-06-08 00:52:14,395 - root - INFO - Request 5149bf36-b330-4f20-bfad-c6780d873b5d received at /check
+2025-06-08 00:52:14,395 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 318, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:52:14,395 - root - ERROR - Error processing request 5149bf36-b330-4f20-bfad-c6780d873b5d: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 84, in check_content
+    sanitized_result = self._create_sanitized_response(result, processing_time, request_id)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 237, in _create_sanitized_response
+    final_category = category_analysis.get("final_category", "safe")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:52:14,395 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:14] "[35m[1mPOST /check HTTP/1.1[0m" 500 -
+2025-06-08 00:52:14,397 - root - INFO - Request 67bdd359-d3ce-4ad0-ade3-5d35821e51ac received at /check
+2025-06-08 00:52:14,397 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 318, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:52:14,397 - root - ERROR - Error processing request 67bdd359-d3ce-4ad0-ade3-5d35821e51ac: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 84, in check_content
+    sanitized_result = self._create_sanitized_response(result, processing_time, request_id)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 237, in _create_sanitized_response
+    final_category = category_analysis.get("final_category", "safe")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:52:14,398 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:14] "[35m[1mPOST /check HTTP/1.1[0m" 500 -
+2025-06-08 00:52:14,399 - root - INFO - Request 4ccb5760-a793-47d9-9f61-b9a56c92dc00 received at /check
+2025-06-08 00:52:14,597 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:14,835 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:14,836 - firewall_analysis - WARNING - FIREWALL_UNSAFE | STATUS=UNSAFE | HASH=5576d0f021eabd98 | TIME=436.17ms | TYPE=harmful_prompt | IP=127.0.0.1
+2025-06-08 00:52:14,836 - root - INFO - Unsafe content detected: 5576d0f021eabd98 (harmful_prompt)
+2025-06-08 00:52:14,836 - root - INFO - Request 4ccb5760-a793-47d9-9f61-b9a56c92dc00 processed in 0.437s, is_safe: False
+2025-06-08 00:52:14,837 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:14] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:52:14,840 - root - INFO - Request d3cde398-e703-4247-9e5d-6be8a117d82a received at /check
+2025-06-08 00:52:14,840 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 318, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:52:14,840 - root - ERROR - Error processing request d3cde398-e703-4247-9e5d-6be8a117d82a: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 84, in check_content
+    sanitized_result = self._create_sanitized_response(result, processing_time, request_id)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 237, in _create_sanitized_response
+    final_category = category_analysis.get("final_category", "safe")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:52:14,841 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:14] "[35m[1mPOST /check HTTP/1.1[0m" 500 -
+2025-06-08 00:52:14,843 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:14] "GET /keywords HTTP/1.1" 200 -
+2025-06-08 00:52:14,846 - root - INFO - Keywords updated: 12 keywords, 5 patterns
+2025-06-08 00:52:14,846 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:14] "PUT /keywords HTTP/1.1" 200 -
+2025-06-08 00:52:14,848 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:14] "GET /keywords HTTP/1.1" 200 -
+2025-06-08 00:52:14,850 - root - INFO - Request 3239a5f1-0b13-40de-8832-2209223f39f4 received at /check
+2025-06-08 00:52:14,850 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 318, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:52:14,850 - root - ERROR - Error processing request 3239a5f1-0b13-40de-8832-2209223f39f4: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 84, in check_content
+    sanitized_result = self._create_sanitized_response(result, processing_time, request_id)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 237, in _create_sanitized_response
+    final_category = category_analysis.get("final_category", "safe")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:52:14,851 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:14] "[35m[1mPOST /check HTTP/1.1[0m" 500 -
+2025-06-08 00:52:14,853 - root - INFO - Request e36bab05-3514-4e78-afa5-cec4665419c4 received at /check
+2025-06-08 00:52:14,853 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 318, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:52:14,853 - root - ERROR - Error processing request e36bab05-3514-4e78-afa5-cec4665419c4: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 84, in check_content
+    sanitized_result = self._create_sanitized_response(result, processing_time, request_id)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 237, in _create_sanitized_response
+    final_category = category_analysis.get("final_category", "safe")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:52:14,853 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:14] "[35m[1mPOST /check HTTP/1.1[0m" 500 -
+2025-06-08 00:52:14,855 - root - INFO - Request 40e48672-65f7-4751-9f33-13fcf2851bda received at /check
+2025-06-08 00:52:14,982 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:15,176 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:15,176 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=1f62f50e4a30f35f | TIME=321.27ms | IP=127.0.0.1
+2025-06-08 00:52:15,176 - root - INFO - Request 40e48672-65f7-4751-9f33-13fcf2851bda processed in 0.322s, is_safe: True
+2025-06-08 00:52:15,176 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:15] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:52:15,178 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:15] "[31m[1mPUT /keywords HTTP/1.1[0m" 400 -
+2025-06-08 00:52:15,180 - root - INFO - Keywords updated: 9 keywords, 3 patterns
+2025-06-08 00:52:15,180 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:15] "PUT /keywords HTTP/1.1" 200 -
+2025-06-08 00:52:15,181 - root - INFO - Request 2da8c9d8-dc9c-47c7-a9a3-505fa31d434e received at /check
+2025-06-08 00:52:15,307 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:15,498 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:15,499 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=886d95dc824077a8 | TIME=317.73ms | IP=127.0.0.1
+2025-06-08 00:52:15,499 - root - INFO - Request 2da8c9d8-dc9c-47c7-a9a3-505fa31d434e processed in 0.318s, is_safe: True
+2025-06-08 00:52:15,499 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:15] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:52:15,503 - root - INFO - Request 07229717-5f59-41d7-b604-547699dba850 received at /check
+2025-06-08 00:52:15,541 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:15,581 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:15,582 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=886d95dc824077a8 | TIME=78.76ms | IP=127.0.0.1
+2025-06-08 00:52:15,582 - root - INFO - Request 07229717-5f59-41d7-b604-547699dba850 processed in 0.079s, is_safe: True
+2025-06-08 00:52:15,582 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:15] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:52:15,587 - root - INFO - Request 7d56b6ad-a2a4-4c83-aacc-232f7190cb79 received at /check
+2025-06-08 00:52:15,626 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:15,667 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:15,668 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=886d95dc824077a8 | TIME=80.64ms | IP=127.0.0.1
+2025-06-08 00:52:15,668 - root - INFO - Request 7d56b6ad-a2a4-4c83-aacc-232f7190cb79 processed in 0.081s, is_safe: True
+2025-06-08 00:52:15,668 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:15] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:52:15,671 - root - INFO - Request d3780d0a-d114-42bf-a335-92da906b142c received at /check
+2025-06-08 00:52:16,016 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:16,493 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:16,494 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=01c265ac59e32b74 | TIME=822.2ms | IP=127.0.0.1
+2025-06-08 00:52:16,494 - root - INFO - Request d3780d0a-d114-42bf-a335-92da906b142c processed in 0.823s, is_safe: True
+2025-06-08 00:52:16,495 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:16] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:52:16,499 - root - INFO - Request b36e0bc4-6b58-4a8e-8498-b027e293f207 received at /check
+2025-06-08 00:52:16,539 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:16,580 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:16,580 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=01c265ac59e32b74 | TIME=81.21ms | IP=127.0.0.1
+2025-06-08 00:52:16,580 - root - INFO - Request b36e0bc4-6b58-4a8e-8498-b027e293f207 processed in 0.082s, is_safe: True
+2025-06-08 00:52:16,581 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:16] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:52:16,585 - root - INFO - Request 2ab1d6c4-7921-40c0-8039-17d3b70ad2f4 received at /check
+2025-06-08 00:52:16,626 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:16,667 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:16,669 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=01c265ac59e32b74 | TIME=82.94ms | IP=127.0.0.1
+2025-06-08 00:52:16,669 - root - INFO - Request 2ab1d6c4-7921-40c0-8039-17d3b70ad2f4 processed in 0.084s, is_safe: True
+2025-06-08 00:52:16,670 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:16] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:52:16,674 - root - INFO - Request c01aa5d0-88f3-4d36-8a8d-513a322f6aa6 received at /check
+2025-06-08 00:52:16,674 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 318, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:52:16,674 - root - ERROR - Error processing request c01aa5d0-88f3-4d36-8a8d-513a322f6aa6: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 84, in check_content
+    sanitized_result = self._create_sanitized_response(result, processing_time, request_id)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 237, in _create_sanitized_response
+    final_category = category_analysis.get("final_category", "safe")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:52:16,675 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:16] "[35m[1mPOST /check HTTP/1.1[0m" 500 -
+2025-06-08 00:52:16,677 - root - INFO - Request eaa04ec3-b010-451b-80b5-b597ae99e037 received at /check
+2025-06-08 00:52:16,677 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 318, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:52:16,678 - root - ERROR - Error processing request eaa04ec3-b010-451b-80b5-b597ae99e037: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 84, in check_content
+    sanitized_result = self._create_sanitized_response(result, processing_time, request_id)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 237, in _create_sanitized_response
+    final_category = category_analysis.get("final_category", "safe")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:52:16,678 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:16] "[35m[1mPOST /check HTTP/1.1[0m" 500 -
+2025-06-08 00:52:16,680 - root - INFO - Request 78c63260-3ff3-4c76-8fbf-1af3eed35bd8 received at /check
+2025-06-08 00:52:16,680 - root - ERROR - Error in detailed logging: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/core/firewall.py", line 318, in _log_detailed_analysis
+    final_category = category_analysis.get("final_category", "unknown")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:52:16,680 - root - ERROR - Error processing request 78c63260-3ff3-4c76-8fbf-1af3eed35bd8: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 84, in check_content
+    sanitized_result = self._create_sanitized_response(result, processing_time, request_id)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gelei/Research/LoAFirewall/src/api/api.py", line 237, in _create_sanitized_response
+    final_category = category_analysis.get("final_category", "safe")
+                     ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-08 00:52:16,681 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:16] "[35m[1mPOST /check HTTP/1.1[0m" 500 -
+2025-06-08 00:52:16,683 - root - INFO - Request 154a1821-1412-4378-ad9b-1f4d89100526 received at /check
+2025-06-08 00:52:16,837 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:17,073 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:17,074 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=b7f9da7ee481a1d4 | TIME=391.09ms | IP=127.0.0.1
+2025-06-08 00:52:17,074 - root - INFO - Request 154a1821-1412-4378-ad9b-1f4d89100526 processed in 0.392s, is_safe: True
+2025-06-08 00:52:17,075 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:17] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:52:17,078 - root - INFO - Request bf2a7784-56ab-4df4-97bc-f23b7213cf99 received at /check
+2025-06-08 00:52:17,118 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:17,158 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:17,159 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=b7f9da7ee481a1d4 | TIME=80.83ms | IP=127.0.0.1
+2025-06-08 00:52:17,159 - root - INFO - Request bf2a7784-56ab-4df4-97bc-f23b7213cf99 processed in 0.081s, is_safe: True
+2025-06-08 00:52:17,160 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:17] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:52:17,163 - root - INFO - Request 3c61a0d9-d7c5-4add-bd72-36603089c948 received at /check
+2025-06-08 00:52:17,202 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:17,242 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-08 00:52:17,242 - firewall_analysis - INFO - FIREWALL_SAFE | STATUS=SAFE | HASH=b7f9da7ee481a1d4 | TIME=79.68ms | IP=127.0.0.1
+2025-06-08 00:52:17,243 - root - INFO - Request 3c61a0d9-d7c5-4add-bd72-36603089c948 processed in 0.080s, is_safe: True
+2025-06-08 00:52:17,243 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:17] "POST /check HTTP/1.1" 200 -
+2025-06-08 00:52:17,247 - root - INFO - Request e8517a03-a52c-4028-a9c9-dc7c8544493e received at /check
+2025-06-08 00:52:17,247 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:17] "[31m[1mPOST /check HTTP/1.1[0m" 400 -
+2025-06-08 00:52:17,250 - root - INFO - Request 1142c1f3-8223-4d28-b893-090dd641cc9b received at /check
+2025-06-08 00:52:17,250 - root - WARNING - Request 1142c1f3-8223-4d28-b893-090dd641cc9b rejected: missing 'text' field
+2025-06-08 00:52:17,250 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:17] "[31m[1mPOST /check HTTP/1.1[0m" 400 -
+2025-06-08 00:52:17,252 - werkzeug - INFO - 127.0.0.1 - - [08/Jun/2025 00:52:17] "[33mGET /nonexistent HTTP/1.1[0m" 404 -
