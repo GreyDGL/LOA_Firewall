@@ -869,3 +869,58 @@ AssertionError: View function mapping is overwriting an existing endpoint functi
 2025-06-04 13:58:15,074 - root - WARNING - Request 22b551fc-2b82-46f2-95a6-ad590c92e090 rejected: missing 'text' field
 2025-06-04 13:58:15,074 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:15] "[31m[1mPOST /check HTTP/1.1[0m" 400 -
 2025-06-04 13:58:15,076 - werkzeug - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:15] "[33mGET /nonexistent HTTP/1.1[0m" 404 -
+2025-06-06 23:15:37,535 - root - INFO - Loaded custom config from config/config.json
+2025-06-06 23:15:37,536 - root - INFO - Initializing LLM Firewall
+2025-06-06 23:15:37,537 - root - INFO - Keyword filter initialized successfully
+2025-06-06 23:15:41,136 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-06 23:15:41,137 - root - INFO - Guard llama_guard initialized successfully
+2025-06-06 23:15:44,434 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-06 23:15:44,437 - root - INFO - Guard granite_guard initialized successfully
+2025-06-06 23:15:44,437 - root - INFO - Firewall initialized with 2 guards and keyword filter enabled
+2025-06-06 23:15:44,442 - root - INFO - Starting LLM Firewall API on 0.0.0.0:5001
+2025-06-06 23:15:44,442 - root - INFO - Starting API server on 0.0.0.0:5001
+2025-06-06 23:15:44,454 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.184:5001
+2025-06-06 23:15:44,454 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-07 11:27:53,495 - root - INFO - Loaded custom config from config/config.json
+2025-06-07 11:27:53,495 - root - INFO - Initializing LLM Firewall
+2025-06-07 11:27:53,496 - root - INFO - Keyword filter initialized successfully
+2025-06-07 11:27:56,498 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 11:27:56,498 - root - INFO - Guard llama_guard initialized successfully
+2025-06-07 11:27:59,814 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 11:27:59,816 - root - INFO - Guard granite_guard initialized successfully
+2025-06-07 11:27:59,816 - root - INFO - Firewall initialized with 2 guards and keyword filter enabled
+2025-06-07 11:27:59,819 - root - INFO - Starting LLM Firewall API on 0.0.0.0:5001
+2025-06-07 11:27:59,819 - root - INFO - Starting API server on 0.0.0.0:5001
+2025-06-07 11:27:59,830 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.100:5001
+2025-06-07 11:27:59,830 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-07 11:41:01,573 - root - INFO - Request 26c40f24-756f-49f1-94e2-04e4fba85af1 received at /check
+2025-06-07 11:41:02,720 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 11:41:03,746 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 11:41:03,747 - root - INFO - Request 26c40f24-756f-49f1-94e2-04e4fba85af1 processed in 2.174s, is_safe: True
+2025-06-07 11:41:03,748 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 11:41:03] "POST /check HTTP/1.1" 200 -
+2025-06-07 11:42:09,352 - root - INFO - Request 19cb61ac-d801-4d68-957e-3cf769e39730 received at /check
+2025-06-07 11:42:09,668 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 11:42:10,016 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 11:42:10,017 - root - INFO - Request 19cb61ac-d801-4d68-957e-3cf769e39730 processed in 0.665s, is_safe: True
+2025-06-07 11:42:10,018 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 11:42:10] "POST /check HTTP/1.1" 200 -
+2025-06-07 11:43:52,875 - root - INFO - Request 04add1ad-26b3-45c9-8042-9510b463f97d received at /check
+2025-06-07 11:43:53,049 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 11:43:53,229 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 11:43:53,230 - root - INFO - Request 04add1ad-26b3-45c9-8042-9510b463f97d processed in 0.355s, is_safe: True
+2025-06-07 11:43:53,230 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 11:43:53] "POST /check HTTP/1.1" 200 -
+2025-06-07 11:44:05,110 - root - INFO - Request dfb43106-0082-4d80-85ee-4a047b645eda received at /check
+2025-06-07 11:44:05,411 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 11:44:05,760 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 11:44:05,761 - root - INFO - Request dfb43106-0082-4d80-85ee-4a047b645eda processed in 0.651s, is_safe: True
+2025-06-07 11:44:05,761 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 11:44:05] "POST /check HTTP/1.1" 200 -
+2025-06-07 11:44:12,002 - root - INFO - Request 9c3347e0-4525-4a3b-a0bf-f620ca0c6844 received at /check
+2025-06-07 11:44:12,365 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 11:44:12,697 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2025-06-07 11:44:12,698 - root - INFO - Request 9c3347e0-4525-4a3b-a0bf-f620ca0c6844 processed in 0.696s, is_safe: False
+2025-06-07 11:44:12,698 - werkzeug - INFO - 127.0.0.1 - - [07/Jun/2025 11:44:12] "POST /check HTTP/1.1" 200 -
