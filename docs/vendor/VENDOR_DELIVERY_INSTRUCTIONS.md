@@ -83,6 +83,7 @@ mkdir aws-client-delivery
 cp llm-firewall.tar aws-client-delivery/
 cp client_info_AWS_Test_Client.json aws-client-delivery/
 cp docker-compose.AWS_Test_Client.yml aws-client-delivery/docker-compose.yml
+cp deployment/scripts/setup_models.sh aws-client-delivery/
 cp deploy.sh aws-client-delivery/
 
 # Package is now ready for distribution
@@ -91,8 +92,9 @@ ls -la aws-client-delivery/
 ```
 
 **Package Contents:**
-- `llm-firewall.tar` - Docker image with embedded models auto-download
+- `llm-firewall.tar` - Docker image with embedded license
 - `docker-compose.yml` - Container configuration with GPU support
+- `setup_models.sh` - Automated model setup script (abstracts model names)
 - `deploy.sh` - Smart deployment script with system checks
 - `client_info_AWS_Test_Client.json` - License and build information
 
@@ -158,8 +160,9 @@ INSTANCE_IP=$(aws ec2 describe-instances \
   --query "Reservations[0].Instances[0].PublicIpAddress" \
   --output text)
 
-# Copy client package to EC2
+# Copy client package to EC2 (including the model setup script)
 scp -r aws-client-delivery/* ubuntu@$INSTANCE_IP:~/aws-client-delivery/
+scp deployment/scripts/setup_models.sh ubuntu@$INSTANCE_IP:~/aws-client-delivery/
 ```
 
 ### Deploy on EC2:
@@ -170,68 +173,26 @@ ssh ubuntu@$INSTANCE_IP
 # Navigate to deployment directory
 cd ~/aws-client-delivery
 
-# Setup host Ollama service with required models
-sudo systemctl start ollama
-sudo systemctl enable ollama
+# Load the Docker image first
+docker load < llm-firewall.tar
 
-# Download required models on host (with GPU acceleration)
-ollama pull llama-guard3
-ollama pull granite3-guardian:8b
+# Run the automated model setup script
+# This script will:
+# - Start Ollama service with GPU acceleration
+# - Download required AI security models (names abstracted for security)
+# - Configure docker-compose.yml automatically with correct image name
+# - Set up proper directory permissions
+chmod +x setup_models.sh
+./setup_models.sh
 
-# Start Ollama service on host
-ollama serve &
-
-# Create logs directory with proper permissions
-mkdir -p logs
-chmod 777 -R logs
-
-# Update docker-compose.yml to use host Ollama with host networking
-cat > docker-compose.yml << 'EOF'
-version: '3.8'
-
-services:
-  llm-firewall:
-    image: llm-firewall:aws-test-v1.0
-    container_name: llm-firewall-aws_test_client
-    restart: unless-stopped
-
-    # Use host networking for direct access to host Ollama
-    # This ensures firewall can connect to localhost:11434
-    network_mode: host
-
-    # Environment configuration for localhost Ollama
-    environment:
-      - LLM_FIREWALL_HOST=0.0.0.0
-      - LLM_FIREWALL_PORT=5001
-      - LLM_FIREWALL_LOG_LEVEL=INFO
-      - LLM_FIREWALL_DEBUG=false
-      - OLLAMA_HOST=localhost:11434  # Connect to host Ollama via localhost
-      - PYTHONUNBUFFERED=1
-
-    # Volume mounts for logs only
-    volumes:
-      - ./logs:/app/logs
-
-    # Health check
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:5001/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-      start_period: 60s  # Reduced since models pre-loaded on host
-
-    # Use direct Python execution (no Ollama startup needed)
-    command: ["python3", "run.pyc"]
-
-# Note: Using host networking means container shares host network stack
-# - Firewall API accessible on host port 5001
-# - Ollama remains on localhost:11434 (not externally accessible)
-# - Models stay hidden from external access
-
-EOF
+# The script handles all model setup automatically without exposing model names
 
 # Start the firewall service
 docker compose up -d
+
+# Ensure the logs directory exists and has correct permissions
+mkdir -p logs
+chmod 777 -R logs
 
 # The deployment will:
 # 1. Use host Ollama with GPU acceleration
@@ -348,6 +309,7 @@ When delivering to actual clients, ensure the package contains:
 
 - [ ] Docker image file (.tar) or registry access instructions
 - [ ] docker-compose.yml configured for their environment (generated from docker-compose.Customer_Name.yml)
+- [ ] setup_models.sh script for automated model setup (abstracts model names)
 - [ ] CLIENT_DEPLOYMENT.md (comprehensive guide)
 - [ ] CLIENT_README.md (quick start guide)
 - [ ] deploy.sh script for easy setup
@@ -432,8 +394,8 @@ After following these steps, you should have:
 - Validate license expiration date
 
 **Model access issues:**
-- **Host Ollama not running**: `ollama serve &`
-- **Models not downloaded**: `ollama pull llama-guard3 && ollama pull granite3-guardian:8b`
+- **Host Ollama not running**: Run `./setup_models.sh` again
+- **Models not downloaded**: Re-run the setup script: `./setup_models.sh`
 - **GPU not working**: Check `nvidia-smi` and verify drivers installed
 - **Container can't reach host**: 
   - Using host networking: Test `docker exec container_name curl localhost:11434/api/tags`
@@ -461,7 +423,7 @@ PYTHONPATH=/path/to/LoAFirewall python3 deployment/scripts/build_client_image.py
 # 3. Export package
 docker save llm-firewall:aws-test-v1.0 > llm-firewall.tar
 mkdir aws-client-delivery
-cp llm-firewall.tar docker-compose.AWS_Test_Client.yml deploy.sh client_info_*.json aws-client-delivery/
+cp llm-firewall.tar docker-compose.AWS_Test_Client.yml deployment/scripts/setup_models.sh deploy.sh client_info_*.json aws-client-delivery/
 ```
 
 ### For Clients (Deploy):
@@ -473,17 +435,14 @@ scp -r aws-client-delivery/* ubuntu@server:~/aws-client-delivery/
 ssh ubuntu@server
 cd ~/aws-client-delivery
 
-# 3. Setup host Ollama with models (GPU accelerated)
-ollama serve &
-ollama pull llama-guard3
-ollama pull granite3-guardian:8b
-
-# 4. Create logs directory with proper permissions
-mkdir -p logs
-chmod 755 logs
-
-# 5. Deploy with host Ollama configuration
+# 3. Load Docker image first
 docker load < llm-firewall.tar
+
+# 4. Setup AI security models automatically (names abstracted)
+chmod +x setup_models.sh
+./setup_models.sh
+
+# 5. Deploy with optimized configuration
 docker compose up -d
 
 # 6. Test (much faster - no model downloads in container)

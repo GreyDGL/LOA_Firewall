@@ -227,3 +227,7 @@ This software requires a valid license key for operation. Contact your vendor fo
 2. **Review Logs**: Check `logs/firewall.log` for errors
 3. **Run Health Check**: `curl http://localhost:5001/health`
 4. **Contact Vendor**: For licensing and support issues
+
+
+## TODO:
+1. Feedback loop: design a button to send false label/data to the server.

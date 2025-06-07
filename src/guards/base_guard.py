@@ -44,6 +44,10 @@ class BaseGuard(ABC):
         Returns:
             str: Unified category key
         """
+        # Special case: if raw_category is "safe" and not in mapping, default to "safe"
+        if raw_category == "safe" and raw_category not in self.category_mapping:
+            return "safe"
+        
         return self.category_mapping.get(raw_category, "unknown_unsafe")
     
     def is_safe_category(self, unified_category):
