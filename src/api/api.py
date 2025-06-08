@@ -116,10 +116,10 @@ class FirewallAPI:
         @self.app.route("/stats", methods=["GET"])
         def get_stats():
             """Endpoint for firewall statistics"""
-            # This would be implemented with a proper metrics collector
             return jsonify(
                 {
                     "status": "ok",
+                    "total_tokens_processed": self.firewall.get_token_count(),
                     "requests_processed": 0,  # Placeholder for actual metrics
                     "unsafe_content_detected": 0,
                     "average_processing_time": 0,
@@ -298,6 +298,8 @@ class FirewallAPI:
                 == len(guard_summaries),
             },
             "processing_time_ms": round(processing_time * 1000, 2),
+            "tokens_processed": result.get("tokens_processed", 0),
+            "total_tokens_processed": result.get("total_tokens_processed", 0),
             "timestamp": time.time(),
         }
 

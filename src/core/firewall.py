@@ -4,6 +4,8 @@ import importlib
 import time
 import hashlib
 import json
+import os
+import re
 from datetime import datetime
 from src.core.category_manager import CategoryManager
 
@@ -32,8 +34,83 @@ class LLMFirewall:
             # Additional guards can be registered here
         }
 
+        # Initialize token counter
+        self.token_counter = 0
+        self.log_file_path = config.get("log_file_path", "logs/firewall.log")
+        self._load_token_counter()
+
         # Initialize components
         self.initialize()
+
+    def _load_token_counter(self):
+        """Load token counter from log file if it exists"""
+        try:
+            if os.path.exists(self.log_file_path):
+                with open(self.log_file_path, 'r') as f:
+                    # Look for the last TOKEN_COUNTER entry in the log
+                    counter_value = 0
+                    for line in f:
+                        if "TOKEN_COUNTER=" in line:
+                            # Extract counter value using regex
+                            match = re.search(r"TOKEN_COUNTER=(\d+)", line)
+                            if match:
+                                counter_value = int(match.group(1))
+                    
+                    self.token_counter = counter_value
+                    if counter_value > 0:
+                        logging.info(f"Loaded token counter: {counter_value} tokens processed")
+                    else:
+                        logging.info("Token counter initialized at 0")
+            else:
+                logging.info("Log file not found, token counter initialized at 0")
+        except Exception as e:
+            logging.warning(f"Failed to load token counter from log: {str(e)}")
+            self.token_counter = 0
+
+    def _count_tokens(self, text):
+        """
+        Count tokens in text. For simplicity, we'll use character count
+        as a proxy for tokens. In a production system, you might use
+        a proper tokenizer like tiktoken.
+        
+        Args:
+            text (str): Text to count tokens for
+            
+        Returns:
+            int: Approximate token count
+        """
+        # Simple approximation: ~4 characters per token for English text
+        return len(text) // 4 + 1
+
+    def _update_token_counter(self, token_count):
+        """
+        Update the token counter and persist to log
+        
+        Args:
+            token_count (int): Number of tokens to add
+        """
+        self.token_counter += token_count
+        
+        # Log the updated counter to the log file
+        try:
+            log_entry = f"{datetime.now().isoformat()} - TOKEN_COUNTER={self.token_counter} (+{token_count})"
+            
+            # Append to log file
+            os.makedirs(os.path.dirname(self.log_file_path), exist_ok=True)
+            with open(self.log_file_path, 'a') as f:
+                f.write(log_entry + '\n')
+                
+        except Exception as e:
+            logging.error(f"Failed to persist token counter: {str(e)}")
+
+    def get_token_count(self):
+        """
+        Get the current total token count
+        
+        Returns:
+            int: Total tokens processed
+        """
+        return self.token_counter
 
     def register_guard(self, guard_type, class_path):
         """
@@ -114,6 +191,10 @@ class LLMFirewall:
         """
         start_time = time.time()
 
+        # Count tokens and update counter
+        token_count = self._count_tokens(text)
+        self._update_token_counter(token_count)
+
         result = {
             "is_safe": True,
             "keyword_filter_result": None,
@@ -122,6 +203,8 @@ class LLMFirewall:
             "overall_reason": "",
             "processing_times": {},
             "fallback_used": False,
+            "tokens_processed": token_count,
+            "total_tokens_processed": self.token_counter,
         }
 
         try:
@@ -137,6 +220,10 @@ class LLMFirewall:
             fallback_result = LLMFirewall._create_safe_fallback_result(
                 start_time, "Critical firewall error - defaulting to safe"
             )
+
+            # Add token information to fallback result
+            fallback_result["tokens_processed"] = token_count
+            fallback_result["total_tokens_processed"] = self.token_counter
 
             # Log fallback
             LLMFirewall._log_detailed_analysis(text, fallback_result, request_metadata)
@@ -328,6 +415,8 @@ class LLMFirewall:
             "overall_reason": reason,
             "processing_times": {"total": time.time() - start_time},
             "fallback_used": True,
+            "tokens_processed": 0,
+            "total_tokens_processed": 0,
         }
 
     @staticmethod
@@ -377,11 +466,17 @@ class LLMFirewall:
                 }
                 guard_results_summary.append(guard_info)
 
+            # Extract token information
+            tokens_processed = result.get("tokens_processed", 0)
+            total_tokens_processed = result.get("total_tokens_processed", 0)
+
             # Prepare log entry
             log_entry = {
                 "timestamp": datetime.now().isoformat(),
                 "text_hash": text_hash,
                 "text_length": len(text),
+                "tokens_processed": tokens_processed,
+                "total_tokens_processed": total_tokens_processed,
                 "is_safe": is_safe,
                 "safety_status": "SAFE" if is_safe else "UNSAFE",
                 "unsafe_type": final_category if not is_safe else None,
