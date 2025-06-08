@@ -121,28 +121,31 @@ Alternatively, you can host the firewall docker locally in the production enviro
 # Ubuntu EC2 setup script
 
 # Update system
-apt-get update -y
+sudo apt-get update -y
 
 # Install Docker
-apt-get install -y docker.io docker-compose-v2
-systemctl start docker
-systemctl enable docker
-usermod -a -G docker ubuntu
+sudo apt-get install -y docker.io docker-compose-v2
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -a -G docker ubuntu
 
 # Install NVIDIA drivers and container toolkit (for GPU support)
-if lspci | grep -i nvidia; then
-    # Install NVIDIA drivers
-    apt-get install -y ubuntu-drivers-common
-    ubuntu-drivers autoinstall
+
+sudo apt update
+sudo apt install -y ubuntu-drivers-common
+sudo ubuntu-drivers autoinstall
+
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+  && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+    sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+    sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
     
-    # Install NVIDIA Container Toolkit
-    distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-    curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add -
-    curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | tee /etc/apt/sources.list.d/nvidia-docker.list
-    apt-get update
-    apt-get install -y nvidia-container-toolkit
-    systemctl restart docker
-fi
+sudo apt update
+sudo apt install -y nvidia-container-toolkit
+
+
+sudo nvidia-ctk runtime configure --runtime=docker
+sudo systemctl restart docker
 
 # Install Ollama on host system (for GPU acceleration)
 curl -fsSL https://ollama.ai/install.sh | sh
@@ -150,6 +153,10 @@ curl -fsSL https://ollama.ai/install.sh | sh
 # Create deployment directory
 mkdir -p /home/ubuntu/aws-client-delivery
 chown ubuntu:ubuntu /home/ubuntu/aws-client-delivery
+
+
+# After this, reboot the system to apply changes
+sudo reboot
 ```
 
 ### Copy Client Package to EC2:
@@ -188,7 +195,9 @@ chmod +x setup_models.sh
 # The script handles all model setup automatically without exposing model names
 
 # Start the firewall service
-docker compose up -d
+chmod +x deploy.sh
+./deploy.sh
+
 
 # Ensure the logs directory exists and has correct permissions
 mkdir -p logs
