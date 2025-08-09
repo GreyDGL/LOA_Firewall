@@ -8,6 +8,17 @@ import uuid
 from src.core.firewall import LLMFirewall
 from src.core.config_manager import ConfigManager
 
+from langfuse import Langfuse
+from langfuse import observe
+
+langfuse = Langfuse(
+  secret_key="sk-lf-3ef94589-28e4-41d1-bcad-fc895473a87a",
+  public_key="pk-lf-e0feabc4-dbb6-4d9c-9023-c854e929341c",
+  host="https://us.cloud.langfuse.com"
+)
+
+
+
 
 class FirewallAPI:
     """RESTful API for the LLM Firewall"""
@@ -32,6 +43,21 @@ class FirewallAPI:
 
         # Configure rate limiting if enabled
         self.setup_rate_limiting()
+
+    @observe(name="content-check", as_type="span")
+    def _check_content_with_metadata(self, request_data, metadata):
+        """
+        Check content safety with langfuse observability
+        
+        Args:
+            request_data (dict): The full request JSON data
+            metadata (dict): Request metadata
+            
+        Returns:
+            dict: Firewall check result
+        """
+        text = request_data.get("text")
+        return self.firewall.check_content(text, request_metadata=metadata)
 
     def setup_routes(self):
         """Configure API routes"""
@@ -68,9 +94,9 @@ class FirewallAPI:
                 "referer": request.headers.get("Referer", "unknown"),
             }
 
-            # Check content
+            # Check content with langfuse observability
             try:
-                result = self.firewall.check_content(text, request_metadata=metadata)
+                result = self._check_content_with_metadata(data, metadata)
                 processing_time = time.time() - start_time
 
                 # Create sanitized response for public API
