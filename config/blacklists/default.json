@@ -2,7 +2,10 @@
   "keywords": [
     "test_keyword_unique",
     "malicious",
-    "exploit"
+    "exploit",
+    "system prompt",
+    "repeat conversation",
+    "ignore previous"
   ],
   "regex_patterns": [
     "\\bpassword\\b",
