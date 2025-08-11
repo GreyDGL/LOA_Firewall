@@ -4,12 +4,23 @@ import logging
 import time
 import json
 import uuid
+import sys
+import os
 
 from src.core.firewall import LLMFirewall
 from src.core.config_manager import ConfigManager
 
 from langfuse import Langfuse
 from langfuse import observe
+
+# Add src to path for PII masking
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
+try:
+    from musk import PIIMasker
+    PII_MASKER_AVAILABLE = True
+except ImportError:
+    PII_MASKER_AVAILABLE = False
 
 langfuse = Langfuse(
   secret_key="sk-lf-3ef94589-28e4-41d1-bcad-fc895473a87a",
@@ -36,6 +47,17 @@ class FirewallAPI:
 
         # Initialize firewall
         self.firewall = LLMFirewall(self.config)
+
+        # Initialize PII masker if available
+        self.pii_masker = None
+        self.pii_requests_processed = 0
+        self.pii_items_masked = 0
+        if PII_MASKER_AVAILABLE:
+            try:
+                self.pii_masker = PIIMasker(model_name="llama3.2")
+                logging.info("PII masker initialized successfully")
+            except Exception as e:
+                logging.warning(f"Failed to initialize PII masker: {e}")
 
         # Create Flask app
         self.app = Flask(__name__)
@@ -124,31 +146,139 @@ class FirewallAPI:
                     500,
                 )
 
+        @self.app.route("/mask-pii", methods=["POST"])
+        def mask_pii():
+            """Endpoint to mask PII in text"""
+            request_id = str(uuid.uuid4())
+            start_time = time.time()
+
+            # Log request
+            logging.info(f"Request {request_id} received at /mask-pii")
+
+            # Validate request
+            if not request.is_json:
+                logging.warning(f"Request {request_id} rejected: not JSON")
+                return jsonify({"error": "Request must be JSON", "request_id": request_id}), 400
+
+            data = request.json
+            text = data.get("text")
+            use_ai = data.get("use_ai", True)
+
+            if not text:
+                logging.warning(f"Request {request_id} rejected: missing 'text' field")
+                return jsonify({"error": "Missing 'text' field", "request_id": request_id}), 400
+
+            # Check if PII masker is available
+            if not self.pii_masker:
+                return jsonify({
+                    "error": "PII masking service not available",
+                    "request_id": request_id,
+                    "message": "PII masker not initialized"
+                }), 503
+
+            # Add request metadata
+            metadata = {
+                "timestamp": time.time(),
+                "request_id": request_id,
+                "client_ip": request.remote_addr or "unknown",
+                "user_agent": request.headers.get("User-Agent", "unknown"),
+                "request_size": len(text),
+                "use_ai": use_ai,
+            }
+
+            try:
+                # Perform PII masking
+                masking_details = self.pii_masker.mask_text_with_details(text, use_ai=use_ai)
+                processing_time = time.time() - start_time
+
+                # Create sanitized response
+                sanitized_result = self._create_pii_sanitized_response(
+                    masking_details, processing_time, request_id, metadata
+                )
+
+                # Update statistics
+                self.pii_requests_processed += 1
+                total_pii_masked = (masking_details.get('regex_masked_count', 0) + 
+                                   masking_details.get('ai_masked_count', 0))
+                self.pii_items_masked += total_pii_masked
+
+                # Log result summary
+                has_pii = masking_details['masked_text'] != masking_details['original_text']
+                logging.info(
+                    f"Request {request_id} processed in {processing_time:.3f}s, "
+                    f"PII detected: {has_pii}, items masked: {total_pii_masked}"
+                )
+
+                return jsonify(sanitized_result)
+
+            except Exception as e:
+                logging.error(f"Error processing PII masking request {request_id}: {str(e)}", exc_info=True)
+                return (
+                    jsonify(
+                        {
+                            "error": "Internal server error",
+                            "request_id": request_id,
+                            "message": str(e),
+                        }
+                    ),
+                    500,
+                )
+
         @self.app.route("/health", methods=["GET"])
         def health_check():
             """Endpoint for health checks"""
+            # Check if PII masker is ready
+            pii_masker_status = "disabled"
+            if self.pii_masker:
+                try:
+                    # Quick test to see if the masker is functional
+                    ollama_available = self.pii_masker.ensure_model_ready()
+                    pii_masker_status = "ready" if ollama_available else "limited"
+                except:
+                    pii_masker_status = "error"
+            
             return jsonify(
                 {
                     "status": "ok",
                     "timestamp": time.time(),
                     "version": "1.0.0",
-                    "guards_available": len(self.firewall.guards),
-                    "keyword_filter_enabled": self.config.get("keyword_filter", {}).get(
-                        "enabled", False
-                    ),
+                    "services": {
+                        "firewall": {
+                            "guards_available": len(self.firewall.guards),
+                            "keyword_filter_enabled": self.config.get("keyword_filter", {}).get(
+                                "enabled", False
+                            ),
+                        },
+                        "pii_masking": {
+                            "status": pii_masker_status,
+                            "available": self.pii_masker is not None,
+                            "ai_powered": pii_masker_status in ["ready", "limited"],
+                        }
+                    }
                 }
             )
 
         @self.app.route("/stats", methods=["GET"])
         def get_stats():
-            """Endpoint for firewall statistics"""
+            """Endpoint for firewall and PII masking statistics"""
             return jsonify(
                 {
                     "status": "ok",
-                    "total_tokens_processed": self.firewall.get_token_count(),
-                    "requests_processed": 0,  # Placeholder for actual metrics
-                    "unsafe_content_detected": 0,
-                    "average_processing_time": 0,
+                    "firewall": {
+                        "total_tokens_processed": self.firewall.get_token_count(),
+                        "requests_processed": 0,  # Placeholder for actual metrics
+                        "unsafe_content_detected": 0,
+                        "average_processing_time": 0,
+                    },
+                    "pii_masking": {
+                        "requests_processed": self.pii_requests_processed,
+                        "total_pii_items_masked": self.pii_items_masked,
+                        "service_available": self.pii_masker is not None,
+                        "average_pii_per_request": (
+                            round(self.pii_items_masked / self.pii_requests_processed, 2) 
+                            if self.pii_requests_processed > 0 else 0
+                        ),
+                    }
                 }
             )
 
@@ -367,6 +497,59 @@ class FirewallAPI:
 
         return sanitized
 
+    def _create_pii_sanitized_response(self, masking_details, processing_time, request_id, metadata):
+        """
+        Create a sanitized response for PII masking that follows the same pattern as firewall responses
+
+        Args:
+            masking_details (dict): Full PII masking result
+            processing_time (float): Request processing time
+            request_id (str): Request ID
+            metadata (dict): Request metadata
+
+        Returns:
+            dict: Sanitized response for public API
+        """
+        original_text = masking_details.get('original_text', '')
+        masked_text = masking_details.get('masked_text', '')
+        has_pii = original_text != masked_text
+
+        # Create sanitized response similar to firewall API structure
+        sanitized_response = {
+            "request_id": request_id,
+            "pii_detected": has_pii,
+            "masked_text": masked_text,
+            "method_used": masking_details.get('method_used', 'unknown'),
+            "confidence": "high" if masking_details.get('ai_masked_count', 0) > 0 else "medium",
+            "analysis": {
+                "total_pii_found": (masking_details.get('regex_masked_count', 0) + 
+                                   masking_details.get('ai_masked_count', 0)),
+                "regex_detections": masking_details.get('regex_masked_count', 0),
+                "ai_detections": masking_details.get('ai_masked_count', 0),
+                "ai_extracted_items": len(masking_details.get('ai_extracted_pii', [])),
+            },
+            "processing_time_ms": round(processing_time * 1000, 2),
+            "text_length": len(original_text),
+            "timestamp": metadata.get('timestamp', time.time()),
+        }
+
+        # Add AI analysis details if available
+        if masking_details.get('ai_extracted_pii'):
+            # Don't expose the actual PII values for security
+            sanitized_response["analysis"]["pii_categories_found"] = len(
+                set(item.replace('**', '').replace('*', '') for item in masking_details['ai_extracted_pii'])
+            )
+
+        # Add status message
+        if has_pii:
+            sanitized_response["status"] = "pii_masked"
+            sanitized_response["message"] = f"Successfully masked {sanitized_response['analysis']['total_pii_found']} PII item(s)"
+        else:
+            sanitized_response["status"] = "no_pii_detected"
+            sanitized_response["message"] = "No personal information detected in the text"
+
+        return sanitized_response
+
     def setup_rate_limiting(self):
         """
         Set up rate limiting if enabled in config
@@ -384,3 +567,29 @@ class FirewallAPI:
 
         logging.info(f"Starting API server on {host}:{port}")
         self.app.run(host=host, port=port, debug=debug)
+
+
+if __name__ == "__main__":
+    # Configure logging
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    )
+    
+    # Create and run the API
+    api = FirewallAPI()
+    
+    # Override port to 5001 for consistency
+    api.config["api"] = api.config.get("api", {})
+    api.config["api"]["port"] = 5001
+    
+    print("🛡️  Starting LLM Firewall API with PII Masking")
+    print("📡 API will be available at: http://localhost:5001")
+    print("🔧 Endpoints:")
+    print("   POST /check - Content safety analysis")
+    print("   POST /mask-pii - PII masking")
+    print("   GET  /health - Health check")
+    print("   GET  /stats - Usage statistics")
+    print()
+    
+    api.run()
