@@ -1,25 +1,34 @@
 #!/usr/bin/env python3
 """
-Comprehensive API Test Suite for LLM Firewall and PII Masking APIs
+# LLM Firewall API Test Suite
 
-This script tests all endpoints on port 5001:
-- POST /check - Content safety analysis
-- POST /mask-pii - PII masking 
-- GET /health - Health check
-- GET /stats - Usage statistics
+Comprehensive testing script for the LLM Firewall API running on port 5001.
 
-Usage:
-    # Test locally
-    python tests/test_api.py
-    
-    # Test remote server
-    python tests/test_api.py --host 192.168.1.100
-    python tests/test_api.py --host example.com --port 5001
-    
-    # Run specific test categories
-    python tests/test_api.py --test-category firewall
-    python tests/test_api.py --test-category pii
-    python tests/test_api.py --test-category health
+## Quick Start
+```bash
+# Test local server (default)
+python tests/test_api.py
+
+# Test remote server  
+python tests/test_api.py --host YOUR_SERVER_IP
+
+# Test specific functionality
+python tests/test_api.py --test-category pii
+```
+
+## What It Tests
+- 🛡️ **Firewall**: Content safety analysis (/check)
+- 🔒 **PII Masking**: Personal data protection (/mask-pii) 
+- 🏥 **Health**: Service status (/health, /stats)
+- ⚡ **Edge Cases**: Large text, special characters, error handling
+
+## Features
+- ✅ Works with local and remote servers
+- 📊 Detailed test results and timing
+- 🎯 95%+ success rate indicates healthy API
+- 🚨 Automatic error detection and reporting
+
+Validates that your API deployment is working correctly for production use.
 """
 
 import argparse

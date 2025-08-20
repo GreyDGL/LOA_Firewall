@@ -23,9 +23,9 @@ except ImportError:
     PII_MASKER_AVAILABLE = False
 
 langfuse = Langfuse(
-  secret_key="sk-lf-3ef94589-28e4-41d1-bcad-fc895473a87a",
-  public_key="pk-lf-e0feabc4-dbb6-4d9c-9023-c854e929341c",
-  host="https://us.cloud.langfuse.com"
+  secret_key="sk-lf-955c3a32-bfbe-4499-97b8-2187dc2af3a4",
+  public_key="pk-lf-bbdb5145-9398-47cb-a207-78dc0b9001ca",
+  host="https://cloud.langfuse.com"
 )
 
 
@@ -79,7 +79,11 @@ class FirewallAPI:
             dict: Firewall check result
         """
         text = request_data.get("text")
-        return self.firewall.check_content(text, request_metadata=metadata)
+        result = self.firewall.check_content(text, request_metadata=metadata)
+        langfuse.update_current_trace(
+            metadata=result
+        )
+        return result
 
     def setup_routes(self):
         """Configure API routes"""

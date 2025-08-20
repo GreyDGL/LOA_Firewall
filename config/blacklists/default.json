@@ -5,7 +5,8 @@
     "exploit",
     "system prompt",
     "repeat conversation",
-    "ignore previous"
+    "ignore previous",
+    "ignore all previous instructions"
   ],
   "regex_patterns": [
     "\\bpassword\\b",
